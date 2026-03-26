@@ -6,5 +6,5 @@ RUN npm ci
 COPY . .
 RUN npm run build
 EXPOSE 3000
-CMD ["node_modules/.bin/vinxi", "start"]
+CMD ["npm", "run", "start"]
 
