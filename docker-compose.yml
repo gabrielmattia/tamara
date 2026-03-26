@@ -1,0 +1,7 @@
+services:
+  tamara:
+    build: .
+    container_name: tamara
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
