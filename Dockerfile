@@ -4,7 +4,7 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm ci
 COPY . .
-RUN npm run build
+RUN npm run build && find /app -maxdepth 3 -type d | sort
 
 # Production
 FROM node:20-alpine AS runner
