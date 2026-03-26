@@ -5,11 +5,10 @@ COPY package*.json ./
 RUN npm ci
 COPY . .
 RUN npm run build
-RUN echo "=== BUILD OUTPUT ===" && find /app -maxdepth 3 -type d | sort && echo "=== END ==="
 
 # Production
 FROM node:20-alpine AS runner
 WORKDIR /app
-COPY --from=builder /app/.output ./.output
+COPY --from=builder /app/dist ./dist
 EXPOSE 3000
-CMD ["node", ".output/server/index.mjs"]
+CMD ["node", "dist/server/index.mjs"]
