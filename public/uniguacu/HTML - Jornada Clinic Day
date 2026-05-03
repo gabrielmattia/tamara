@@ -1,0 +1,140 @@
+{ifenrolled}
+<div style="display: grid; grid-template-columns: 1.4fr 1fr; gap: 0; background: #ffffff; border: 1px solid #e4e4e7; border-radius: 16px; overflow: hidden; font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;">
+
+    <div style="padding: 36px;">
+
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+            <div style="font-size: 10px; color: #ea580c; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;">Clinic Day</div>
+            <div style="width: 4px; height: 4px; border-radius: 50%; background: #d4d4d8;"></div>
+            <div style="font-size: 12px; color: #71717a; font-weight: 500;">Olá, {firstname}</div>
+        </div>
+
+        <div style="font-size: 26px; font-weight: 700; color: #0a0a0a; line-height: 1.2; letter-spacing: -0.6px; margin-bottom: 14px;">
+            Sua jornada de prática clínica
+        </div>
+
+        <div id="clinic-mensagem" style="font-size: 14px; color: #52525b; line-height: 1.6; margin-bottom: 28px;">
+            Participe das aulas ao vivo e vivencie discussões práticas conduzidas por professores especialistas.
+        </div>
+
+        <div style="display: flex; align-items: stretch; gap: 0; padding: 24px 0; border-top: 1px solid #f4f4f5; border-bottom: 1px solid #f4f4f5;">
+
+            <div style="flex: 1; padding-right: 28px;">
+                <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 10px;">
+                    <div style="width: 6px; height: 6px; border-radius: 50%; background: #ea580c;"></div>
+                    <div style="font-size: 10px; color: #9a3412; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;">Sua média</div>
+                </div>
+
+                <div style="display: flex; align-items: baseline; gap: 4px;">
+                    <span id="clinic-nota" style="font-size: 28px; font-weight: 800; color: #7c2d12; letter-spacing: -1px; line-height: 1;">{coursegrade}</span>
+                    <span style="font-size: 13px; color: #c2410c; font-weight: 500;">/ 100</span>
+                </div>
+
+                <div style="font-size: 11px; color: #a1a1aa; margin-top: 6px; font-weight: 500;">
+                    Média de participação nos encontros
+                </div>
+            </div>
+
+            <div style="width: 1px; background: #e4e4e7;"></div>
+
+            <div style="flex: 1; padding-left: 28px;">
+                <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 10px;">
+                    <div style="width: 6px; height: 6px; border-radius: 50%; background: #2563eb;"></div>
+                    <div style="font-size: 10px; color: #1e40af; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;">Casos</div>
+                </div>
+
+                <div style="display: flex; align-items: baseline; gap: 4px;">
+                    <span style="font-size: 28px; font-weight: 800; color: #1e3a8a; letter-spacing: -1px; line-height: 1;">3</span>
+                    <span style="font-size: 13px; color: #6b80b5; font-weight: 500;">por encontro</span>
+                </div>
+
+                <div style="font-size: 11px; color: #a1a1aa; margin-top: 6px; font-weight: 500;">
+                    Trabalhados em discussões clínicas
+                </div>
+            </div>
+
+        </div>
+
+        <div style="margin-top: 20px; font-size: 11px; color: #a1a1aa; display: flex; align-items: center; gap: 8px;">
+            <div style="width: 4px; height: 4px; border-radius: 50%; background: #d4d4d8;"></div>
+            <span>Última visita: {lastlogin %d/%m/%Y às %H:%M}</span>
+        </div>
+
+    </div>
+
+    <div style="background: #fafafa; padding: 36px; display: flex; flex-direction: column; justify-content: center; border-left: 1px solid #f4f4f5;">
+
+        <div style="display: inline-flex; align-items: center; gap: 6px; margin-bottom: 12px;">
+            <div style="width: 6px; height: 6px; border-radius: 50%; background: #ea580c;"></div>
+            <div style="font-size: 10px; color: #9a3412; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;">Componente curricular</div>
+        </div>
+
+        <div style="font-size: 17px; font-weight: 700; color: #18181b; line-height: 1.3;">
+            {coursename}
+        </div>
+
+        <div style="margin-top: 18px; padding-top: 18px; border-top: 1px solid #e4e4e7;">
+            <div style="font-size: 10px; color: #71717a; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; margin-bottom: 10px;">
+                Formato da experiência
+            </div>
+
+            <div style="display: grid; gap: 10px;">
+                <div style="display: flex; align-items: center; gap: 10px; font-size: 12px; color: #52525b; line-height: 1.5;">
+                    <div style="width: 6px; height: 6px; border-radius: 50%; background: #ea580c; flex: 0 0 auto;"></div>
+                    <span>Encontros estruturados para discussão e aplicação prática.</span>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 10px; font-size: 12px; color: #52525b; line-height: 1.5;">
+                    <div style="width: 6px; height: 6px; border-radius: 50%; background: #ea580c; flex: 0 0 auto;"></div>
+                    <span>Casos profissionais trabalhados de forma orientada.</span>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 10px; font-size: 12px; color: #52525b; line-height: 1.5;">
+                    <div style="width: 6px; height: 6px; border-radius: 50%; background: #ea580c; flex: 0 0 auto;"></div>
+                    <span>Vivência conectada aos desafios reais da atuação clínica.</span>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 20px; padding: 16px; background: #fff7ed; border: 1px solid #fed7aa; border-radius: 10px;">
+            <div style="font-size: 12px; color: #9a3412; line-height: 1.6; font-weight: 600;">
+                Participe das aulas ao vivo para aprender com professores altamente qualificados e ampliar sua vivência prática.
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    (function() {
+        var elNota = document.getElementById('clinic-nota');
+        var elMensagem = document.getElementById('clinic-mensagem');
+        if (!elNota || !elMensagem) return;
+
+        var texto = elNota.textContent || '';
+        elNota.textContent = texto.replace('%', '').trim();
+
+        var nota = parseFloat(texto.replace(/[^0-9.,]/g, '').replace(',', '.')) || 0;
+        var semNota = (texto.indexOf('-') !== -1 || nota === 0);
+
+        var msg;
+
+        if (semNota) {
+            msg = 'Sua jornada Clinic Day começa agora. Participe das aulas ao vivo e acompanhe os casos conduzidos por professores especialistas.';
+        } else if (nota < 30) {
+            msg = 'Os primeiros encontros são fundamentais para construir sua base prática. Participe das aulas ao vivo e aproveite a orientação dos professores.';
+        } else if (nota < 50) {
+            msg = 'Você já iniciou sua vivência prática. Siga participando dos encontros ao vivo para aprofundar as discussões com os especialistas.';
+        } else if (nota < 70) {
+            msg = 'Sua participação está evoluindo. Continue presente nas aulas ao vivo para ampliar sua experiência com os casos clínicos.';
+        } else if (nota < 90) {
+            msg = 'Sua jornada está consistente. Aproveite os próximos encontros para trocar experiências e aprender com professores altamente qualificados.';
+        } else {
+            msg = 'Excelente participação nos Clinic Days. Continue aproveitando as aulas ao vivo e as discussões conduzidas pelos especialistas.';
+        }
+
+        elMensagem.textContent = msg;
+    })();
+</script>
+{/ifenrolled}

@@ -1,0 +1,2157 @@
+/* ============================================================
+   🎨 PALETA DE CORES — Identidade Visual Uniguaçu
+   ALTERE OS VALORES AQUI E O CSS INTEIRO REFLETE AUTOMATICAMENTE
+   ============================================================ */
+
+:root {
+    /* ===== CORES INSTITUCIONAIS ===== */
+    --uni-azul:                  #1e3a8a;   /* azul institucional principal */
+    --uni-azul-escuro:           #1a4d8c;   /* variação escura (links em avisos) */
+    --uni-azul-mais-escuro:      #143a6b;   /* hover dos links */
+    --uni-dourado:               #c9a961;   /* dourado institucional */
+    --uni-dourado-texto:         #8a6d2a;   /* dourado escuro pra texto sobre fundo claro */
+    --uni-dourado-bg:            rgba(201, 169, 97, 0.15);  /* fundo das tags douradas */
+
+    /* ===== TEXTO ===== */
+    --texto-principal:           #18181b;   /* títulos, texto principal */
+    --texto-secundario:          #1f2937;   /* breadcrumb, modal */
+    --texto-terciario:           #374151;   /* cinza médio escuro */
+    --texto-suave:               #6b7280;   /* textos auxiliares */
+    --texto-mais-suave:          #71717a;   /* descrições */
+    --texto-bem-suave:           #9ca3af;   /* separadores breadcrumb */
+    --texto-titulo-curso:        #1a1a1a;   /* preto do título do curso */
+
+    /* ===== BORDAS ===== */
+    --borda-padrao:              #e4e4e7;
+    --borda-hover:               #d4d4d8;
+    --borda-divisoria-suave:     #f4f4f5;
+    --borda-suave:               #dde3ec;
+    --borda-titulo-curso:        #cccccc;
+
+    /* ===== FUNDOS ===== */
+    --fundo-branco:              #ffffff;
+    --fundo-card-suave:          #fafafa;
+    --fundo-hover-cinza:         #f8fafc;
+
+    /* ===== STATUS / SEMÂNTICA ===== */
+    --verde-sucesso:             #10b981;   /* check de conclusão */
+    --verde-sucesso-escuro:      #059669;   /* hover do check */
+    --verde-fundo-suave:         #f0fdf4;
+    --vermelho-pendente:         #f87171;
+    --amarelo-progresso:         #fbbf24;
+    --cinza-futuro:              #cbd5e1;
+
+    /* ===== AVISOS (Plugin Advanced Notifications) ===== */
+    --aviso-info-bg:             #fdf6e3;
+    --aviso-info-texto:          #6b5520;
+    --aviso-info-borda:          #f0e4b8;
+    --aviso-success-bg:          #f0f9f4;
+    --aviso-success-texto:       #1e6b3f;
+    --aviso-success-borda:       #c8e6d3;
+    --aviso-success-borda-lat:   #2e8556;
+    --aviso-warning-bg:          #fff8e6;
+    --aviso-warning-texto:       #8a5a00;
+    --aviso-warning-borda:       #f5d99c;
+    --aviso-warning-borda-lat:   #d68f00;
+    --aviso-danger-bg:           #fdecea;
+    --aviso-danger-texto:        #8b1d1d;
+    --aviso-danger-borda:        #f5c2c2;
+    --aviso-danger-borda-lat:    #c0392b;
+
+    /* ===== ÍCONES DE ATIVIDADES — categorias ===== */
+    --icone-conteudo-bg:         #f8fafc;
+    --icone-conteudo-cor:        #475569;
+    --icone-midia-bg:            #fef5f1;
+    --icone-midia-cor:           #D85A30;
+    --icone-comunicacao-bg:      #eff6ff;
+    --icone-comunicacao-cor:     #378ADD;
+    --icone-avaliacao-bg:        #fffbeb;
+    --icone-avaliacao-cor:       #b45309;
+    --icone-progresso-bg:        #f0fdf4;
+    --icone-progresso-cor:       #15803d;
+    --icone-referencia-bg:       #f5f3ff;
+    --icone-referencia-cor:      #6d28d9;
+
+    /* ===== "AGORA" pill (Completion Progress) ===== */
+    --agora-bg:                  #FCEBEB;
+    --agora-texto:               #791F1F;
+
+    /* ===== SCROLLBAR (Gradebook) ===== */
+    --scroll-track:              #f1f5f9;
+    --scroll-thumb:              #94a3b8;
+    --scroll-thumb-hover:        #64748b;
+    --scroll-thumb-active:       #475569;
+
+    /* ===== TIPOGRAFIA ===== */
+    --fonte-principal:           'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+}
+
+
+/* ============================================
+   COMPENSAÇÃO MANUAL DA SEÇÃO ZERO
+   ============================================ */
+
+html body.format-tiles #section-zero-container,
+html body.format-tiles .section-zero-container {
+    padding-left: 55px !important;
+    padding-right: 20px !important;
+    box-sizing: border-box !important;
+}
+
+html body.format-tiles #section-zero-container .row,
+html body.format-tiles .section-zero-container .row {
+    position: relative !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+html body.format-tiles #section-zero-container .row > div.col-sm-11,
+html body.format-tiles .section-zero-container .row > div.col-sm-11 {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+html body.format-tiles #section-zero-container .row > div.col-sm-1.d-none.d-sm-block,
+html body.format-tiles .section-zero-container .row > div.col-sm-1 {
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+    width: auto !important;
+    max-width: none !important;
+    flex: 0 0 auto !important;
+    padding: 0 !important;
+    z-index: 5 !important;
+}
+
+html body.format-tiles #section-zero-container,
+html body.format-tiles #section-0,
+html body.format-tiles #section-zero-container .row,
+html body.format-tiles #section-zero-container .col-sm-11 {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+}
+
+@media (max-width: 992px) {
+    html body.format-tiles #section-zero-container {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+}
+
+
+/* ============================================
+   FORMAT TILES - PADRONIZAR
+   ============================================ */
+
+html body.format-tiles div#format-tiles-multi-section-page,
+html body.format-tiles #format-tiles-multi-section-page.m-auto,
+html body[class*="format-tiles"] #format-tiles-multi-section-page {
+    max-width: 1100px !important;
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+}
+
+html body.format-tiles ul.tiles,
+html body.format-tiles ul#multi_section_tiles,
+html body[class*="format-tiles"] ul.multi_section_tiles {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: stretch !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 0 !important;
+    list-style: none !important;
+    text-align: center !important;
+    gap: 14px !important;
+    max-width: 100% !important;
+    width: 100% !important;
+}
+
+html body.format-tiles ul.tiles > li.tile,
+html body.format-tiles ul#multi_section_tiles > li.tile,
+html body[class*="format-tiles"] ul.multi_section_tiles > li.tile {
+    flex: 0 0 234px !important;
+    width: 234px !important;
+    min-width: 234px !important;
+    max-width: 234px !important;
+    margin: 0 !important;
+}
+
+html body.format-tiles ul.tiles > li.section,
+html body.format-tiles ul#multi_section_tiles > li.section {
+    max-width: 100% !important;
+}
+
+html body.format-tiles ul.multi_section_tiles > li.tile-spacer[aria-hidden="true"],
+html body.format-tiles ul.multi_section_tiles > li.lasttile,
+html body.format-tiles ul.multi_section_tiles > li[style*="display: none"],
+html body.format-tiles ul.multi_section_tiles > li.section[style*="display: none"] {
+    display: none !important;
+}
+
+@media (max-width: 768px) {
+    html body.format-tiles div#format-tiles-multi-section-page {
+        max-width: 100% !important;
+    }
+    html body.format-tiles ul.tiles > li.tile,
+    html body.format-tiles ul#multi_section_tiles > li.tile {
+        flex: 0 0 180px !important;
+        width: 180px !important;
+        min-width: 180px !important;
+        max-width: 180px !important;
+    }
+    html body[class*="format-"] #region-main,
+    html body[class*="format-"] #region-main-box,
+    html body[class*="format-"] .course-content {
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+        box-sizing: border-box !important;
+    }
+
+    html body[class*="format-"] #page-content,
+    html body[class*="format-"] .container-fluid {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+}
+
+@media (max-width: 480px) {
+    html body.format-tiles ul.tiles > li.tile,
+    html body.format-tiles ul#multi_section_tiles > li.tile {
+        flex: 0 0 100% !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+}
+
+
+/* ============================================
+   RESET - alinhamento natural no conteúdo HTML
+   ============================================ */
+
+html body.format-tiles .section,
+html body.format-tiles .section-content,
+html body.format-tiles .course-section-header,
+html body.format-tiles .summary,
+html body.format-tiles .summarytext,
+html body.format-tiles .description,
+html body.format-tiles .activity,
+html body.format-tiles .activity-wrapper,
+html body.format-tiles .activity-item,
+html body.format-tiles .activity-basis,
+html body.format-tiles .activity-name-area,
+html body.format-tiles .activityname,
+html body.format-tiles .activitytitle,
+html body.format-tiles .activityinstance,
+html body.format-tiles .activity-info,
+html body.format-tiles .content,
+html body.format-tiles .no-overflow,
+html body.format-tiles .contentafterlink,
+html body.format-tiles [id^="coursecontentcollapse"],
+html body.format-tiles [data-region="activitychooser-content"] {
+    text-align: left !important;
+}
+
+html body.format-tiles .section p,
+html body.format-tiles .section ul:not(.tiles):not(#multi_section_tiles),
+html body.format-tiles .section ol,
+html body.format-tiles .section li:not(.tile),
+html body.format-tiles .section span,
+html body.format-tiles [id^="coursecontentcollapse"] p,
+html body.format-tiles [id^="coursecontentcollapse"] ul,
+html body.format-tiles [id^="coursecontentcollapse"] ol,
+html body.format-tiles [id^="coursecontentcollapse"] li,
+html body.format-tiles [id^="coursecontentcollapse"] span,
+html body.format-tiles [id^="coursecontentcollapse"] div {
+    text-align: left !important;
+}
+
+
+/* ============================================
+   TÍTULO DO CURSO - centralizado SEM afetar conteúdo HTML
+   ============================================ */
+
+html body.path-course #page-header,
+html body.path-course .page-header,
+html body.path-course .page-header-headings,
+html body.path-course header.page-header,
+html body[class*="format-"] #page-header,
+html body[class*="format-"] .page-header-headings,
+html body.pagelayout-incourse #page-header,
+html body.pagelayout-incourse .page-header-headings {
+    text-align: left !important;
+}
+
+html body.path-course .page-header-headings h1,
+html body.path-course #page-header h1,
+html body.path-course .page-header h1,
+html body.path-course header.page-header h1,
+html body[class*="format-"] .page-header-headings h1,
+html body[class*="format-"] #page-header h1,
+html body.pagelayout-incourse .page-header-headings h1,
+html body.pagelayout-course .page-header-headings h1 {
+    color: var(--texto-titulo-curso) !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.5px !important;
+    border-left: 4px solid var(--borda-titulo-curso) !important;
+    padding: 6px 0 6px 18px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-top: 24px !important;
+    margin-bottom: 24px !important;
+    text-align: left !important;
+    display: table !important;
+    width: auto !important;
+    text-transform: none !important;
+    background: transparent !important;
+    float: none !important;
+}
+
+
+/* ============================================
+   CONTROLES DE COLAPSAR/EXPANDIR DO FORMAT TILES
+   ============================================ */
+
+html body.format-tiles:not(.path-grade) #format-tiles-multi-section-page > .controls,
+html body.format-tiles:not(.path-grade) #format-tiles-multi-section-page .section-actions,
+html body.format-tiles:not(.path-grade) #format-tiles-multi-section-page .toggle-display,
+html body.format-tiles:not(.path-grade) #format-tiles-multi-section-page .collapsible-actions,
+html body.format-tiles:not([class*="path-grade"]) > div > .controls {
+    position: relative !important;
+    margin-bottom: 16px !important;
+    margin-top: 0 !important;
+    padding: 6px 0 !important;
+    text-align: right !important;
+    z-index: 1 !important;
+    width: 100% !important;
+    display: block !important;
+}
+
+html body.format-tiles:not(.path-grade) #format-tiles-multi-section-page .controls button,
+html body.format-tiles:not(.path-grade) #format-tiles-multi-section-page .section-actions button,
+html body.format-tiles:not(.path-grade) [data-action="toggle-collapse"] {
+    position: relative !important;
+    z-index: 2 !important;
+    margin-left: 6px !important;
+}
+
+html body.format-tiles ul.tiles,
+html body.format-tiles ul#multi_section_tiles {
+    margin-top: 12px !important;
+    clear: both !important;
+}
+
+
+/* ============================================
+   FORMAT TILES - Modal de página/recurso embedado
+   ============================================ */
+
+html body.format-tiles .embed_cm_modal .modal-header h4,
+html body.format-tiles .embed_cm_modal .modal-header h5,
+html body.format-tiles .embed_cm_modal .modal-header .modal-title,
+html body.format-tiles .embed_cm_modal h5.modal-title {
+    color: var(--texto-secundario) !important;
+    font-weight: 600 !important;
+}
+
+html body.format-tiles .embed_cm_modal .modal-header button.close,
+html body.format-tiles .embed_cm_modal .modal-header .close,
+html body.format-tiles .embed_cm_modal .modal-header [aria-label="Close"],
+html body.format-tiles .embed_cm_modal .modal-header [data-dismiss="modal"] {
+    color: var(--texto-terciario) !important;
+    opacity: 1 !important;
+    text-shadow: none !important;
+}
+
+html body.format-tiles .embed_cm_modal .modal-header button.close:hover,
+html body.format-tiles .embed_cm_modal .modal-header .close:hover {
+    color: var(--texto-secundario) !important;
+    opacity: 1 !important;
+}
+
+html body.format-tiles .embed_cm_modal .modal-header button.close span,
+html body.format-tiles .embed_cm_modal .modal-header button.close i {
+    color: inherit !important;
+}
+
+
+/* ============================================
+   RESPONSIVIDADE MOBILE - Versão consolidada v6
+   ============================================ */
+
+@media (max-width: 768px) {
+
+    /* PADDING LATERAL DA PÁGINA - respiro nas bordas */
+    html body[class*="format-"] {
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+        box-sizing: border-box !important;
+    }
+
+    html body[class*="format-"] #page,
+    html body[class*="format-"] #page-content,
+    html body[class*="format-"] #page-wrapper,
+    html body[class*="format-"] #page-wrapper > .container-fluid,
+    html body[class*="format-"] #region-main,
+    html body[class*="format-"] #region-main-box {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    /* ============================================
+       CARDS DE CONTEÚDO (jornada, clinic day, etc.)
+       Empilha em coluna única QUALQUER card grid de 2 colunas
+       inserido como conteúdo de curso (rótulo, página, recurso HTML)
+       ============================================ */
+
+    html body[class*="format-"] div[style*="display: grid"][style*="grid-template-columns"] {
+        display: flex !important;
+        flex-direction: column !important;
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+    }
+
+    html body[class*="format-"] div[style*="grid-template-columns"] > div {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    html body[class*="format-"] div[style*="grid-template-columns"] > div[style*="background"] {
+        border-left: none !important;
+        border-top: 1px solid var(--borda-padrao) !important;
+        margin-top: 0 !important;
+        padding: 16px !important;
+    }
+
+    html body[class*="format-"] div[style*="padding: 36px"],
+    html body[class*="format-"] div[style*="padding:36px"] {
+        padding: 16px !important;
+    }
+
+    html body[class*="format-"] div[style*="width: 1px"][style*="background"] {
+        display: none !important;
+    }
+
+    /* ATIVIDADES - Layout horizontal mobile */
+    html body.format-tiles .activity-basis > div.flex-column,
+    html body.format-tiles .activity-basis > div.d-flex.flex-column {
+        flex-direction: row !important;
+        align-items: center !important;
+    }
+
+    html body.format-tiles .activity-basis {
+        align-items: center !important;
+        flex-wrap: nowrap !important;
+        gap: 8px !important;
+    }
+
+    html body.format-tiles .activity-basis .activity-icon,
+    html body.format-tiles .activity-basis .activityiconcontainer {
+        align-self: center !important;
+        margin-right: 12px !important;
+        margin-bottom: 0 !important;
+        flex-shrink: 0 !important;
+    }
+
+    html body.format-tiles .activity-basis .d-flex.flex-column,
+    html body.format-tiles .activity-basis .flex-md-row {
+        flex: 1 1 auto !important;
+        min-width: 0 !important;
+    }
+
+    html body.format-tiles .activity-name-area {
+        align-self: center !important;
+        text-align: left !important;
+        flex: 1 !important;
+        min-width: 0 !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        white-space: normal !important;
+    }
+
+    html body.format-tiles .activitytitle,
+    html body.format-tiles .activityname {
+        text-align: left !important;
+    }
+
+    html body.format-tiles .activity-info,
+    html body.format-tiles .activity-info.mt-1 {
+        margin-top: 0 !important;
+        margin-left: auto !important;
+        flex-shrink: 0 !important;
+    }
+
+    /* ÍCONES DE ATIVIDADE em mobile */
+    html body.format-tiles li[class*="modtype_"] .activity-icon {
+        width: 38px !important;
+        height: 38px !important;
+        min-width: 38px !important;
+        min-height: 38px !important;
+    }
+
+    html body.format-tiles li[class*="modtype_"] .activity-icon::before {
+        width: 18px !important;
+        height: 18px !important;
+    }
+
+    /* TÍTULO DO CURSO em mobile */
+    html body.path-course .page-header-headings h1,
+    html body[class*="format-"] .page-header-headings h1 {
+        font-size: 18px !important;
+        margin: 16px auto !important;
+        padding: 4px 0 4px 12px !important;
+        border-left-width: 3px !important;
+    }
+
+    /* FORMAT TILES - Esconde seções fantasma */
+    html body.format-tiles section[id^="section-"]:not(.state-visible) {
+        display: none !important;
+        height: 0 !important;
+        overflow: hidden !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    html body.format-tiles div#format-tiles-multi-section-page {
+        min-height: 0 !important;
+        margin-bottom: 0 !important;
+        padding-bottom: 16px !important;
+    }
+
+    /* FORMAT TILES - elimina spacers em mobile */
+    html body.format-tiles ul#multi_section_tiles > li.tile.spacer,
+    html body.format-tiles ul.tiles > li.tile.spacer,
+    html body.format-tiles li.tile.spacer[aria-hidden="true"] {
+        display: none !important;
+        height: 0 !important;
+        width: 0 !important;
+        min-width: 0 !important;
+        min-height: 0 !important;
+        max-width: 0 !important;
+        max-height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        flex: 0 0 0 !important;
+        flex-basis: 0 !important;
+        visibility: hidden !important;
+        position: absolute !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+    }
+
+    html body.format-tiles ul#multi_section_tiles > li#lasttitle,
+    html body.format-tiles li#lasttitle.tile.spacer {
+        display: none !important;
+        height: 0 !important;
+        width: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        flex: 0 0 0 !important;
+        position: absolute !important;
+    }
+
+    html body.format-tiles ul#multi_section_tiles.tiles {
+        min-height: 0 !important;
+        height: auto !important;
+    }
+
+    /* BLOCOS LATERAIS */
+    html body[class*="format-"] #block-region-side-pre,
+    html body[class*="format-"] [data-region="blocks-column"],
+    html body[class*="format-"] aside#block-region-side-pre {
+        margin-top: 24px !important;
+        padding-top: 0 !important;
+    }
+
+    html body[class*="format-"] #region-main {
+        margin-bottom: 0 !important;
+        padding-bottom: 16px !important;
+    }
+
+    html body.format-tiles .section:last-child,
+    html body.format-tiles ul.tiles {
+        margin-bottom: 0 !important;
+    }
+
+    /* AJUSTES GERAIS DE MOBILE */
+    html body.format-tiles #section-zero-container {
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+    }
+
+    /* Cards de tile em mobile - 2 por linha */
+    html body.format-tiles ul.tiles > li.tile,
+    html body.format-tiles ul#multi_section_tiles > li.tile {
+        flex: 0 0 calc(50% - 7px) !important;
+        width: calc(50% - 7px) !important;
+        min-width: 0 !important;
+        max-width: calc(50% - 7px) !important;
+        height: 160px !important;
+        min-height: 160px !important;
+    }
+
+    /* FORMAT TILES - Botão X de fechar seção em mobile */
+    html body.format-tiles .format_tiles_section_content {
+        display: flex !important;
+        flex-direction: column !important;
+        position: relative !important;
+    }
+
+    html body.format-tiles .format_tiles_section_content .left.side {
+        width: 100% !important;
+        float: none !important;
+        order: 1 !important;
+    }
+
+    html body.format-tiles .format_tiles_section_content .pagesechead {
+        width: 100% !important;
+        order: 2 !important;
+        padding-right: 50px !important;
+        position: relative !important;
+    }
+
+    html body.format-tiles .format_tiles_section_content .right.side {
+        position: absolute !important;
+        top: 16px !important;
+        right: 16px !important;
+        width: auto !important;
+        float: none !important;
+        z-index: 10 !important;
+        order: 3 !important;
+    }
+
+    html body.format-tiles .format_tiles_section_content .right.side .sectionbuttons {
+        position: static !important;
+        top: unset !important;
+        right: unset !important;
+    }
+
+    html body.format-tiles .format_tiles_section_content button.closesectionbtn,
+    html body.format-tiles button#closesectionbtn-1,
+    html body.format-tiles button[id^="closesectionbtn"] {
+        width: 36px !important;
+        height: 36px !important;
+        background: var(--fundo-branco) !important;
+        border: 1px solid var(--borda-padrao) !important;
+        border-radius: 50% !important;
+        padding: 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+    }
+
+    html body.format-tiles button[id^="closesectionbtn"] i.icon.fa-close {
+        font-size: 14px !important;
+        color: var(--texto-suave) !important;
+        margin: 0 !important;
+    }
+
+    html body.format-tiles .format_tiles_section_content .summary,
+    html body.format-tiles .format_tiles_section_content ul.format-tiles-cm-list {
+        width: 100% !important;
+        order: 4 !important;
+        clear: both !important;
+    }
+}
+
+@media (max-width: 480px) {
+    html body.path-course .page-header-headings h1,
+    html body[class*="format-"] .page-header-headings h1 {
+        font-size: 16px !important;
+        padding: 4px 12px !important;
+        margin: 12px 8px !important;
+    }
+
+    html body.format-tiles li[class*="modtype_"] .activity-icon {
+        width: 34px !important;
+        height: 34px !important;
+        min-width: 34px !important;
+        min-height: 34px !important;
+        margin-right: 10px !important;
+    }
+
+    html body.format-tiles li[class*="modtype_"] .activity-icon::before {
+        width: 16px !important;
+        height: 16px !important;
+    }
+
+    html body.format-tiles ul.tiles > li.tile,
+    html body.format-tiles ul#multi_section_tiles > li.tile {
+        flex: 0 0 100% !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 140px !important;
+        min-height: 140px !important;
+    }
+
+    html body.format-tiles #section-zero-container {
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+    }
+
+    html body.format-tiles .activity {
+        padding: 12px !important;
+    }
+}
+
+
+/* ============================================
+   ÍCONES DE ATIVIDADES
+   Estética: caixa de cor sutil + ícone outline colorido
+   ============================================ */
+
+/* ---------- BASE COMUM (caixa) ---------- */
+li.modtype_label .activity-icon,
+li.modtype_resource .activity-icon,
+li.modtype_data .activity-icon,
+li.modtype_customcert .activity-icon,
+li.modtype_simplecertificate .activity-icon,
+li.modtype_chat .activity-icon,
+li.modtype_imscp .activity-icon,
+li.modtype_hvp .activity-icon,
+li.modtype_hvp .activityiconcontainer,
+li.modtype_choice .activity-icon,
+li.modtype_lti .activity-icon,
+li.modtype_forum .activity-icon,
+li.modtype_glossary .activity-icon,
+li.modtype_workshop .activity-icon,
+li.modtype_lesson .activity-icon,
+li.modtype_book .activity-icon,
+li.modtype_scorm .activity-icon,
+li.modtype_page .activity-icon,
+li.modtype_folder .activity-icon,
+li.modtype_survey .activity-icon,
+li.modtype_feedback .activity-icon,
+li.modtype_attendance .activity-icon,
+li.modtype_quiz .activity-icon,
+li.modtype_subcourse .activity-icon,
+li.modtype_assign .activity-icon,
+li.modtype_url .activity-icon,
+li.modtype_wiki .activity-icon,
+body.path-mod-label .activityiconcontainer,
+body.path-mod-resource .activityiconcontainer,
+body.path-mod-data .activityiconcontainer,
+body.path-mod-customcert .activityiconcontainer,
+body.path-mod-simplecertificate .activityiconcontainer,
+body.path-mod-chat .activityiconcontainer,
+body.path-mod-imscp .activityiconcontainer,
+body.path-mod-hvp .activityiconcontainer,
+body.path-mod-choice .activityiconcontainer,
+body.path-mod-lti .activityiconcontainer,
+body.path-mod-forum .activityiconcontainer,
+body.path-mod-glossary .activityiconcontainer,
+body.path-mod-workshop .activityiconcontainer,
+body.path-mod-lesson .activityiconcontainer,
+body.path-mod-book .activityiconcontainer,
+body.path-mod-scorm .activityiconcontainer,
+body.path-mod-page .activityiconcontainer,
+body.path-mod-folder .activityiconcontainer,
+body.path-mod-survey .activityiconcontainer,
+body.path-mod-feedback .activityiconcontainer,
+body.path-mod-attendance .activityiconcontainer,
+body.path-mod-quiz .activityiconcontainer,
+body.path-mod-subcourse .activityiconcontainer,
+body.path-mod-assign .activityiconcontainer,
+body.path-mod-url .activityiconcontainer,
+body.path-mod-wiki .activityiconcontainer {
+    border-radius: 10px !important;
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    padding: 0 !important;
+    border: 1px solid var(--borda-padrao) !important;
+}
+
+/* ---------- ESCONDE ÍCONES PADRÃO ---------- */
+li.modtype_label img.activityicon,
+li.modtype_resource img.activityicon,
+li.modtype_data img.activityicon,
+li.modtype_customcert img.activityicon,
+li.modtype_simplecertificate img.activityicon,
+li.modtype_chat img.activityicon,
+li.modtype_imscp img.activityicon,
+li.modtype_hvp img.activityicon,
+li.modtype_hvp img.nofilter,
+li.activity.hvp img.nofilter,
+li.modtype_choice img.activityicon,
+li.modtype_lti img.activityicon,
+li.modtype_forum img.activityicon,
+li.modtype_glossary img.activityicon,
+li.modtype_workshop img.activityicon,
+li.modtype_lesson img.activityicon,
+li.modtype_book img.activityicon,
+li.modtype_scorm img.activityicon,
+li.modtype_page img.activityicon,
+li.modtype_folder img.activityicon,
+li.modtype_survey img.activityicon,
+li.modtype_feedback img.activityicon,
+li.modtype_attendance img.activityicon,
+li.modtype_quiz img.activityicon,
+li.modtype_subcourse img.activityicon,
+li.modtype_assign img.activityicon,
+li.modtype_url img.activityicon,
+li.modtype_wiki img.activityicon,
+body.path-mod-label .activityiconcontainer img,
+body.path-mod-resource .activityiconcontainer img,
+body.path-mod-data .activityiconcontainer img,
+body.path-mod-customcert .activityiconcontainer img,
+body.path-mod-simplecertificate .activityiconcontainer img,
+body.path-mod-chat .activityiconcontainer img,
+body.path-mod-imscp .activityiconcontainer img,
+body.path-mod-hvp .activityiconcontainer img,
+body.path-mod-choice .activityiconcontainer img,
+body.path-mod-lti .activityiconcontainer img,
+body.path-mod-forum .activityiconcontainer img,
+body.path-mod-glossary .activityiconcontainer img,
+body.path-mod-workshop .activityiconcontainer img,
+body.path-mod-lesson .activityiconcontainer img,
+body.path-mod-book .activityiconcontainer img,
+body.path-mod-scorm .activityiconcontainer img,
+body.path-mod-page .activityiconcontainer img,
+body.path-mod-folder .activityiconcontainer img,
+body.path-mod-survey .activityiconcontainer img,
+body.path-mod-feedback .activityiconcontainer img,
+body.path-mod-attendance .activityiconcontainer img,
+body.path-mod-quiz .activityiconcontainer img,
+body.path-mod-subcourse .activityiconcontainer img,
+body.path-mod-assign .activityiconcontainer img,
+body.path-mod-url .activityiconcontainer img,
+body.path-mod-wiki .activityiconcontainer img {
+    display: none !important;
+}
+
+/* ---------- BASE DO PSEUDO-ELEMENTO ---------- */
+li.modtype_label .activity-icon::before,
+li.modtype_resource .activity-icon::before,
+li.modtype_data .activity-icon::before,
+li.modtype_customcert .activity-icon::before,
+li.modtype_simplecertificate .activity-icon::before,
+li.modtype_chat .activity-icon::before,
+li.modtype_imscp .activity-icon::before,
+li.modtype_hvp .activity-icon::before,
+li.modtype_hvp .activityiconcontainer::before,
+li.modtype_choice .activity-icon::before,
+li.modtype_lti .activity-icon::before,
+li.modtype_forum .activity-icon::before,
+li.modtype_glossary .activity-icon::before,
+li.modtype_workshop .activity-icon::before,
+li.modtype_lesson .activity-icon::before,
+li.modtype_book .activity-icon::before,
+li.modtype_scorm .activity-icon::before,
+li.modtype_page .activity-icon::before,
+li.modtype_folder .activity-icon::before,
+li.modtype_survey .activity-icon::before,
+li.modtype_feedback .activity-icon::before,
+li.modtype_attendance .activity-icon::before,
+li.modtype_quiz .activity-icon::before,
+li.modtype_subcourse .activity-icon::before,
+li.modtype_assign .activity-icon::before,
+li.modtype_url .activity-icon::before,
+li.modtype_wiki .activity-icon::before,
+body.path-mod-label .activityiconcontainer::before,
+body.path-mod-resource .activityiconcontainer::before,
+body.path-mod-data .activityiconcontainer::before,
+body.path-mod-customcert .activityiconcontainer::before,
+body.path-mod-simplecertificate .activityiconcontainer::before,
+body.path-mod-chat .activityiconcontainer::before,
+body.path-mod-imscp .activityiconcontainer::before,
+body.path-mod-hvp .activityiconcontainer::before,
+body.path-mod-choice .activityiconcontainer::before,
+body.path-mod-lti .activityiconcontainer::before,
+body.path-mod-forum .activityiconcontainer::before,
+body.path-mod-glossary .activityiconcontainer::before,
+body.path-mod-workshop .activityiconcontainer::before,
+body.path-mod-lesson .activityiconcontainer::before,
+body.path-mod-book .activityiconcontainer::before,
+body.path-mod-scorm .activityiconcontainer::before,
+body.path-mod-page .activityiconcontainer::before,
+body.path-mod-folder .activityiconcontainer::before,
+body.path-mod-survey .activityiconcontainer::before,
+body.path-mod-feedback .activityiconcontainer::before,
+body.path-mod-attendance .activityiconcontainer::before,
+body.path-mod-quiz .activityiconcontainer::before,
+body.path-mod-subcourse .activityiconcontainer::before,
+body.path-mod-assign .activityiconcontainer::before,
+body.path-mod-url .activityiconcontainer::before,
+body.path-mod-wiki .activityiconcontainer::before {
+    content: "" !important;
+    width: 23px !important;
+    height: 23px !important;
+    display: block !important;
+}
+
+/* ============================================
+   CATEGORIA: CONTEÚDO — slate
+   ============================================ */
+
+li.modtype_label .activity-icon,
+li.modtype_resource .activity-icon,
+li.modtype_page .activity-icon,
+li.modtype_folder .activity-icon,
+li.modtype_book .activity-icon,
+li.modtype_lesson .activity-icon,
+body.path-mod-label .activityiconcontainer,
+body.path-mod-resource .activityiconcontainer,
+body.path-mod-page .activityiconcontainer,
+body.path-mod-folder .activityiconcontainer,
+body.path-mod-book .activityiconcontainer,
+body.path-mod-lesson .activityiconcontainer {
+    background: var(--icone-conteudo-bg) !important;
+}
+
+li.modtype_label .activity-icon::before,
+li.modtype_resource .activity-icon::before,
+li.modtype_page .activity-icon::before,
+li.modtype_folder .activity-icon::before,
+li.modtype_book .activity-icon::before,
+li.modtype_lesson .activity-icon::before,
+body.path-mod-label .activityiconcontainer::before,
+body.path-mod-resource .activityiconcontainer::before,
+body.path-mod-page .activityiconcontainer::before,
+body.path-mod-folder .activityiconcontainer::before,
+body.path-mod-book .activityiconcontainer::before,
+body.path-mod-lesson .activityiconcontainer::before {
+    background-color: var(--icone-conteudo-cor) !important;
+}
+
+/* ============================================
+   CATEGORIA: MÍDIA INTERATIVA — coral
+   ============================================ */
+
+li.modtype_hvp .activity-icon,
+li.modtype_hvp .activityiconcontainer,
+li.modtype_scorm .activity-icon,
+li.modtype_imscp .activity-icon,
+li.modtype_url .activity-icon,
+li.modtype_lti .activity-icon,
+body.path-mod-hvp .activityiconcontainer,
+body.path-mod-scorm .activityiconcontainer,
+body.path-mod-imscp .activityiconcontainer,
+body.path-mod-url .activityiconcontainer,
+body.path-mod-lti .activityiconcontainer {
+    background: var(--icone-midia-bg) !important;
+}
+
+li.modtype_hvp .activity-icon::before,
+li.modtype_hvp .activityiconcontainer::before,
+li.modtype_scorm .activity-icon::before,
+li.modtype_imscp .activity-icon::before,
+li.modtype_url .activity-icon::before,
+li.modtype_lti .activity-icon::before,
+body.path-mod-hvp .activityiconcontainer::before,
+body.path-mod-scorm .activityiconcontainer::before,
+body.path-mod-imscp .activityiconcontainer::before,
+body.path-mod-url .activityiconcontainer::before,
+body.path-mod-lti .activityiconcontainer::before {
+    background-color: var(--icone-midia-cor) !important;
+}
+
+/* ============================================
+   CATEGORIA: COMUNICAÇÃO — azul
+   ============================================ */
+
+li.modtype_forum .activity-icon,
+li.modtype_chat .activity-icon,
+li.modtype_workshop .activity-icon,
+body.path-mod-forum .activityiconcontainer,
+body.path-mod-chat .activityiconcontainer,
+body.path-mod-workshop .activityiconcontainer {
+    background: var(--icone-comunicacao-bg) !important;
+}
+
+li.modtype_forum .activity-icon::before,
+li.modtype_chat .activity-icon::before,
+li.modtype_workshop .activity-icon::before,
+body.path-mod-forum .activityiconcontainer::before,
+body.path-mod-chat .activityiconcontainer::before,
+body.path-mod-workshop .activityiconcontainer::before {
+    background-color: var(--icone-comunicacao-cor) !important;
+}
+
+/* ============================================
+   CATEGORIA: AVALIAÇÃO — amber
+   ============================================ */
+
+li.modtype_quiz .activity-icon,
+li.modtype_assign .activity-icon,
+li.modtype_choice .activity-icon,
+li.modtype_survey .activity-icon,
+li.modtype_feedback .activity-icon,
+body.path-mod-quiz .activityiconcontainer,
+body.path-mod-assign .activityiconcontainer,
+body.path-mod-choice .activityiconcontainer,
+body.path-mod-survey .activityiconcontainer,
+body.path-mod-feedback .activityiconcontainer {
+    background: var(--icone-avaliacao-bg) !important;
+}
+
+li.modtype_quiz .activity-icon::before,
+li.modtype_assign .activity-icon::before,
+li.modtype_choice .activity-icon::before,
+li.modtype_survey .activity-icon::before,
+li.modtype_feedback .activity-icon::before,
+body.path-mod-quiz .activityiconcontainer::before,
+body.path-mod-assign .activityiconcontainer::before,
+body.path-mod-choice .activityiconcontainer::before,
+body.path-mod-survey .activityiconcontainer::before,
+body.path-mod-feedback .activityiconcontainer::before {
+    background-color: var(--icone-avaliacao-cor) !important;
+}
+
+/* ============================================
+   CATEGORIA: PROGRESSO — verde
+   ============================================ */
+
+li.modtype_attendance .activity-icon,
+li.modtype_customcert .activity-icon,
+li.modtype_simplecertificate .activity-icon,
+li.modtype_subcourse .activity-icon,
+body.path-mod-attendance .activityiconcontainer,
+body.path-mod-customcert .activityiconcontainer,
+body.path-mod-simplecertificate .activityiconcontainer,
+body.path-mod-subcourse .activityiconcontainer {
+    background: var(--icone-progresso-bg) !important;
+}
+
+li.modtype_attendance .activity-icon::before,
+li.modtype_customcert .activity-icon::before,
+li.modtype_simplecertificate .activity-icon::before,
+li.modtype_subcourse .activity-icon::before,
+body.path-mod-attendance .activityiconcontainer::before,
+body.path-mod-customcert .activityiconcontainer::before,
+body.path-mod-simplecertificate .activityiconcontainer::before,
+body.path-mod-subcourse .activityiconcontainer::before {
+    background-color: var(--icone-progresso-cor) !important;
+}
+
+/* ============================================
+   CATEGORIA: REFERÊNCIA — roxo
+   ============================================ */
+
+li.modtype_glossary .activity-icon,
+li.modtype_data .activity-icon,
+li.modtype_wiki .activity-icon,
+body.path-mod-glossary .activityiconcontainer,
+body.path-mod-data .activityiconcontainer,
+body.path-mod-wiki .activityiconcontainer {
+    background: var(--icone-referencia-bg) !important;
+}
+
+li.modtype_glossary .activity-icon::before,
+li.modtype_data .activity-icon::before,
+li.modtype_wiki .activity-icon::before,
+body.path-mod-glossary .activityiconcontainer::before,
+body.path-mod-data .activityiconcontainer::before,
+body.path-mod-wiki .activityiconcontainer::before {
+    background-color: var(--icone-referencia-cor) !important;
+}
+
+/* ============================================
+   ÍCONES INDIVIDUAIS - SVG outline (24x24, stroke 1.5)
+   ============================================ */
+
+/* ROTULAR / TEXTO E MÍDIA */
+li.modtype_label .activity-icon::before,
+body.path-mod-label .activityiconcontainer::before {
+    -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M5 7V5h14v2'/><path d='M9 19h6'/><path d='M12 5v14'/></svg>") no-repeat center / contain !important;
+    mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M5 7V5h14v2'/><path d='M9 19h6'/><path d='M12 5v14'/></svg>") no-repeat center / contain !important;
+}
+
+/* ARQUIVO */
+li.modtype_resource .activity-icon::before,
+body.path-mod-resource .activityiconcontainer::before {
+    -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M14 4H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V9z'/><path d='M14 4v5h5'/><path d='M9 14h6'/><path d='M9 17h4'/></svg>") no-repeat center / contain !important;
+    mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M14 4H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V9z'/><path d='M14 4v5h5'/><path d='M9 14h6'/><path d='M9 17h4'/></svg>") no-repeat center / contain !important;
+}
+
+/* BASE DE DADOS */
+li.modtype_data .activity-icon::before,
+body.path-mod-data .activityiconcontainer::before {
+    -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><ellipse cx='12' cy='6' rx='7' ry='2.5'/><path d='M5 6v6c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5V6'/><path d='M5 12v6c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-6'/></svg>") no-repeat center / contain !important;
+    mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><ellipse cx='12' cy='6' rx='7' ry='2.5'/><path d='M5 6v6c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5V6'/><path d='M5 12v6c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-6'/></svg>") no-repeat center / contain !important;
+}
+
+/* CERTIFICADO */
+li.modtype_customcert .activity-icon::before,
+li.modtype_simplecertificate .activity-icon::before,
+body.path-mod-customcert .activityiconcontainer::before,
+body.path-mod-simplecertificate .activityiconcontainer::before {
+    -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='9' r='5'/><path d='M9 13.5L7.5 20l4.5-2.5 4.5 2.5L15 13.5'/></svg>") no-repeat center / contain !important;
+    mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='9' r='5'/><path d='M9 13.5L7.5 20l4.5-2.5 4.5 2.5L15 13.5'/></svg>") no-repeat center / contain !important;
+}
+
+/* CHAT */
+li.modtype_chat .activity-icon::before,
+body.path-mod-chat .activityiconcontainer::before {
+    -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M20 11.5a7.5 7.5 0 0 1-10.8 6.7L5 20l1.8-4.2A7.5 7.5 0 1 1 20 11.5z'/></svg>") no-repeat center / contain !important;
+    mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M20 11.5a7.5 7.5 0 0 1-10.8 6.7L5 20l1.8-4.2A7.5 7.5 0 1 1 20 11.5z'/></svg>") no-repeat center / contain !important;
+}
+
+/* IMS / SCORM */
+li.modtype_imscp .activity-icon::before,
+li.modtype_scorm .activity-icon::before,
+body.path-mod-imscp .activityiconcontainer::before,
+body.path-mod-scorm .activityiconcontainer::before {
+    -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M20 16V8a2 2 0 0 0-1-1.7l-6-3.5a2 2 0 0 0-2 0l-6 3.5A2 2 0 0 0 4 8v8a2 2 0 0 0 1 1.7l6 3.5a2 2 0 0 0 2 0l6-3.5A2 2 0 0 0 20 16z'/><path d='M4.3 7L12 11.5 19.7 7'/><path d='M12 21V11.5'/></svg>") no-repeat center / contain !important;
+    mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M20 16V8a2 2 0 0 0-1-1.7l-6-3.5a2 2 0 0 0-2 0l-6 3.5A2 2 0 0 0 4 8v8a2 2 0 0 0 1 1.7l6 3.5a2 2 0 0 0 2 0l6-3.5A2 2 0 0 0 20 16z'/><path d='M4.3 7L12 11.5 19.7 7'/><path d='M12 21V11.5'/></svg>") no-repeat center / contain !important;
+}
+
+/* H5P */
+li.modtype_hvp .activity-icon::before,
+li.modtype_hvp .activityiconcontainer::before,
+body.path-mod-hvp .activityiconcontainer::before {
+    -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><rect x='3' y='6' width='18' height='13' rx='2'/><path d='M10 10v5l4-2.5z'/></svg>") no-repeat center / contain !important;
+    mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><rect x='3' y='6' width='18' height='13' rx='2'/><path d='M10 10v5l4-2.5z'/></svg>") no-repeat center / contain !important;
+}
+
+/* ESCOLHA / VOTAÇÃO */
+li.modtype_choice .activity-icon::before,
+body.path-mod-choice .activityiconcontainer::before {
+    -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M9 12l2 2 4-4'/><path d='M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h10'/></svg>") no-repeat center / contain !important;
+    mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M9 12l2 2 4-4'/><path d='M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h10'/></svg>") no-repeat center / contain !important;
+}
+
+/* LTI / LINK EXTERNO */
+li.modtype_lti .activity-icon::before,
+body.path-mod-lti .activityiconcontainer::before {
+    -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M17 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h5'/><path d='M14 4h6v6'/><path d='M11 13L20 4'/></svg>") no-repeat center / contain !important;
+    mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M17 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h5'/><path d='M14 4h6v6'/><path d='M11 13L20 4'/></svg>") no-repeat center / contain !important;
+}
+
+/* FÓRUM */
+li.modtype_forum .activity-icon::before,
+body.path-mod-forum .activityiconcontainer::before {
+    -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M20 12c0 4-3.6 7.5-8 7.5a9 9 0 0 1-3.5-.7L4.5 20l1.2-3.8A7.3 7.3 0 0 1 4 12c0-4 3.6-7.5 8-7.5s8 3.5 8 7.5z'/></svg>") no-repeat center / contain !important;
+    mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M20 12c0 4-3.6 7.5-8 7.5a9 9 0 0 1-3.5-.7L4.5 20l1.2-3.8A7.3 7.3 0 0 1 4 12c0-4 3.6-7.5 8-7.5s8 3.5 8 7.5z'/></svg>") no-repeat center / contain !important;
+}
+
+/* GLOSSÁRIO */
+li.modtype_glossary .activity-icon::before,
+body.path-mod-glossary .activityiconcontainer::before {
+    -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M5 19.5A2.5 2.5 0 0 1 7.5 17H19V4H7.5A2.5 2.5 0 0 0 5 6.5z'/><path d='M5 19.5A2.5 2.5 0 0 0 7.5 22H19v-5'/></svg>") no-repeat center / contain !important;
+    mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M5 19.5A2.5 2.5 0 0 1 7.5 17H19V4H7.5A2.5 2.5 0 0 0 5 6.5z'/><path d='M5 19.5A2.5 2.5 0 0 0 7.5 22H19v-5'/></svg>") no-repeat center / contain !important;
+}
+
+/* WORKSHOP */
+li.modtype_workshop .activity-icon::before,
+body.path-mod-workshop .activityiconcontainer::before {
+    -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M16 20v-2a3.5 3.5 0 0 0-3.5-3.5h-5A3.5 3.5 0 0 0 4 18v2'/><circle cx='10' cy='8' r='3.5'/><path d='M20 20v-2a3.5 3.5 0 0 0-2.5-3.4'/><path d='M15 4.5a3.5 3.5 0 0 1 0 6.8'/></svg>") no-repeat center / contain !important;
+    mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M16 20v-2a3.5 3.5 0 0 0-3.5-3.5h-5A3.5 3.5 0 0 0 4 18v2'/><circle cx='10' cy='8' r='3.5'/><path d='M20 20v-2a3.5 3.5 0 0 0-2.5-3.4'/><path d='M15 4.5a3.5 3.5 0 0 1 0 6.8'/></svg>") no-repeat center / contain !important;
+}
+
+/* LIÇÃO */
+li.modtype_lesson .activity-icon::before,
+body.path-mod-lesson .activityiconcontainer::before {
+    -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M21 10L12 6 3 10l9 4 9-4z'/><path d='M7 12v4c0 1.5 2.2 2.5 5 2.5s5-1 5-2.5v-4'/></svg>") no-repeat center / contain !important;
+    mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M21 10L12 6 3 10l9 4 9-4z'/><path d='M7 12v4c0 1.5 2.2 2.5 5 2.5s5-1 5-2.5v-4'/></svg>") no-repeat center / contain !important;
+}
+
+/* LIVRO */
+li.modtype_book .activity-icon::before,
+body.path-mod-book .activityiconcontainer::before {
+    -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M3 4h6a3.5 3.5 0 0 1 3.5 3.5V20a2.5 2.5 0 0 0-2.5-2.5H3z'/><path d='M21 4h-6a3.5 3.5 0 0 0-3.5 3.5V20a2.5 2.5 0 0 1 2.5-2.5H21z'/></svg>") no-repeat center / contain !important;
+    mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M3 4h6a3.5 3.5 0 0 1 3.5 3.5V20a2.5 2.5 0 0 0-2.5-2.5H3z'/><path d='M21 4h-6a3.5 3.5 0 0 0-3.5 3.5V20a2.5 2.5 0 0 1 2.5-2.5H21z'/></svg>") no-repeat center / contain !important;
+}
+
+/* PÁGINA */
+li.modtype_page .activity-icon::before,
+body.path-mod-page .activityiconcontainer::before {
+    -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M14 4H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V9z'/><path d='M14 4v5h5'/></svg>") no-repeat center / contain !important;
+    mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M14 4H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V9z'/><path d='M14 4v5h5'/></svg>") no-repeat center / contain !important;
+}
+
+/* PASTA */
+li.modtype_folder .activity-icon::before,
+body.path-mod-folder .activityiconcontainer::before {
+    -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M4 7a2 2 0 0 1 2-2h3.5l2 2.5H18a2 2 0 0 1 2 2v6.5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z'/></svg>") no-repeat center / contain !important;
+    mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M4 7a2 2 0 0 1 2-2h3.5l2 2.5H18a2 2 0 0 1 2 2v6.5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z'/></svg>") no-repeat center / contain !important;
+}
+
+/* PESQUISA / FEEDBACK */
+li.modtype_survey .activity-icon::before,
+li.modtype_feedback .activity-icon::before,
+body.path-mod-survey .activityiconcontainer::before,
+body.path-mod-feedback .activityiconcontainer::before {
+    -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M4 4v16h16'/><path d='M8 14v3'/><path d='M12 10v7'/><path d='M16 6v11'/></svg>") no-repeat center / contain !important;
+    mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M4 4v16h16'/><path d='M8 14v3'/><path d='M12 10v7'/><path d='M16 6v11'/></svg>") no-repeat center / contain !important;
+}
+
+/* PRESENÇA */
+li.modtype_attendance .activity-icon::before,
+body.path-mod-attendance .activityiconcontainer::before {
+    -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><rect x='4' y='5' width='16' height='15' rx='2'/><path d='M16 3v4'/><path d='M8 3v4'/><path d='M4 10h16'/><path d='M9 15l2 2 4-4'/></svg>") no-repeat center / contain !important;
+    mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><rect x='4' y='5' width='16' height='15' rx='2'/><path d='M16 3v4'/><path d='M8 3v4'/><path d='M4 10h16'/><path d='M9 15l2 2 4-4'/></svg>") no-repeat center / contain !important;
+}
+
+/* QUIZ */
+li.modtype_quiz .activity-icon::before,
+body.path-mod-quiz .activityiconcontainer::before {
+    -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2'/><rect x='9' y='3' width='6' height='4' rx='1'/><path d='M9 13l2 2 4-4'/></svg>") no-repeat center / contain !important;
+    mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2'/><rect x='9' y='3' width='6' height='4' rx='1'/><path d='M9 13l2 2 4-4'/></svg>") no-repeat center / contain !important;
+}
+
+/* SUBCURSO */
+li.modtype_subcourse .activity-icon::before,
+body.path-mod-subcourse .activityiconcontainer::before {
+    -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><rect x='4' y='4' width='6' height='6' rx='1'/><rect x='14' y='4' width='6' height='6' rx='1'/><rect x='14' y='14' width='6' height='6' rx='1'/><rect x='4' y='14' width='6' height='6' rx='1'/></svg>") no-repeat center / contain !important;
+    mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><rect x='4' y='4' width='6' height='6' rx='1'/><rect x='14' y='4' width='6' height='6' rx='1'/><rect x='14' y='14' width='6' height='6' rx='1'/><rect x='4' y='14' width='6' height='6' rx='1'/></svg>") no-repeat center / contain !important;
+}
+
+/* TAREFA */
+li.modtype_assign .activity-icon::before,
+body.path-mod-assign .activityiconcontainer::before {
+    -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M14 4H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V9z'/><path d='M14 4v5h5'/><path d='M12 18v-6'/><path d='M9 15l3-3 3 3'/></svg>") no-repeat center / contain !important;
+    mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M14 4H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V9z'/><path d='M14 4v5h5'/><path d='M12 18v-6'/><path d='M9 15l3-3 3 3'/></svg>") no-repeat center / contain !important;
+}
+
+/* URL */
+li.modtype_url .activity-icon::before,
+body.path-mod-url .activityiconcontainer::before {
+    -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M10 13a4.5 4.5 0 0 0 6.7.5l2.7-2.7a4.5 4.5 0 0 0-6.4-6.4L11.7 5.7'/><path d='M14 11a4.5 4.5 0 0 0-6.7-.5L4.6 13.2a4.5 4.5 0 0 0 6.4 6.4l1.3-1.3'/></svg>") no-repeat center / contain !important;
+    mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M10 13a4.5 4.5 0 0 0 6.7.5l2.7-2.7a4.5 4.5 0 0 0-6.4-6.4L11.7 5.7'/><path d='M14 11a4.5 4.5 0 0 0-6.7-.5L4.6 13.2a4.5 4.5 0 0 0 6.4 6.4l1.3-1.3'/></svg>") no-repeat center / contain !important;
+}
+
+/* WIKI */
+li.modtype_wiki .activity-icon::before,
+body.path-mod-wiki .activityiconcontainer::before {
+    -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='8'/><path d='M4 12h16'/><path d='M12 4a13 13 0 0 1 3.5 8 13 13 0 0 1-3.5 8 13 13 0 0 1-3.5-8 13 13 0 0 1 3.5-8z'/></svg>") no-repeat center / contain !important;
+    mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='8'/><path d='M4 12h16'/><path d='M12 4a13 13 0 0 1 3.5 8 13 13 0 0 1-3.5 8 13 13 0 0 1-3.5-8 13 13 0 0 1 3.5-8z'/></svg>") no-repeat center / contain !important;
+}
+
+
+/* ============================================
+   ÍCONE INTERNO - alinhamento vertical com título
+   ============================================ */
+
+body.path-mod-label .page-header-headings,
+body.path-mod-resource .page-header-headings,
+body.path-mod-data .page-header-headings,
+body.path-mod-customcert .page-header-headings,
+body.path-mod-simplecertificate .page-header-headings,
+body.path-mod-chat .page-header-headings,
+body.path-mod-imscp .page-header-headings,
+body.path-mod-hvp .page-header-headings,
+body.path-mod-choice .page-header-headings,
+body.path-mod-lti .page-header-headings,
+body.path-mod-forum .page-header-headings,
+body.path-mod-glossary .page-header-headings,
+body.path-mod-workshop .page-header-headings,
+body.path-mod-lesson .page-header-headings,
+body.path-mod-book .page-header-headings,
+body.path-mod-scorm .page-header-headings,
+body.path-mod-page .page-header-headings,
+body.path-mod-folder .page-header-headings,
+body.path-mod-survey .page-header-headings,
+body.path-mod-feedback .page-header-headings,
+body.path-mod-attendance .page-header-headings,
+body.path-mod-quiz .page-header-headings,
+body.path-mod-subcourse .page-header-headings,
+body.path-mod-assign .page-header-headings,
+body.path-mod-url .page-header-headings,
+body.path-mod-wiki .page-header-headings {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+}
+
+body[class*="path-mod-"] .activityiconcontainer {
+    align-self: center !important;
+    flex-shrink: 0 !important;
+    margin: 0 !important;
+}
+
+body[class*="path-mod-"] .page-header-headings h1,
+body[class*="path-mod-"] .page-header-headings h2 {
+    margin: 0 !important;
+    align-self: center !important;
+}
+
+
+/* ============================================
+   STATUS DA ATIVIDADE - Ícone circular unificado
+   ============================================ */
+
+html body .activity-information,
+html body [data-region="activity-information"] {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+html body .automatic-completion-conditions,
+html body [data-region="completionrequirements"],
+html body [data-region="completion-info"] {
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 0 !important;
+}
+
+/* Esconde texto interno dos botões manuais */
+html body button.btn[data-action="toggle-manual-completion"] {
+    font-size: 0 !important;
+    color: transparent !important;
+    line-height: 0 !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    text-indent: -9999px !important;
+}
+
+html body button.btn[data-action="toggle-manual-completion"] i.fa,
+html body button.btn[data-action="toggle-manual-completion"] i.fa-check {
+    display: none !important;
+}
+
+/* ESTADO PENDENTE - Círculo vazio cinza */
+html body .badge.badge-pill.badge-light,
+html body button.btn.btn-outline-secondary[data-action="toggle-manual-completion"][data-toggletype="manual:mark-done"] {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 28px !important;
+    height: 28px !important;
+    min-width: 28px !important;
+    min-height: 28px !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: 1.5px solid var(--cinza-futuro) !important;
+    border-radius: 50% !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
+    color: transparent !important;
+    box-shadow: none !important;
+    transition: all 0.2s ease !important;
+    position: relative !important;
+    text-indent: 0 !important;
+}
+
+html body button.btn.btn-outline-secondary[data-action="toggle-manual-completion"]:hover {
+    border-color: var(--verde-sucesso) !important;
+    background: var(--verde-fundo-suave) !important;
+    cursor: pointer !important;
+}
+
+html body .badge.badge-pill.badge-light:hover {
+    border-color: var(--scroll-thumb) !important;
+    background: var(--fundo-hover-cinza) !important;
+}
+
+/* Preview do check ao passar o mouse no botão manual */
+html body button.btn.btn-outline-secondary[data-action="toggle-manual-completion"]:hover::before {
+    content: "" !important;
+    width: 16px !important;
+    height: 16px !important;
+    background-color: var(--verde-sucesso) !important;
+    -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>") no-repeat center / contain !important;
+    mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>") no-repeat center / contain !important;
+    display: block !important;
+    opacity: 0.4 !important;
+}
+
+/* ESTADO CONCLUÍDO - Círculo verde com check */
+html body .badge.badge-pill.alert-success,
+html body button.btn.btn-success[data-action="toggle-manual-completion"][data-toggletype="manual:undo"] {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 28px !important;
+    height: 28px !important;
+    min-width: 28px !important;
+    min-height: 28px !important;
+    padding: 0 !important;
+    background: var(--verde-sucesso) !important;
+    border: 1.5px solid var(--verde-sucesso) !important;
+    border-radius: 50% !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
+    color: transparent !important;
+    box-shadow: none !important;
+    position: relative !important;
+    text-indent: 0 !important;
+    transition: all 0.2s ease !important;
+}
+
+html body .badge.badge-pill.alert-success::before,
+html body button.btn.btn-success[data-action="toggle-manual-completion"]::before {
+    content: "" !important;
+    width: 16px !important;
+    height: 16px !important;
+    background-color: var(--fundo-branco) !important;
+    -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>") no-repeat center / contain !important;
+    mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>") no-repeat center / contain !important;
+    display: block !important;
+}
+
+html body button.btn.btn-success[data-action="toggle-manual-completion"]:hover {
+    background: var(--verde-sucesso-escuro) !important;
+    border-color: var(--verde-sucesso-escuro) !important;
+    cursor: pointer !important;
+    transform: scale(1.05) !important;
+}
+
+/* POSICIONAMENTO */
+html body.format-tiles .activity-info,
+html body.format-tiles .activity-info.mt-1 {
+    margin-top: 0 !important;
+    margin-left: auto !important;
+    flex-shrink: 0 !important;
+}
+
+html body.format-tiles .activity-basis {
+    align-items: center !important;
+}
+
+html body button.btn[data-action="toggle-manual-completion"] {
+    cursor: pointer !important;
+}
+
+html body .badge.badge-pill.badge-light,
+html body .badge.badge-pill.alert-success {
+    cursor: default !important;
+}
+
+
+/* ============================================
+   AJUSTE FINO - centralização do check em badges automáticos
+   ============================================ */
+
+html body .badge.badge-pill.alert-success {
+    padding: 0 !important;
+    margin: 0 !important;
+    text-align: center !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    flex-shrink: 0 !important;
+}
+
+html body .badge.badge-pill.alert-success > * {
+    display: none !important;
+    visibility: hidden !important;
+    width: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+html body .badge.badge-pill.alert-success::before {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+html body button.btn.btn-success[data-action="toggle-manual-completion"]::before {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+html body button.btn.btn-outline-secondary[data-action="toggle-manual-completion"]:hover::before {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+
+/* ============================================
+   TILES - tarja transparente e tipografia
+   ============================================ */
+
+html body.format-tiles ul.tiles > li.tile,
+html body.format-tiles ul#multi_section_tiles > li.tile {
+    background-color: var(--fundo-card-suave) !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    border: 1px solid var(--borda-padrao) !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    box-shadow: none !important;
+    position: relative !important;
+    min-height: 180px !important;
+    height: 180px !important;
+    font-family: var(--fonte-principal) !important;
+}
+
+html body.format-tiles ul.tiles > li.tile:hover {
+    border-color: var(--borda-hover) !important;
+    transform: translateY(-1px) !important;
+    transition: all 0.2s ease !important;
+}
+
+html body.format-tiles ul.tiles > li.tile.phototile,
+html body.format-tiles ul#multi_section_tiles > li.tile.phototile {
+    background-size: cover !important;
+    background-position: center center !important;
+}
+
+html body.format-tiles ul.tiles > li.tile .tile-bg,
+html body.format-tiles ul.tiles > li.tile .tile-content,
+html body.format-tiles ul#multi_section_tiles > li.tile .tile-bg,
+html body.format-tiles ul#multi_section_tiles > li.tile .tile-content {
+    background: transparent !important;
+    background-image: none !important;
+    background-color: transparent !important;
+    height: 100% !important;
+    min-height: 100% !important;
+    width: 100% !important;
+}
+
+html body.format-tiles ul.tiles > li.tile > a.tile-link,
+html body.format-tiles ul.tiles > li.tile a.tile-link {
+    color: var(--texto-principal) !important;
+    text-decoration: none !important;
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 100% !important;
+    position: relative !important;
+}
+
+/* TARJA TRANSPARENTE - título flutua sobre a imagem */
+html body.format-tiles ul.tiles > li.tile [id^="tileText-"],
+html body.format-tiles ul.tiles > li.tile div[id^="tileText"] {
+    background: transparent !important;
+    background-color: transparent !important;
+    color: var(--texto-principal) !important;
+    padding: 12px 20px !important;
+    text-align: left !important;
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    border-top: none !important;
+    z-index: 5 !important;
+    height: auto !important;
+    box-shadow: none !important;
+    font-family: var(--fonte-principal) !important;
+}
+
+html body.format-tiles ul.tiles > li.tile [id^="tileText-"] *,
+html body.format-tiles ul.tiles > li.tile [id^="tileText-"] h3,
+html body.format-tiles ul.tiles > li.tile [id^="tileText-"] .tile-textinner,
+html body.format-tiles ul.tiles > li.tile [id^="tileText-"] span {
+    background: transparent !important;
+    background-color: transparent !important;
+    color: var(--texto-principal) !important;
+    font-family: var(--fonte-principal) !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    letter-spacing: -0.1px !important;
+    text-transform: none !important;
+    line-height: 1.3 !important;
+    text-align: left !important;
+}
+
+html body.format-tiles ul.tiles > li.tile.phototile [id^="tileText-"],
+html body.format-tiles ul.tiles > li.tile.phototile div[id^="tileText"] {
+    background: transparent !important;
+    background-color: transparent !important;
+    opacity: 1 !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+
+/* ============================================
+   PLUGIN: Completion Progress
+   ============================================ */
+
+html body section.block_completion_progress.card,
+html body section.block.block_completion_progress {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    margin-bottom: 1.5rem !important;
+    padding: 0 !important;
+}
+
+html body section.block_completion_progress .card-body,
+html body section.block_completion_progress .card-body.p-3 {
+    padding: 0 !important;
+    background: transparent !important;
+}
+
+html body section.block_completion_progress h5,
+html body section.block_completion_progress h5.card-title,
+html body section.block_completion_progress h5[id^="instance-"],
+html body section.block_completion_progress .card-title.d-inline {
+    font-family: var(--fonte-principal) !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    color: var(--texto-principal) !important;
+    margin-bottom: 12px !important;
+    line-height: 1.3 !important;
+    letter-spacing: -0.1px !important;
+}
+
+html body .block_completion_progress .barContainer {
+    padding-top: 28px !important;
+    overflow: visible !important;
+    margin: 8px 0 !important;
+    width: 100% !important;
+}
+
+html body .block_completion_progress .barRow {
+    overflow: visible !important;
+    width: 100% !important;
+}
+
+html body .block_completion_progress .barRowCells {
+    overflow: visible !important;
+    width: 100% !important;
+    display: table !important;
+    table-layout: fixed !important;
+    border-collapse: separate !important;
+    border-spacing: 2px 0 !important;
+}
+
+html body .block_completion_progress .progressBarCell {
+    height: 14px !important;
+    border-radius: 2px !important;
+    border: none !important;
+    position: relative !important;
+    overflow: visible !important;
+    display: table-cell !important;
+}
+
+html body .block_completion_progress .barRowCells .progressBarCell:first-child {
+    border-radius: 4px 2px 2px 4px !important;
+}
+
+html body .block_completion_progress .barRowCells .progressBarCell:last-child {
+    border-radius: 2px 4px 4px 2px !important;
+}
+
+html body .block_completion_progress .progressBarCell.futureNotCompleted {
+    background-color: var(--cinza-futuro) !important;
+}
+
+html body .block_completion_progress .progressBarCell.notCompleted {
+    background-color: var(--vermelho-pendente) !important;
+}
+
+html body .block_completion_progress .progressBarCell.submitted {
+    background-color: var(--amarelo-progresso) !important;
+}
+
+html body .block_completion_progress .progressBarCell.completed {
+    background-color: var(--verde-sucesso) !important;
+}
+
+html body .block_completion_progress .progressBarCell:hover {
+    opacity: 0.75 !important;
+    cursor: pointer !important;
+}
+
+/* PILL "AGORA" */
+html body .block_completion_progress img.nowicon,
+html body .block_completion_progress .nowDiv img.icon,
+html body .block_completion_progress .nowDiv > img {
+    display: none !important;
+}
+
+html body .block_completion_progress .nowDiv,
+html body .block_completion_progress .nowDiv.firstNow {
+    position: absolute !important;
+    bottom: calc(100% + 6px) !important;
+    left: 0 !important;
+    background: var(--agora-bg) !important;
+    color: var(--agora-texto) !important;
+    font-family: var(--fonte-principal) !important;
+    font-size: 10px !important;
+    font-weight: 600 !important;
+    padding: 3px 10px !important;
+    border-radius: 6px !important;
+    letter-spacing: 0.6px !important;
+    text-transform: uppercase !important;
+    line-height: 1 !important;
+    width: auto !important;
+    height: auto !important;
+    white-space: nowrap !important;
+    z-index: 100 !important;
+    margin: 0 !important;
+    display: inline-block !important;
+}
+
+html body .block_completion_progress .nowDiv::after {
+    content: "" !important;
+    position: absolute !important;
+    bottom: -4px !important;
+    left: 12px !important;
+    width: 0 !important;
+    height: 0 !important;
+    border-left: 4px solid transparent !important;
+    border-right: 4px solid transparent !important;
+    border-top: 4px solid var(--agora-bg) !important;
+}
+
+html body .block_completion_progress .progressPercentage {
+    font-family: var(--fonte-principal) !important;
+    font-size: 12px !important;
+    color: var(--texto-suave) !important;
+    margin-top: 10px !important;
+    margin-bottom: 8px !important;
+    font-weight: 500 !important;
+}
+
+html body .block_completion_progress p:not([class]),
+html body .block_completion_progress > p,
+html body .block_completion_progress .card-body > p,
+html body .block_completion_progress .barInfo,
+html body .block_completion_progress .progressInfo {
+    display: none !important;
+}
+
+html body .block_completion_progress .overviewButton {
+    margin-top: 12px !important;
+    text-align: left !important;
+}
+
+html body .block_completion_progress .overviewButton .btn,
+html body .block_completion_progress .overviewButton button,
+html body .block_completion_progress .overviewButton a.btn,
+html body .block_completion_progress .overviewButton a {
+    display: inline-block !important;
+    background: var(--fundo-branco) !important;
+    color: var(--texto-principal) !important;
+    border: 1px solid var(--borda-padrao) !important;
+    border-radius: 8px !important;
+    padding: 8px 16px !important;
+    font-family: var(--fonte-principal) !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    transition: all 0.2s ease !important;
+    box-shadow: none !important;
+    text-decoration: none !important;
+}
+
+html body .block_completion_progress .overviewButton .btn:hover,
+html body .block_completion_progress .overviewButton button:hover,
+html body .block_completion_progress .overviewButton a:hover {
+    background: var(--fundo-card-suave) !important;
+    border-color: var(--borda-hover) !important;
+    color: var(--texto-principal) !important;
+    text-decoration: none !important;
+}
+
+
+/* ============================================
+   GRADEBOOK - Scroll horizontal otimizado
+   ============================================ */
+
+html body[class*="path-grade-report-grader"] #region-main,
+html body[class*="path-grade-report-grader"] #region-main-box,
+html body[class*="path-grade-report-grader"] .reportcontainer {
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+}
+
+html body[class*="path-grade-report-grader"] .gradeparent {
+    overflow-x: auto !important;
+    overflow-y: visible !important;
+    position: relative !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    -webkit-overflow-scrolling: touch !important;
+    will-change: scroll-position !important;
+    scroll-behavior: smooth !important;
+    scrollbar-width: auto !important;
+    scrollbar-color: var(--scroll-thumb) var(--scroll-track) !important;
+}
+
+html body[class*="path-grade-report-grader"] .gradeparent::-webkit-scrollbar {
+    height: 16px !important;
+    width: 16px !important;
+}
+
+html body[class*="path-grade-report-grader"] .gradeparent::-webkit-scrollbar-track {
+    background: var(--scroll-track) !important;
+    border-radius: 8px !important;
+    border: 1px solid var(--borda-padrao) !important;
+}
+
+html body[class*="path-grade-report-grader"] .gradeparent::-webkit-scrollbar-thumb {
+    background: var(--scroll-thumb) !important;
+    border-radius: 8px !important;
+    border: 2px solid var(--scroll-track) !important;
+    min-width: 60px !important;
+}
+
+html body[class*="path-grade-report-grader"] .gradeparent::-webkit-scrollbar-thumb:hover {
+    background: var(--scroll-thumb-hover) !important;
+    cursor: grab !important;
+}
+
+html body[class*="path-grade-report-grader"] .gradeparent::-webkit-scrollbar-thumb:active {
+    cursor: grabbing !important;
+    background: var(--scroll-thumb-active) !important;
+}
+
+html body[class*="path-grade-report-grader"] table#user-grades {
+    position: relative !important;
+    margin-bottom: 0 !important;
+}
+
+html body[class*="path-grade-report-grader"] table#user-grades th.header.user.cell,
+html body[class*="path-grade-report-grader"] table#user-grades th.cell.c0,
+html body[class*="path-grade-report-grader"] table#user-grades th.user.cell {
+    position: -webkit-sticky !important;
+    position: sticky !important;
+    left: 0 !important;
+    background: var(--fundo-branco) !important;
+    z-index: 5 !important;
+    border-right: 2px solid var(--borda-padrao) !important;
+}
+
+html body[class*="path-grade-report-grader"] table#user-grades thead th.header.cell.c0 {
+    z-index: 6 !important;
+}
+
+
+/* ============================================
+   FORMAT TILES - Spacers sem altura
+   ============================================ */
+
+html body.format-tiles ul#multi_section_tiles > li.tile.spacer,
+html body.format-tiles ul.tiles > li.tile.spacer,
+html body.format-tiles li.tile.spacer[aria-hidden="true"] {
+    height: 0 !important;
+    min-height: 0 !important;
+    max-height: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    overflow: hidden !important;
+    border: none !important;
+}
+
+html body.format-tiles ul#multi_section_tiles > li#lasttitle,
+html body.format-tiles li#lasttitle.tile.spacer {
+    height: 0 !important;
+    min-height: 0 !important;
+    max-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+}
+
+
+/* ============================================
+   BREADCRUMB - texto sempre visível
+   ============================================ */
+
+html body ul.breadcrumb li.breadcrumb-item a,
+html body nav[aria-label="Barra de navegação"] a,
+html body .breadcrumb-item:not(.text-truncate) a {
+    color: var(--texto-secundario) !important;
+    background-color: transparent !important;
+    text-decoration: none !important;
+    font-weight: 500 !important;
+}
+
+html body ul.breadcrumb li.breadcrumb-item a:hover,
+html body nav[aria-label="Barra de navegação"] a:hover {
+    color: var(--texto-principal) !important;
+    text-decoration: underline !important;
+    background-color: transparent !important;
+}
+
+html body ul.breadcrumb li.breadcrumb-item.active,
+html body ul.breadcrumb li.breadcrumb-item:last-child {
+    color: var(--texto-suave) !important;
+}
+
+html body ul.breadcrumb li.breadcrumb-item + li.breadcrumb-item::before {
+    color: var(--texto-bem-suave) !important;
+    opacity: 1 !important;
+}
+
+
+/* ============================================
+   BLOCK ADVANCED NOTIFICATIONS
+   Visual institucional Uniguaçu (azul + dourado)
+   ============================================ */
+
+.block_advnotifications {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin-bottom: 16px !important;
+}
+
+.block_advnotifications .ccnBlockContent,
+.block_advnotifications .card-body,
+.block_advnotifications .content {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+}
+
+.block_advnotifications .notification-block-wrapper {
+    margin-bottom: 12px !important;
+    width: 100% !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+    height: auto !important;
+}
+
+.block_advnotifications .notification-block-wrapper:last-child {
+    margin-bottom: 0 !important;
+}
+
+.block_advnotifications .alert {
+    width: auto !important;
+    height: auto !important;
+    max-width: 100% !important;
+    max-height: none !important;
+    padding: 14px 44px 14px 18px !important;
+    border-radius: 8px !important;
+    border: 0.5px solid var(--borda-suave) !important;
+    border-left: 3px solid var(--uni-dourado) !important;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04) !important;
+    background-clip: padding-box !important;
+    position: relative !important;
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    transition: all 0.2s ease !important;
+}
+
+.block_advnotifications .alert:hover {
+    box-shadow: 0 2px 4px rgba(15, 23, 42, 0.06) !important;
+}
+
+/* INFO — amarelinho institucional */
+.block_advnotifications .alert-info,
+.block_advnotifications .alert-info.announcement {
+    background-color: var(--aviso-info-bg) !important;
+    color: var(--aviso-info-texto) !important;
+    border-color: var(--aviso-info-borda) !important;
+    border-left-color: var(--uni-dourado) !important;
+}
+
+/* SUCCESS */
+.block_advnotifications .alert-success {
+    background-color: var(--aviso-success-bg) !important;
+    color: var(--aviso-success-texto) !important;
+    border-color: var(--aviso-success-borda) !important;
+    border-left-color: var(--aviso-success-borda-lat) !important;
+}
+
+/* WARNING */
+.block_advnotifications .alert-warning {
+    background-color: var(--aviso-warning-bg) !important;
+    color: var(--aviso-warning-texto) !important;
+    border-color: var(--aviso-warning-borda) !important;
+    border-left-color: var(--aviso-warning-borda-lat) !important;
+}
+
+/* DANGER */
+.block_advnotifications .alert-danger {
+    background-color: var(--aviso-danger-bg) !important;
+    color: var(--aviso-danger-texto) !important;
+    border-color: var(--aviso-danger-borda) !important;
+    border-left-color: var(--aviso-danger-borda-lat) !important;
+}
+
+.block_advnotifications .notification_aicon {
+    width: 20px !important;
+    height: 20px !important;
+    max-width: 20px !important;
+    max-height: 20px !important;
+    min-width: 20px !important;
+    min-height: 20px !important;
+    margin: 2px 0 0 0 !important;
+    padding: 0 !important;
+    flex-shrink: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    object-fit: contain !important;
+    float: none !important;
+    position: static !important;
+    display: inline-block !important;
+    vertical-align: top !important;
+    opacity: 0.85 !important;
+}
+
+.block_advnotifications .alert strong {
+    font-weight: 600 !important;
+    margin-right: 6px !important;
+    color: inherit !important;
+}
+
+.block_advnotifications .alert a {
+    color: var(--uni-azul-escuro) !important;
+    text-decoration: underline !important;
+    text-decoration-thickness: 1px !important;
+    text-underline-offset: 2px !important;
+    font-weight: 500 !important;
+    transition: all 0.15s ease !important;
+}
+
+.block_advnotifications .alert a:hover {
+    color: var(--uni-azul-mais-escuro) !important;
+    text-decoration-thickness: 2px !important;
+}
+
+/* Botão X de fechar */
+.block_advnotifications .notification-block-close {
+    position: absolute !important;
+    top: 50% !important;
+    right: 14px !important;
+    transform: translateY(-50%) !important;
+    width: 24px !important;
+    height: 24px !important;
+    cursor: pointer !important;
+    font-size: 18px !important;
+    font-weight: 400 !important;
+    line-height: 1 !important;
+    opacity: 0.45 !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.15s ease !important;
+    color: inherit !important;
+}
+
+.block_advnotifications .notification-block-close:hover {
+    opacity: 1 !important;
+    background: rgba(0, 0, 0, 0.06) !important;
+}
+
+.block_advnotifications .notification-block-close strong {
+    font-weight: 400 !important;
+    margin: 0 !important;
+}
+
+/* AJUSTES PARA SIDEBAR (mais compacto) */
+[data-block-region="side-pre"] .block_advnotifications .alert,
+[data-block-region="side-post"] .block_advnotifications .alert,
+.block-region.side-pre .block_advnotifications .alert,
+.block-region.side-post .block_advnotifications .alert,
+#block-region-side-pre .block_advnotifications .alert,
+#block-region-side-post .block_advnotifications .alert {
+    padding: 12px 36px 12px 14px !important;
+    font-size: 13px !important;
+    line-height: 1.45 !important;
+    gap: 10px !important;
+}
+
+[data-block-region="side-pre"] .block_advnotifications .notification_aicon,
+[data-block-region="side-post"] .block_advnotifications .notification_aicon,
+.block-region.side-pre .block_advnotifications .notification_aicon,
+.block-region.side-post .block_advnotifications .notification_aicon,
+#block-region-side-pre .block_advnotifications .notification_aicon,
+#block-region-side-post .block_advnotifications .notification_aicon {
+    width: 18px !important;
+    height: 18px !important;
+    max-width: 18px !important;
+    max-height: 18px !important;
+    min-width: 18px !important;
+    min-height: 18px !important;
+}
+
+[data-block-region="side-pre"] .block_advnotifications .notification-block-close,
+[data-block-region="side-post"] .block_advnotifications .notification-block-close,
+.block-region.side-pre .block_advnotifications .notification-block-close,
+.block-region.side-post .block_advnotifications .notification-block-close,
+#block-region-side-pre .block_advnotifications .notification-block-close,
+#block-region-side-post .block_advnotifications .notification-block-close {
+    right: 10px !important;
+    width: 20px !important;
+    height: 20px !important;
+    font-size: 16px !important;
+}
+
+/* RESPONSIVO MOBILE - avisos */
+@media (max-width: 768px) {
+    .block_advnotifications .alert {
+        padding: 12px 40px 12px 14px !important;
+        font-size: 13px !important;
+        gap: 10px !important;
+    }
+
+    .block_advnotifications .notification_aicon {
+        width: 18px !important;
+        height: 18px !important;
+        max-width: 18px !important;
+        max-height: 18px !important;
+    }
+}
+/* ============================================
+   ALINHAMENTO LATERAL UNIFORME — cards HTML em mobile
+   Iguala largura de qualquer conteúdo HTML (jornada,
+   clinic day, futuros cards) com as seções do curso
+   ============================================ */
+
+@media (max-width: 768px) {
+    /* Remove padding lateral dos wrappers de rótulo (mod_label)
+       quando contêm cards grid de 2 colunas (jornada, clinic day, etc.) */
+    html body[class*="format-"] li.modtype_label,
+    html body[class*="format-"] li.modtype_label > div,
+    html body[class*="format-"] li.modtype_label .activity,
+    html body[class*="format-"] li.modtype_label .activity-wrapper,
+    html body[class*="format-"] li.modtype_label .activity-instance,
+    html body[class*="format-"] li.modtype_label .contentwithoutlink,
+    html body[class*="format-"] li.modtype_label .mod-indent-outer,
+    html body[class*="format-"] li.modtype_label .mod-indent {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    /* Garante que o card grid ocupe 100% do espaço disponível */
+    html body[class*="format-"] div[style*="display: grid"][style*="grid-template-columns"] {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        box-sizing: border-box !important;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Sobrescreve a regra geral de .activity {padding: 12px} em mobile pequeno
+       APENAS para rótulos com cards HTML */
+    html body.format-tiles li.modtype_label .activity {
+        padding: 12px 0 !important;
+    }
+}

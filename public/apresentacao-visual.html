@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Apresentação Visual - Moodle</title>
+ <style>:root {
+ /* Cores Institucionais */
+ --cor-primaria: #024997;
+ --cor-secundaria: #F5333E;
+ --cor-apoio: #CDCDCD;
+ --cor-fundo: #F8F9FA;
+ --cor-texto: #333333;
+ --cor-texto-claro: #555555;
+ --cor-borda: #E5E7EB;
+ --cor-branco: #FFFFFF;
+
+ /* Status Colors */
+ --cor-sucesso: #059669;
+ --cor-alerta: #d97706;
+ --cor-perigo: #EF4444;
+
+ /* Cores de Alerta Suaves */
+ --bg-evita: #FEF2F2;
+ --border-evita: #EF4444;
+ --bg-resolve: #F0FDF4;
+ --border-resolve: #10B981;
+ }
+
+ * { box-sizing: border-box; }
+
+ body {
+ font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+ background-color: var(--cor-fundo);
+ color: var(--cor-texto);
+ margin: 0;
+ padding: 0;
+ line-height: 1.6;
+ overflow-x: hidden;
+ }
+
+ /* =========================================
+ LAYOUT DO DASHBOARD (MENU LATERAL + CONTEÚDO)
+ ========================================= */
+ #app-view {
+ display: flex;
+ height: 100vh;
+ width: 100vw;
+ }.sidebar {
+ width: 280px;
+ min-width: 280px;
+ background-color: var(--cor-branco);
+ border-right: 1px solid var(--cor-borda);
+ display: flex;
+ flex-direction: column;
+ flex-shrink: 0;
+ overflow: hidden;
+ box-shadow: 2px 0 10px rgba(0,0,0,0.03);
+ z-index: 50;
+ transition: width 0.3s ease, min-width 0.3s ease;
+ }.sidebar.recolhida {
+ width: 0;
+ min-width: 0;
+ }
+.sidebar-header {
+ padding: 25px 20px;
+ border-bottom: 1px solid var(--cor-borda);
+ background-color: var(--cor-primaria);
+ color: var(--cor-branco);
+ cursor: pointer;
+ transition: background 0.3s ease;
+ }.sidebar-header:hover { background-color: #01356e; }.sidebar-header h2 { font-size: 1.2rem; margin: 0; color: var(--cor-branco); }.sidebar-header p { font-size: 0.8rem; margin: 5px 0 0 0; color: #A9C1D9; }.back-to-home { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; display: inline-block; color: var(--cor-secundaria); font-weight: bold; }.sidebar-menu { padding: 20px 0; }.menu-category {
+ font-size: 0.75rem;
+ text-transform: uppercase;
+ letter-spacing: 1.5px;
+ color: #9CA3AF;
+ margin: 20px 20px 10px 20px;
+ font-weight: 700;
+ }.sidebar-menu button {
+ width: 100%;
+ background: none;
+ border: none;
+ text-align: left;
+ padding: 12px 20px 12px 30px;
+ font-size: 0.95rem;
+ color: var(--cor-texto-claro);
+ font-weight: 500;
+ cursor: pointer;
+ transition: all 0.2s ease;
+ border-left: 4px solid transparent;
+ font-family: inherit;
+ }.sidebar-menu button:hover {
+ background-color: var(--cor-fundo);
+ color: var(--cor-primaria);
+ }.sidebar-menu button.active {
+ background-color: #F0F4F8;
+ color: var(--cor-primaria);
+ border-left-color: var(--cor-secundaria);
+ font-weight: 700;
+ }.submenu-apresentacao {
+ display: flex;
+ flex-direction: column;
+ border-left: 2px solid var(--cor-borda);
+ margin: 4px 16px 8px 28px;
+ overflow: hidden;
+ max-height: 300px;
+ transition: max-height 0.3s ease, opacity 0.3s ease, margin 0.3s ease;
+ opacity: 1;
+ }.submenu-apresentacao.collapsed {
+ max-height: 0;
+ opacity: 0;
+ margin-top: 0;
+ margin-bottom: 0;
+ }.submenu-apresentacao a {
+ display: block;
+ padding: 7px 14px;
+ font-size: 0.82rem;
+ color: var(--cor-texto-claro);
+ text-decoration: none;
+ border-radius: 4px;
+ transition: background 0.15s, color 0.15s;
+ }.submenu-apresentacao a:hover {
+ background-color: var(--cor-fundo);
+ color: var(--cor-primaria);
+ }.btn-apresentacao-chevron {
+ margin-left: auto;
+ font-size: 0.7rem;
+ transition: transform 0.3s ease;
+ display: inline-block;
+ }.btn-apresentacao-chevron.rotated {
+ transform: rotate(-90deg);
+ }.main-content {
+ flex-grow: 1;
+ overflow-y: auto;
+ background-color: var(--cor-fundo);
+ position: relative;
+ }.page { display: none; padding-bottom: 60px; }.page.ativa { display: block; animation: fadeIn 0.4s ease-in-out; }
+
+ @keyframes fadeIn {
+ from { opacity: 0; transform: translateY(15px); }
+ to { opacity: 1; transform: translateY(0); }
+ }
+
+ /* =========================================
+ ESTILOS GERAIS DOS RELATÓRIOS
+ ========================================= */.hero {
+ background-color: var(--cor-primaria);
+ color: var(--cor-branco);
+ padding: 60px 40px;
+ text-align: center;
+ border-bottom: 5px solid var(--cor-secundaria);
+ }.hero h1 { margin: 0; font-size: 2.2rem; font-weight: 700; letter-spacing: -0.5px; }.hero p { font-size: 1.15rem; margin-top: 15px; color: #F0F0F0; max-width: 700px; margin-left: auto; margin-right: auto; }.hero p strong { color: var(--cor-branco); }.badge-contexto {
+ display: inline-block;
+ background-color: var(--cor-secundaria);
+ color: var(--cor-branco);
+ font-size: 0.85rem;
+ text-transform: uppercase;
+ letter-spacing: 1px;
+ padding: 4px 12px;
+ border-radius: 20px;
+ margin-bottom: 15px;
+ font-weight: bold;
+ }.container { max-width: 900px; margin: 40px auto; padding: 0 30px; }
+
+ section {
+ background: var(--cor-branco);
+ padding: 40px;
+ border-radius: 12px;
+ box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+ margin-bottom: 30px;
+ }
+
+ h2 { color: var(--cor-primaria); font-size: 1.5rem; border-bottom: 2px solid var(--cor-borda); padding-bottom: 10px; margin-top: 0; margin-bottom: 20px; display: flex; align-items: center; }.num-secao { color: var(--cor-secundaria); margin-right: 10px; font-weight: 800; }
+ h3 { color: var(--cor-primaria); font-size: 1.2rem; margin-top: 30px; margin-bottom: 10px; }
+ h4 { color: var(--cor-primaria); font-size: 1.1rem; margin-top: 20px; margin-bottom: 10px; }
+ p, li { font-size: 1.05rem; }
+ ul { padding-left: 20px; margin-top: 5px; margin-bottom: 15px; }
+ li { margin-bottom: 8px; }.achado-card { background-color: #F0F4F8; border-left: 4px solid var(--cor-primaria); padding: 25px; margin-bottom: 20px; border-radius: 0 8px 8px 0; }.achado-card h4 { margin: 0 0 15px 0; color: var(--cor-primaria); font-size: 1.15rem; border-bottom: 1px solid #d1d5db; padding-bottom: 10px; }.analise-box { background-color: var(--cor-branco); padding: 15px; border-radius: 6px; margin: 15px 0; border: 1px solid var(--cor-borda); }.analise-box strong { color: var(--cor-primaria); display: block; margin-bottom: 8px; font-size: 0.95rem; text-transform: uppercase; }.caixa-destaque { background: var(--cor-branco); padding: 15px; border-radius: 6px; font-size: 0.95rem; box-shadow: 0 2px 5px rgba(0,0,0,0.02); border-left: 4px solid var(--cor-primaria); }.caixa-destaque strong { display: block; margin-bottom: 8px; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.5px; }.caixa-destaque ul { margin-bottom: 0; }.caixa-destaque.evita { border-left-color: var(--cor-secundaria); }.caixa-destaque.evita strong { color: var(--cor-secundaria); }.caixa-destaque.resolve { border-left-color: var(--cor-sucesso); }.caixa-destaque.resolve strong { color: var(--cor-sucesso); }.alerta-impacto { border-left: 4px solid var(--cor-secundaria); background-color: #FFF5F5; padding: 20px; border-radius: 0 8px 8px 0; margin-top: 15px; font-size: 0.95rem; color: var(--cor-texto-claro); box-shadow: 0 2px 5px rgba(0,0,0,0.02); }.alerta-impacto strong { color: var(--cor-secundaria); display: block; margin-bottom: 5px; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.5px; }.nota-metodologica { background: #FFF8E8; border-left: 4px solid var(--cor-alerta); padding: 18px; border-radius: 0 8px 8px 0; margin-top: 15px; }.nota-metodologica strong { color: var(--cor-alerta); display: block; margin-bottom: 6px; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.5px; }.grid-infos { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
+
+ code { background-color: #f1f5f9; padding: 2px 6px; border-radius: 4px; font-family: 'Courier New', Courier, monospace; font-size: 0.9rem; color: #0f172a; }
+
+ .transform-box { display: flex; align-items: flex-start; justify-content: space-between; background-color: var(--cor-fundo); padding: 30px; border-radius: 8px; margin-top: 20px; text-align: center; gap: 20px; }.transform-item { flex: 1; border-radius: 8px; font-weight: bold; font-size: 1.1rem; }.arrow { font-size: 2rem; color: var(--cor-secundaria); font-weight: bold; align-self: center; flex-shrink: 0; }
+
+ /* Mobile */.menu-toggle { display: none; position: fixed; bottom: 20px; right: 20px; background: var(--cor-secundaria); color: white; border: none; padding: 15px; border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 1000; font-size: 1.2rem; cursor:pointer;}
+
+ @media (max-width: 850px) {
+ #app-view { flex-direction: column; }.sidebar { position: fixed; left: -100%; top: 0; bottom: 0; transition: left 0.3s ease; z-index: 200; width: 280px; }.sidebar.aberto { left: 0; }.menu-toggle { display: block; }.hero { padding: 40px 20px; }.hero h1 { font-size: 1.8rem; }
+ section { padding: 25px 20px; }.transform-box { flex-direction: column; }.arrow { transform: rotate(90deg); margin: 10px 0; align-self: center; }
+ }
+ </style>
+</head>
+<body>
+
+ <div id="app-view">
+
+ <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+ <div class="sidebar" id="sidebar">
+ <div class="sidebar-header" onclick="voltarPortal()">
+ <span class="back-to-home">← Voltar ao Portal</span>
+ <div style="display: flex; align-items: center; justify-content: space-between;">
+ <h2 style="margin: 0;">Moodle Dashboard</h2>
+ <button id="btn-toggle-sidebar" onclick="event.stopPropagation(); toggleSidebar();" title="Recolher menu" style="background: none; border: none; cursor: pointer; padding: 4px 6px; display: flex; flex-direction: column; gap: 5px; border-radius: 4px; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.15)'" onmouseout="this.style.background='none'">
+ <span style="display: block; width: 18px; height: 2px; background: white; border-radius: 2px;"></span>
+ <span style="display: block; width: 18px; height: 2px; background: white; border-radius: 2px;"></span>
+ <span style="display: block; width: 18px; height: 2px; background: white; border-radius: 2px;"></span>
+ </button>
+ </div>
+ <p>Relatório de Consultoria</p>
+ </div>
+
+ <div class="sidebar-menu">
+ <div class="menu-category">Categoria: Análise</div>
+ <button onclick="window.location.href='/uniguacu.html#disciplina'">Análise da Disciplina</button>
+ <button onclick="window.location.href='/uniguacu.html#acesso'">Tela de Acesso (JACAD)</button>
+ <button onclick="window.location.href='/uniguacu.html#navegacao'">Navegação Moodle</button>
+
+ <div class="menu-category">Categoria: Técnico</div>
+ <button onclick="window.location.href='/uniguacu.html#arquitetura'">Arquitetura Completa</button>
+ <button onclick="window.location.href='/uniguacu.html#plano'">Plano de Ação Técnico</button>
+ <button onclick="window.location.href='/uniguacu.html#resultados'">Resultados</button>
+ <button id="btn-apresentacao" class="active" style="display: flex; align-items: center; justify-content: space-between;" onclick="mudarPagina('apresentacao'); toggleSubmenu();">Apresentação Visual <span id="chevron-apresentacao" class="btn-apresentacao-chevron">▼</span></button>
+ <div class="submenu-apresentacao" id="submenu-apresentacao">
+ <a href="#secao-1">1. Contextualização</a>
+ <a href="#secao-2">2. Ajustes de configuração</a>
+ <a href="#secao-3">3. Configuração do painel</a>
+ <a href="#secao-4">4. Navegação dos cursos</a>
+ <a href="#secao-5">5. Clinic Day</a>
+ <a href="#secao-6">6. Download dos arquivos</a>
+ </div>
+ </div>
+ </div>
+
+ <button id="btn-reabrir-sidebar" onclick="toggleSidebar()" title="Abrir menu" style="display:none; position: fixed; top: 16px; left: 16px; z-index: 100; background: var(--cor-primaria); border: none; cursor: pointer; padding: 8px 10px; border-radius: 6px; flex-direction: column; gap: 5px; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">
+ <span style="display: block; width: 18px; height: 2px; background: white; border-radius: 2px;"></span>
+ <span style="display: block; width: 18px; height: 2px; background: white; border-radius: 2px;"></span>
+ <span style="display: block; width: 18px; height: 2px; background: white; border-radius: 2px;"></span>
+ </button>
+
+ <div class="main-content" id="main-content">
+
+ <div id="pagina-apresentacao" class="page ativa">
+ <header class="hero">
+ <span class="badge-contexto">Experiência Visual</span>
+ <h1>Apresentação Visual</h1>
+ <p>Análise e recomendações visuais para o ambiente Moodle</p>
+ </header>
+
+ <div class="container">
+
+ <div style="margin: 40px 0; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1); aspect-ratio: 16/9;">
+ <iframe
+ src="https://www.youtube.com/embed/mddke-PRyes"
+ title="Apresentação Visual — Moodle"
+ style="width: 100%; height: 100%; border: none;"
+ allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+ allowfullscreen>
+ </iframe>
+ </div>
+
+ <section>
+ <h2 id="secao-1"><span class="num-secao">1.</span> Contextualização</h2>
+ <p>Para iniciarmos a página de "Apresentação Visual", é importante contextualizar alguns critérios considerados durante a análise.</p>
+ <p>Como, neste momento, não há a possibilidade inicial de implantação de uma nova instância do Moodle — o que seria o cenário mais adequado —, as recomendações apresentadas a seguir foram pensadas com foco em melhorias visuais e de experiência, buscando gerar o menor impacto possível na estrutura atual da plataforma.</p>
+ <p>Ainda assim, algumas adequações e plugins foram considerados necessários para aprimorar a experiência do aluno, a organização das informações e a navegação dentro do ambiente.</p>
+ <div class="nota-metodologica">
+ <strong>Atenção</strong>
+ É importante destacar que, mesmo quando as alterações têm caráter visual, elas podem gerar impactos em diferentes áreas do Moodle. Por isso, recomenda-se que qualquer implementação seja realizada de forma gradual, em etapas controladas, especialmente quando envolver ajustes de CSS no tema, já que esse tipo de alteração pode refletir em todo o ambiente.
+ </div>
+ <p style="margin-top: 20px;">A seguir, serão demonstrados em tela os principais pontos identificados durante a análise, com o apoio de imagens para facilitar a visualização dos ajustes propostos e dos seus possíveis impactos na experiência do aluno.</p>
+ </section>
+
+ <section>
+ <h2 id="secao-2"><span class="num-secao">2.</span> Ajustes de configuração</h2>
+ <p>Uma das principais necessidades identificadas durante a análise foi a visualização indevida de cursos por parte dos alunos. No cenário anterior, os estudantes conseguiam acessar a listagem de todos os cursos cadastrados no Moodle, mesmo não estando matriculados neles.</p>
+ <p>Para corrigir esse comportamento, foram realizados ajustes nas configurações de visualização e permissões por categoria. Com essas alterações, o aluno passa a visualizar apenas os cursos nos quais está efetivamente matriculado, independentemente da página ou área do ambiente em que esteja navegando.</p>
+ <p>Esses ajustes contribuem para uma navegação mais limpa, direcionada e coerente com a jornada do estudante, reduzindo ruídos, dúvidas e acessos indevidos a cursos que não fazem parte da sua trilha acadêmica.</p>
+
+ <h3>Configurações aplicadas</h3>
+
+ <div class="achado-card">
+ <h4>1. Visualização dos cursos inscritos na página inicial</h4>
+ <p>Essa configuração ajusta a página inicial do Moodle para exibir, ao usuário logado, apenas os cursos nos quais ele está inscrito.</p>
+ <div class="analise-box">
+ <strong>Caminho aplicado</strong>
+ Administração do site → Página inicial → Configurações da página inicial → Itens da página principal quando logado → <em>Cursos inscritos</em>
+ </div>
+ </div>
+
+ <div class="achado-card">
+ <h4>2. Restrição da visualização de cursos não inscritos pelo botão "Todos os cursos"</h4>
+ <p>Foi ajustada a permissão de visualização da listagem de cursos dentro das categorias, impedindo que usuários sem matrícula visualizem cursos que não pertencem à sua jornada.</p>
+ <div class="analise-box">
+ <strong>Caminho aplicado</strong>
+ Administração do site → Cursos → Gerenciar cursos e categorias → Configuração da categoria → Permissões → <em>moodle/category:viewcourselist</em>
+ </div>
+ <div class="caixa-destaque evita" style="margin-top: 15px;">
+ <strong>Ajuste realizado</strong>
+ Remover as permissões de visualização para os papéis <b>Usuário autenticado</b> e <b>Visitante</b>, aplicando a restrição como <b>Proibido</b>.
+ </div>
+ <div class="nota-metodologica" style="margin-top: 15px;">
+ <strong>Observação</strong>
+ Esse ajuste deve ser realizado em todas as categorias do ambiente.
+ </div>
+ </div>
+
+ <div class="achado-card">
+ <h4>3. Remoção do botão "Todos os cursos" da página inicial</h4>
+ <p>Para reforçar a restrição de acesso e evitar que o aluno navegue pela listagem geral de cursos, também foi ajustada a permissão relacionada à exibição do botão "Todos os cursos" na página inicial.</p>
+ <div class="analise-box">
+ <strong>Caminho aplicado</strong>
+ Administração do site → Usuários → Permissões → Definir papéis → Usuário autenticado → Configurações → <em>moodle/category:viewcourselist</em>
+ </div>
+ <div class="caixa-destaque evita" style="margin-top: 15px;">
+ <strong>Ajuste realizado</strong>
+ Remover a permissão de visualização da listagem de cursos para o papel <b>Usuário autenticado</b>.
+ </div>
+ <div class="nota-metodologica" style="margin-top: 15px;">
+ <strong>Observação</strong>
+ Esse ajuste deve ser replicado para todos os papéis que não devem visualizar a listagem geral de cursos.
+ </div>
+ </div>
+
+ <h3 style="margin-top: 35px;">Demonstração: antes e depois</h3>
+ <div class="transform-box">
+ <div class="transform-item item-de" style="background: #F0F4F8; border-radius: 8px; padding: 15px;">
+ <span style="display: block; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; color: var(--cor-secundaria); font-weight: bold;">Antes</span>
+ <img src="/uniguacu/1.VA_Atual.jpeg" alt="Visualização atual — cursos indevidos visíveis" style="width: 100%; border-radius: 6px; border: 1px solid var(--cor-borda); display: block;">
+ </div>
+ <div class="arrow">→</div>
+ <div class="transform-item item-para" style="background: #F0F4F8; border-radius: 8px; padding: 15px;">
+ <span style="display: block; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; color: var(--cor-sucesso); font-weight: bold;">Depois</span>
+ <img src="/uniguacu/1.VA_Ajustado.jpeg" alt="Visualização ajustada — apenas cursos inscritos" style="width: 100%; border-radius: 6px; border: 1px solid var(--cor-borda); display: block;">
+ </div>
+ </div>
+
+ <p style="margin-top: 20px;">Na imagem do <b>"Antes"</b>, é possível observar que o aluno possuía acesso à visualização das categorias, o que permitia a navegação por todos os cursos cadastrados no ambiente.</p>
+ <p>Na imagem do <b>"Depois"</b>, após os ajustes de configuração e permissões, o aluno passa a visualizar apenas os cursos nos quais está matriculado, não tendo mais acesso à listagem de cursos fora da sua jornada acadêmica.</p>
+ </section>
+
+ <section>
+ <h2 id="secao-3"><span class="num-secao">3.</span> Configuração do painel</h2>
+ <p>Neste item, foram necessárias intervenções mais significativas na organização visual e funcional do painel. Por isso, é importante analisar primeiro o cenário anterior e os principais pontos identificados durante a avaliação.</p>
+
+ <h3>Antes</h3>
+ <div style="border-radius: 8px; overflow: hidden; border: 1px solid var(--cor-borda);">
+ <img src="/uniguacu/Painel -antes.gif" alt="Painel antes dos ajustes" style="width: 100%; display: block;">
+ </div>
+
+ <h3 style="margin-top: 30px;">Depois</h3>
+ <div style="border-radius: 8px; overflow: hidden; border: 1px solid var(--cor-borda);">
+ <img src="/uniguacu/Painel - depois.gif" alt="Painel após os ajustes" style="width: 100%; display: block;">
+ </div>
+
+ <div style="margin-top: 30px; border-radius: 10px; overflow: hidden; border: 1px solid var(--cor-borda); overflow-x: auto;">
+ <table style="width: 100%; border-collapse: collapse; min-width: 560px; font-size: 0.93rem;">
+ <thead>
+ <tr>
+ <th style="padding: 12px 16px; background: var(--cor-primaria); color: #A9C1D9; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; text-align: left; width: 22%;">Elemento</th>
+ <th style="padding: 12px 16px; background: #B91C1C; color: #FEE2E2; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; text-align: left; border-left: 1px solid rgba(255,255,255,0.15);">Antes</th>
+ <th style="padding: 12px 16px; background: #047857; color: #D1FAE5; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; text-align: left; border-left: 1px solid rgba(255,255,255,0.15);">Depois</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); font-weight: 600; color: var(--cor-primaria); background: #F8FAFC; vertical-align: top;">Cabeçalho</td>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); background: #FFF8F8; vertical-align: top; border-left: 1px solid #FEE2E2;">Ícones subutilizados de mensagens, perfil e configurações</td>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); background: #F0FDF4; vertical-align: top; border-left: 1px solid #D1FAE5;">Simplificado para reduzir poluição visual</td>
+ </tr>
+ <tr>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); font-weight: 600; color: var(--cor-primaria); background: #F0F4F8; vertical-align: top;">Banner principal</td>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); background: #FFF8F8; vertical-align: top; border-left: 1px solid #FEE2E2;">Estático, limitando comunicação e atualizações frequentes</td>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); background: #F0FDF4; vertical-align: top; border-left: 1px solid #D1FAE5;">Substituído por carrossel dinâmico com múltiplos comunicados</td>
+ </tr>
+ <tr>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); font-weight: 600; color: var(--cor-primaria); background: #F8FAFC; vertical-align: top;">Acesso às categorias</td>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); background: #FFF8F8; vertical-align: top; border-left: 1px solid #FEE2E2;">Permitia navegar por todos os cursos cadastrados no ambiente</td>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); background: #F0FDF4; vertical-align: top; border-left: 1px solid #D1FAE5;">Restrito apenas aos cursos em que o aluno está matriculado</td>
+ </tr>
+ <tr>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); font-weight: 600; color: var(--cor-primaria); background: #F0F4F8; vertical-align: top;">Cards laterais</td>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); background: #FFF8F8; vertical-align: top; border-left: 1px solid #FEE2E2;">Direcionavam para a listagem completa de cursos da categoria</td>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); background: #F0FDF4; vertical-align: top; border-left: 1px solid #D1FAE5;">Acesso direto e objetivo ao Clinic Day</td>
+ </tr>
+ <tr>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); font-weight: 600; color: var(--cor-primaria); background: #F8FAFC; vertical-align: top;">Itens recentes</td>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); background: #FFF8F8; vertical-align: top; border-left: 1px solid #FEE2E2;">Exibidos apenas ao final da página, sem destaque</td>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); background: #F0FDF4; vertical-align: top; border-left: 1px solid #D1FAE5;">Em destaque na lateral, priorizando a continuidade da jornada</td>
+ </tr>
+ <tr>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); font-weight: 600; color: var(--cor-primaria); background: #F0F4F8; vertical-align: top;">Calendário</td>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); background: #FFF8F8; vertical-align: top; border-left: 1px solid #FEE2E2;">Presente, posicionado após outros elementos</td>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); background: #F0FDF4; vertical-align: top; border-left: 1px solid #D1FAE5;">Mantido como elemento de organização acadêmica</td>
+ </tr>
+ <tr>
+ <td style="padding: 13px 16px; font-weight: 600; color: var(--cor-primaria); background: #F8FAFC; vertical-align: top;">Plugin de avisos</td>
+ <td style="padding: 13px 16px; background: #FFF8F8; vertical-align: top; border-left: 1px solid #FEE2E2;">Ausente</td>
+ <td style="padding: 13px 16px; background: #F0FDF4; vertical-align: top; border-left: 1px solid #D1FAE5;">Inserido para publicação de comunicados de forma organizada e visível</td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+
+ <div class="alerta-impacto" style="border-left-color: var(--cor-primaria); background-color: #F0F4F8; margin-top: 10px;">
+ <strong style="color: var(--cor-primaria);">Visão geral</strong>
+ De modo geral, essa tela deve funcionar como a principal porta de entrada do estudante no ambiente. Por isso, precisa transmitir modernidade, clareza e facilidade de navegação, apoiando o aluno desde o primeiro acesso e direcionando-o de forma objetiva para os pontos mais importantes da sua jornada acadêmica.
+ </div>
+
+ <h3 style="margin-top: 40px;">3.1 Como as alterações foram aplicadas</h3>
+ <p>Para que as alterações apresentadas no painel fossem realizadas, foi necessário aplicar uma combinação de ajustes visuais, configurações no tema e inserção de blocos personalizados.</p>
+ <p>A primeira adaptação envolveu a criação de banners no formato <b>1200 x 400 px</b>, estruturados em HTML, permitindo a movimentação no formato de carrossel. Esse formato possibilita uma comunicação mais dinâmica dentro da dashboard, sem depender de um único banner estático.</p>
+ <p>Também foram realizados ajustes no CSS da dashboard do tema Edumy, com foco na melhoria das cores, no formato dos blocos, na organização visual e na navegação geral. Um dos principais pontos considerados foi a <b>responsividade</b> da plataforma, garantindo uma melhor adaptação da interface em diferentes tamanhos de tela.</p>
+
+ <div class="achado-card" style="margin-top: 30px;">
+ <h4>Ajustes no CSS da página inicial</h4>
+ <p>Para aplicação dos ajustes visuais da dashboard, foi utilizado o seguinte caminho:</p>
+ <div class="analise-box">
+ <strong>Caminho aplicado</strong>
+ Administração do curso → Aparência → Temas → Edumy → Advanced → Bloco Custom CSS Dashboard → Aplicar CSS anexado
+ </div>
+ <div class="checklist-box" style="margin-top: 15px;">
+ <h4>Arquivo para download</h4>
+ <ul>
+ <li><a href="/uniguacu/CSS - Dashboard Edumy" download="CSS - Dashboard Edumy.css" style="color: var(--cor-primaria); font-weight: 600;">CSS — Dashboard Edumy</a></li>
+ </ul>
+ </div>
+ </div>
+
+ <div class="achado-card">
+ <h4>Configuração do banner em formato carrossel</h4>
+ <p>Para a implementação do banner carrossel na página inicial, foi utilizado um bloco HTML configurado diretamente na página de painel padrão.</p>
+ <div class="analise-box">
+ <strong>Caminho aplicado</strong>
+ Administração do site → Aparência → Página Painel Padrão → Habilitar edição de blocos → Configurar bloco HTML → Inserir HTML anexado
+ </div>
+ <div class="checklist-box" style="margin-top: 15px;">
+ <h4>Arquivo para download</h4>
+ <ul>
+ <li><a href="/uniguacu/HTML - Banner Carrossel" download="HTML - Banner Carrossel.html" style="color: var(--cor-primaria); font-weight: 600;">HTML — Banner Carrossel</a></li>
+ </ul>
+ </div>
+ </div>
+
+ <div class="achado-card">
+ <h4>Aplicação do plugin de avisos</h4>
+ <p>Para a criação dos avisos visuais na dashboard, foi aplicado o plugin <b>Advanced Notifications</b>, disponível no repositório oficial de plugins do Moodle:</p>
+ <div class="analise-box">
+ <strong>Repositório oficial</strong>
+ <a href="https://moodle.org/plugins/block_advnotifications" target="_blank" rel="noopener" style="color: var(--cor-primaria); font-weight: 600;">https://moodle.org/plugins/block_advnotifications</a>
+ </div>
+ <p style="margin-top: 15px;">Esse plugin permite que os administradores publiquem comunicados, alertas e informações importantes diretamente no ambiente, tornando a comunicação mais visível para o estudante logo no acesso inicial à plataforma.</p>
+
+ <div class="nota-metodologica" style="margin-top: 15px;">
+ <strong>Ponto de atenção</strong>
+ Na última validação realizada, a versão disponível do plugin não era oficialmente suportada pela versão atual do Moodle utilizada no ambiente. Para viabilizar sua utilização, foi necessário realizar um ajuste no arquivo de versão do plugin.
+ <br><br>
+ É importante considerar que o autor pode ter atualizado o plugin desde a última pesquisa. Caso a compatibilidade ainda não tenha sido atualizada oficialmente, o caminho recomendado continua sendo: clonar o plugin, ajustar o arquivo <b>version.php</b> para aceitar o Moodle 4.1 e validar cuidadosamente em ambiente de homologação antes de qualquer aplicação em produção.
+ </div>
+
+ <h4 style="margin-top: 25px;">Ajustes realizados no version.php</h4>
+ <p>A alteração foi feita exclusivamente no arquivo <b>version.php</b>. Nenhum código funcional do plugin foi modificado.</p>
+ <p>Na análise do restante do plugin, não foram identificados usos críticos de APIs depreciadas no Moodle 4.x. Foram verificados elementos como <b>block_base</b>, <b>plugin_renderer_base</b>, <b>optional_param</b>, <b>has_capability</b>, <b>scheduled_task</b> e <b>privacy provider</b>, todos ainda válidos no Moodle 4.x.</p>
+
+ <div style="margin-top: 20px; border-radius: 10px; overflow: hidden; border: 1px solid var(--cor-borda);">
+ <!-- Cabeçalho -->
+ <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; background-color: var(--cor-primaria);">
+ <div style="padding: 12px 18px; color: #A9C1D9; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700;">Campo</div>
+ <div style="padding: 12px 18px; color: #A9C1D9; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; border-left: 1px solid rgba(255,255,255,0.1);">Antes</div>
+ <div style="padding: 12px 18px; color: #A9C1D9; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; border-left: 1px solid rgba(255,255,255,0.1);">Depois</div>
+ </div>
+ <!-- Linha 1 -->
+ <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; background: var(--cor-branco); border-top: 1px solid var(--cor-borda);">
+ <div style="padding: 14px 18px; display: flex; align-items: center;"><code>requires</code></div>
+ <div style="padding: 14px 18px; border-left: 1px solid var(--cor-borda); display: flex; align-items: center; gap: 8px;">
+ <span style="display: inline-block; background: #FEE2E2; color: #991B1B; font-size: 0.8rem; font-weight: 700; padding: 3px 10px; border-radius: 20px;">Moodle 3.5</span>
+ <span style="color: var(--cor-texto-claro); font-size: 0.9rem;">2018051703</span>
+ </div>
+ <div style="padding: 14px 18px; border-left: 1px solid var(--cor-borda); display: flex; align-items: center; gap: 8px;">
+ <span style="display: inline-block; background: #D1FAE5; color: #065F46; font-size: 0.8rem; font-weight: 700; padding: 3px 10px; border-radius: 20px;">Moodle 4.1</span>
+ <span style="color: var(--cor-texto-claro); font-size: 0.9rem;">2022112800</span>
+ </div>
+ </div>
+ <!-- Linha 2 -->
+ <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; background: #FAFAFA; border-top: 1px solid var(--cor-borda);">
+ <div style="padding: 14px 18px; display: flex; align-items: center;"><code>supported</code></div>
+ <div style="padding: 14px 18px; border-left: 1px solid var(--cor-borda); display: flex; align-items: center;">
+ <span style="display: inline-block; background: #F3F4F6; color: #6B7280; font-size: 0.8rem; font-weight: 700; padding: 3px 10px; border-radius: 20px;">Ausente</span>
+ </div>
+ <div style="padding: 14px 18px; border-left: 1px solid var(--cor-borda); display: flex; align-items: center;">
+ <span style="display: inline-block; background: #D1FAE5; color: #065F46; font-size: 0.8rem; font-weight: 700; padding: 3px 10px; border-radius: 20px;">[401, 405]</span>
+ </div>
+ </div>
+ <!-- Linha 3 -->
+ <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; background: var(--cor-branco); border-top: 1px solid var(--cor-borda);">
+ <div style="padding: 14px 18px; display: flex; align-items: center;"><code>release</code></div>
+ <div style="padding: 14px 18px; border-left: 1px solid var(--cor-borda); display: flex; align-items: center;">
+ <span style="display: inline-block; background: #FEE2E2; color: #991B1B; font-size: 0.8rem; font-weight: 700; padding: 3px 10px; border-radius: 20px;">v1.4.3</span>
+ </div>
+ <div style="padding: 14px 18px; border-left: 1px solid var(--cor-borda); display: flex; align-items: center;">
+ <span style="display: inline-block; background: #D1FAE5; color: #065F46; font-size: 0.8rem; font-weight: 700; padding: 3px 10px; border-radius: 20px;">v1.4.3-custom-m41</span>
+ </div>
+ </div>
+ </div>
+
+ <div class="analise-box" style="margin-top: 15px;">
+ <strong>Sobre o parâmetro supported</strong>
+ O parâmetro <code>supported = [401, 405]</code> permite a instalação do plugin em versões do Moodle entre 4.1 e 4.5, oferecendo maior flexibilidade caso seja realizada uma migração de versão futuramente, sem necessidade imediata de novo ajuste no plugin.
+ </div>
+
+ <h4 style="margin-top: 25px;">Documentação incluída no pacote</h4>
+ <p>Além do ajuste no plugin, foi incluído no arquivo ZIP um documento chamado <b>AJUSTES_M41.md</b>, contendo:</p>
+ <div class="checklist-box">
+ <h4>O que está documentado</h4>
+ <ul>
+ <li>Detalhes do que foi alterado</li>
+ <li>Procedimento de instalação passo a passo</li>
+ <li>Checklist de testes para homologação</li>
+ <li>Orientações de troubleshooting para os erros mais prováveis</li>
+ </ul>
+ </div>
+
+ <div class="checklist-box" style="margin-top: 15px;">
+ <h4>Arquivo para download</h4>
+ <ul>
+ <li><a href="/uniguacu/block_advnotifications_moodle41 (1).zip" download="block_advnotifications_moodle41.zip" style="color: var(--cor-primaria); font-weight: 600;">block_advnotifications_moodle41.zip</a></li>
+ </ul>
+ </div>
+ </div>
+ </section>
+
+ <section>
+ <h2 id="secao-4"><span class="num-secao">4.</span> Navegação dos cursos</h2>
+ <p>Na navegação interna dos cursos, também foram realizadas alterações relacionadas ao CSS, às imagens e às configurações visuais da plataforma.</p>
+ <p>Neste momento, é importante compreender os impactos dessas mudanças na experiência do estudante, principalmente porque a página do curso é o ambiente onde o aluno passa a maior parte da jornada acadêmica. Portanto, a organização visual, a clareza das informações e a facilidade de navegação influenciam diretamente na usabilidade, no engajamento e na percepção de valor do curso.</p>
+
+ <h3>Antes</h3>
+ <div style="border-radius: 8px; overflow: hidden; border: 1px solid var(--cor-borda);">
+ <img src="/uniguacu/Navegação interna - antes.gif" alt="Navegação interna antes dos ajustes" style="width: 100%; display: block;">
+ </div>
+
+ <h3 style="margin-top: 30px;">Depois</h3>
+ <div style="border-radius: 8px; overflow: hidden; border: 1px solid var(--cor-borda);">
+ <img src="/uniguacu/Navegação interna - depois.gif" alt="Navegação interna após os ajustes" style="width: 100%; display: block;">
+ </div>
+
+ <div style="margin-top: 30px; border-radius: 10px; overflow: hidden; border: 1px solid var(--cor-borda); overflow-x: auto;">
+ <table style="width: 100%; border-collapse: collapse; min-width: 560px; font-size: 0.93rem;">
+ <thead>
+ <tr>
+ <th style="padding: 12px 16px; background: var(--cor-primaria); color: #A9C1D9; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; text-align: left; width: 22%;">Elemento</th>
+ <th style="padding: 12px 16px; background: #B91C1C; color: #FEE2E2; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; text-align: left; border-left: 1px solid rgba(255,255,255,0.15);">Antes</th>
+ <th style="padding: 12px 16px; background: #047857; color: #D1FAE5; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; text-align: left; border-left: 1px solid rgba(255,255,255,0.15);">Depois</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); font-weight: 600; color: var(--cor-primaria); background: #F8FAFC; vertical-align: top;">Banner inicial</td>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); background: #FFF8F8; vertical-align: top; border-left: 1px solid #FEE2E2;">Extenso, sem critérios de avaliação ou orientações objetivas ao aluno</td>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); background: #F0FDF4; vertical-align: top; border-left: 1px solid #D1FAE5;">HTML de jornada: nota atual, próxima aula e direcionamentos personalizados</td>
+ </tr>
+ <tr>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); font-weight: 600; color: var(--cor-primaria); background: #F0F4F8; vertical-align: top;">Progresso global</td>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); background: #FFF8F8; vertical-align: top; border-left: 1px solid #FEE2E2;">Indicador impreciso, pode gerar interpretações equivocadas da situação acadêmica</td>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); background: #F0FDF4; vertical-align: top; border-left: 1px solid #D1FAE5;">Mantido — leitura cautelosa recomendada conforme a metodologia aplicada</td>
+ </tr>
+ <tr>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); font-weight: 600; color: var(--cor-primaria); background: #F8FAFC; vertical-align: top;">Ícones dos cards</td>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); background: #FFF8F8; vertical-align: top; border-left: 1px solid #FEE2E2;">Traços pesados e aspecto desatualizado, pouco alinhado ao ambiente premium</td>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); background: #F0FDF4; vertical-align: top; border-left: 1px solid #D1FAE5;">Substituídos por novos PNG com traços modernos e leves</td>
+ </tr>
+ <tr>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); font-weight: 600; color: var(--cor-primaria); background: #F0F4F8; vertical-align: top;">Ícones internos (H5P)</td>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); background: #FFF8F8; vertical-align: top; border-left: 1px solid #FEE2E2;">Não comunicam claramente o tipo de conteúdo ao estudante</td>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); background: #F0FDF4; vertical-align: top; border-left: 1px solid #D1FAE5;">Atualizados para identificação rápida e intuitiva do conteúdo</td>
+ </tr>
+ <tr>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); font-weight: 600; color: var(--cor-primaria); background: #F8FAFC; vertical-align: top;">Botões de conclusão</td>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); background: #FFF8F8; vertical-align: top; border-left: 1px solid #FEE2E2;">Pouco intuitivos, visualmente simples e sem clareza para o aluno</td>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); background: #F0FDF4; vertical-align: top; border-left: 1px solid #D1FAE5;">Modelo checklist, padrão familiar em LMS modernos</td>
+ </tr>
+ <tr>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); font-weight: 600; color: var(--cor-primaria); background: #F0F4F8; vertical-align: top;">Informações da disciplina</td>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); background: #FFF8F8; vertical-align: top; border-left: 1px solid #FEE2E2;">Ausentes, sem espaço centralizado de orientação inicial</td>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); background: #F0FDF4; vertical-align: top; border-left: 1px solid #D1FAE5;">Card de apresentação com critérios, etapas e direcionamentos da disciplina</td>
+ </tr>
+ <tr>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); font-weight: 600; color: var(--cor-primaria); background: #F8FAFC; vertical-align: top;">Notas e desempenho</td>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); background: #FFF8F8; vertical-align: top; border-left: 1px solid #FEE2E2;">Sem local claro de consulta, gerando insegurança e aumento de suporte</td>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); background: #F0FDF4; vertical-align: top; border-left: 1px solid #D1FAE5;">Painel lateral com acesso rápido a notas e áreas estratégicas da jornada</td>
+ </tr>
+ <tr>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); font-weight: 600; color: var(--cor-primaria); background: #F0F4F8; vertical-align: top;">Clinic Day</td>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); background: #FFF8F8; vertical-align: top; border-left: 1px solid #FEE2E2;">Acesso indireto via listagem de categorias</td>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); background: #F0FDF4; vertical-align: top; border-left: 1px solid #D1FAE5;">Hiperlink de direcionamento direto e objetivo</td>
+ </tr>
+ <tr>
+ <td style="padding: 13px 16px; font-weight: 600; color: var(--cor-primaria); background: #F8FAFC; vertical-align: top;">Avisos laterais</td>
+ <td style="padding: 13px 16px; background: #FFF8F8; vertical-align: top; border-left: 1px solid #FEE2E2;">Ausentes</td>
+ <td style="padding: 13px 16px; background: #F0FDF4; vertical-align: top; border-left: 1px solid #D1FAE5;">Inseridos com padrão visual consistente ao painel principal</td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+
+ <h3 style="margin-top: 40px;">4.1 Como as alterações foram feitas</h3>
+ <p>Para viabilizar as melhorias apresentadas na navegação interna dos cursos, foram aplicadas alterações em diferentes frentes: ícones, blocos HTML, plugins de apoio e ajustes de CSS no tema utilizado pela disciplina.</p>
+
+ <div class="achado-card" style="margin-top: 25px;">
+ <h4>Alteração dos ícones dos cards</h4>
+ <p>Inicialmente, foi realizada a substituição dos ícones utilizados nos cards da disciplina.</p>
+ <p>Para isso, todos os novos ícones foram ajustados em formato PNG e inseridos individualmente em cada card, garantindo maior padronização visual, melhor leitura dos elementos e uma aparência mais moderna para a navegação.</p>
+ <div class="checklist-box" style="margin-top: 15px;">
+ <h4>Arquivo para download</h4>
+ <ul>
+ <li><a href="/uniguacu/Icones dos cards.zip" download="Icones dos cards.zip" style="color: var(--cor-primaria); font-weight: 600;">Ícones dos cards.zip</a></li>
+ </ul>
+ </div>
+ </div>
+
+ <div class="achado-card">
+ <h4>Inserção da jornada do estudante</h4>
+ <p>A jornada do estudante foi construída em formato HTML, funcionando como um componente visual de orientação dentro da disciplina.</p>
+ <p>Neste ponto, é importante destacar que também foi necessária a instalação do plugin <b>Filtercodes</b>, responsável por permitir a leitura e exibição de informações dinâmicas, como nome do estudante, nota, dados personalizados e outros elementos contextuais.</p>
+ <p>Esse plugin é bastante versátil e contribui para adaptar a experiência da plataforma conforme o perfil e a situação de cada estudante.</p>
+ <div class="analise-box" style="margin-top: 15px;">
+ <strong>Plugin utilizado</strong>
+ <a href="https://moodle.org/plugins/filter_filtercodes" target="_blank" rel="noopener" style="color: var(--cor-primaria); font-weight: 600;">https://moodle.org/plugins/filter_filtercodes</a>
+ </div>
+ <div class="checklist-box" style="margin-top: 15px;">
+ <h4>Arquivo para download</h4>
+ <ul>
+ <li><a href="/uniguacu/HTML - Jornada" download="HTML - Jornada.html" style="color: var(--cor-primaria); font-weight: 600;">HTML — Jornada</a></li>
+ </ul>
+ </div>
+ </div>
+
+ <div class="achado-card">
+ <h4>Navegação lateral</h4>
+ <p>Para a navegação lateral, também foi aplicado um bloco em HTML, com o objetivo de oferecer acessos rápidos aos principais pontos da jornada do estudante.</p>
+ <p>Essa estrutura foi pensada para tornar a navegação mais intuitiva, reduzir o número de cliques e facilitar o acesso a áreas importantes, como painel, notas, apresentação da disciplina e demais informações essenciais.</p>
+ <div class="checklist-box" style="margin-top: 15px;">
+ <h4>Arquivo para download</h4>
+ <ul>
+ <li><a href="/uniguacu/HTML - Navegação" download="HTML - Navegação.html" style="color: var(--cor-primaria); font-weight: 600;">HTML — Navegação</a></li>
+ </ul>
+ </div>
+ </div>
+
+ <div class="achado-card">
+ <h4>Layout geral da disciplina</h4>
+ <p>Para melhorar a visualização do progresso, atualizar os ícones internos e tornar o aspecto geral da disciplina mais moderno, foi aplicado um CSS diretamente no tema Fordson.</p>
+ <p>Esse ajuste impacta a aparência dos elementos internos do curso, contribuindo para uma navegação mais clara, organizada e alinhada à proposta visual da plataforma.</p>
+ <div class="analise-box" style="margin-top: 15px;">
+ <strong>Caminho aplicado</strong>
+ Administração do site → Aparência → Fordson → Cores → SCSS bruto → Inserir o CSS anexado
+ </div>
+ <div class="checklist-box" style="margin-top: 15px;">
+ <h4>Arquivo para download</h4>
+ <ul>
+ <li><a href="/uniguacu/CSS - Disciplina Fordson" download="CSS - Disciplina Fordson.css" style="color: var(--cor-primaria); font-weight: 600;">CSS — Disciplina Fordson</a></li>
+ </ul>
+ </div>
+ </div>
+ </section>
+
+ <section>
+ <h2 id="secao-5"><span class="num-secao">5.</span> Clinic Day</h2>
+ <p>O Clinic Day também foi revisado com foco em melhorar a clareza da jornada, reduzir repetições visuais e tornar a navegação mais objetiva para o estudante.</p>
+ <p>Por se tratar de uma etapa importante dentro da experiência acadêmica, a proposta foi transformar a página em um ambiente mais orientativo, apresentando informações relevantes logo no início e facilitando a identificação dos encontros, datas e próximos passos.</p>
+
+ <h3>Antes</h3>
+ <div style="border-radius: 8px; overflow: hidden; border: 1px solid var(--cor-borda);">
+ <img src="https://drive.google.com/uc?export=view&id=1Aw45L23Y9UVP1UScYgvGqhgIhzmbxB90" alt="Clinic Day antes dos ajustes" style="width: 100%; display: block;">
+ </div>
+
+ <h3 style="margin-top: 30px;">Depois</h3>
+ <div style="border-radius: 8px; overflow: hidden; border: 1px solid var(--cor-borda);">
+ <img src="https://drive.google.com/uc?export=view&id=1QRzmWqTRxUFS7jntFBwpcBRDAXclhD0r" alt="Clinic Day após os ajustes" style="width: 100%; display: block;">
+ </div>
+
+ <div style="margin-top: 30px; border-radius: 10px; overflow: hidden; border: 1px solid var(--cor-borda); overflow-x: auto;">
+ <table style="width: 100%; border-collapse: collapse; min-width: 560px; font-size: 0.93rem;">
+ <thead>
+ <tr>
+ <th style="padding: 12px 16px; background: var(--cor-primaria); color: #A9C1D9; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; text-align: left; width: 22%;">Elemento</th>
+ <th style="padding: 12px 16px; background: #B91C1C; color: #FEE2E2; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; text-align: left; border-left: 1px solid rgba(255,255,255,0.15);">Antes</th>
+ <th style="padding: 12px 16px; background: #047857; color: #D1FAE5; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; text-align: left; border-left: 1px solid rgba(255,255,255,0.15);">Depois</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); font-weight: 600; color: var(--cor-primaria); background: #F8FAFC; vertical-align: top;">Banner inicial</td>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); background: #FFF8F8; vertical-align: top; border-left: 1px solid #FEE2E2;">Banner com forte apelo visual e identidade do curso, porém com pouca função instrucional. Não apresentava com clareza a jornada, os critérios de avaliação ou os próximos passos do estudante.</td>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); background: #F0FDF4; vertical-align: top; border-left: 1px solid #D1FAE5;">Substituído por um <b>HTML de jornada</b>, com informações mais relevantes para o aluno, como pontos de atenção, situação acadêmica e mensagens orientativas conforme sua nota.</td>
+ </tr>
+ <tr>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); font-weight: 600; color: var(--cor-primaria); background: #F0F4F8; vertical-align: top;">Clareza da jornada</td>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); background: #FFF8F8; vertical-align: top; border-left: 1px solid #FEE2E2;">O estudante visualizava os conteúdos, mas não tinha clareza suficiente sobre a sequência dos encontros ou sobre os caminhos possíveis para conclusão.</td>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); background: #F0FDF4; vertical-align: top; border-left: 1px solid #D1FAE5;">A jornada passa a ser apresentada de forma mais objetiva, auxiliando o estudante a compreender sua situação e os próximos passos dentro do Clinic Day.</td>
+ </tr>
+ <tr>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); font-weight: 600; color: var(--cor-primaria); background: #F8FAFC; vertical-align: top;">Nome do curso</td>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); background: #FFF8F8; vertical-align: top; border-left: 1px solid #FEE2E2;">O termo <b>"Clinic Day"</b> aparecia repetido em diversos pontos da página: capa, nome do curso, banner inicial e cards internos.</td>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); background: #F0FDF4; vertical-align: top; border-left: 1px solid #D1FAE5;">A repetição foi reduzida, substituindo informações redundantes por elementos mais úteis, como datas e ícones específicos nos cards.</td>
+ </tr>
+ <tr>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); font-weight: 600; color: var(--cor-primaria); background: #F0F4F8; vertical-align: top;">Ícones dos cards</td>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); background: #FFF8F8; vertical-align: top; border-left: 1px solid #FEE2E2;">Os ícones não transmitiam sequência, organização ou atratividade visual suficiente para orientar o estudante.</td>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); background: #F0FDF4; vertical-align: top; border-left: 1px solid #D1FAE5;">Os cards foram atualizados com elementos visuais mais modernos, alinhados e funcionais para facilitar a identificação dos encontros.</td>
+ </tr>
+ <tr>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); font-weight: 600; color: var(--cor-primaria); background: #F8FAFC; vertical-align: top;">Datas dos encontros</td>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); background: #FFF8F8; vertical-align: top; border-left: 1px solid #FEE2E2;">As datas não tinham destaque visual suficiente dentro da navegação, dificultando a identificação rápida dos encontros.</td>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); background: #F0FDF4; vertical-align: top; border-left: 1px solid #D1FAE5;">As datas foram inseridas diretamente nos cards em formato <b>PNG</b>, tornando a navegação mais objetiva e facilitando a localização dos encontros.</td>
+ </tr>
+ <tr>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); font-weight: 600; color: var(--cor-primaria); background: #F0F4F8; vertical-align: top;">Ícones internos</td>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); background: #FFF8F8; vertical-align: top; border-left: 1px solid #FEE2E2;">Os ícones internos tinham menor definição visual e pouca contribuição para a leitura rápida dos conteúdos.</td>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); background: #F0FDF4; vertical-align: top; border-left: 1px solid #D1FAE5;">Os ícones internos foram atualizados, com maior definição e melhor alinhamento visual, favorecendo a intuitividade da navegação.</td>
+ </tr>
+ <tr>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); font-weight: 600; color: var(--cor-primaria); background: #F8FAFC; vertical-align: top;">Informações dos cards</td>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); background: #FFF8F8; vertical-align: top; border-left: 1px solid #FEE2E2;">Os cards possuíam boa separação visual, mas não deixavam totalmente clara a sequência ou a lógica de acesso aos conteúdos.</td>
+ <td style="padding: 13px 16px; border-bottom: 1px solid var(--cor-borda); background: #F0FDF4; vertical-align: top; border-left: 1px solid #D1FAE5;">Os cards passaram a apresentar informações mais claras e organizadas, contribuindo para uma leitura mais rápida da estrutura do Clinic Day.</td>
+ </tr>
+ <tr>
+ <td style="padding: 13px 16px; font-weight: 600; color: var(--cor-primaria); background: #F0F4F8; vertical-align: top;">Experiência do estudante</td>
+ <td style="padding: 13px 16px; background: #FFF8F8; vertical-align: top; border-left: 1px solid #FEE2E2;">A navegação exigia mais interpretação por parte do aluno, podendo gerar dúvidas sobre ordem, encontros e critérios.</td>
+ <td style="padding: 13px 16px; background: #F0FDF4; vertical-align: top; border-left: 1px solid #D1FAE5;">A navegação se torna mais clara, moderna e orientada, reduzindo dúvidas e facilitando a continuidade da jornada acadêmica.</td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+
+ <h3 style="margin-top: 40px;">5.1 Como as alterações foram realizadas</h3>
+ <p>Para a adequação visual e funcional do Clinic Day, parte das melhorias já foi contemplada pela aplicação do CSS no tema Fordson, utilizado também nas disciplinas padrões.</p>
+ <p>Esse CSS ajusta grande parte do layout geral, contribuindo para uma navegação mais moderna, organizada e coerente com a proposta visual aplicada nos demais cursos.</p>
+ <p>No entanto, por se tratar de uma estrutura com características próprias, o Clinic Day exigiu ajustes específicos. Foram necessários a aplicação de um novo HTML de jornada e a criação de cards personalizados, adequados à lógica dos encontros e à forma como as datas deveriam ser apresentadas ao estudante.</p>
+ <p>Além dos cards principais, também foram criados HTMLs internos para separação dos itens, com o objetivo de manter a estrutura visual organizada, padronizada e mais fácil de navegar. Essa divisão contribui para que o estudante identifique melhor os blocos de conteúdo, os encontros e os recursos disponíveis em cada etapa.</p>
+ <p>Também foi elaborada uma sugestão de design para a apresentação dos critérios avaliativos e dos docentes, permitindo que essas informações fiquem mais claras, acessíveis e visualmente integradas à proposta da página. A intenção é que o aluno compreenda rapidamente como será avaliado e quem são os profissionais envolvidos na condução dos encontros.</p>
+ <p>Esses elementos foram desenvolvidos para tornar a navegação mais clara, reduzir repetições visuais e facilitar a identificação dos encontros dentro da jornada.</p>
+
+ <div class="checklist-box" style="margin-top: 25px;">
+ <h4>Arquivos para download</h4>
+ <ul>
+ <li><a href="/uniguacu/HTML - Jornada Clinic Day" download="HTML - Jornada Clinic Day.html" style="color: var(--cor-primaria); font-weight: 600;">HTML — Jornada Clinic Day</a></li>
+ <li><a href="/uniguacu/Icones cards Clinic day.zip" download="Icones cards Clinic day.zip" style="color: var(--cor-primaria); font-weight: 600;">ZIP — Cards Clinic Day</a></li>
+ <li><a href="/uniguacu/HTML - Apresentação da seçao - clinic day" download="HTML - Apresentação da seção - clinic day.html" style="color: var(--cor-primaria); font-weight: 600;">HTML — Apresentação da seção</a></li>
+ <li><a href="/uniguacu/HTML - Separação aulas ao vivo" download="HTML - Separação aulas ao vivo.html" style="color: var(--cor-primaria); font-weight: 600;">HTML — Separação aulas ao vivo</a></li>
+ <li><a href="/uniguacu/HTML - Separação aulas gravadas" download="HTML - Separação aulas gravadas.html" style="color: var(--cor-primaria); font-weight: 600;">HTML — Separação aulas gravadas</a></li>
+ <li><a href="/uniguacu/HTML - Separação aulas conteudo complementar" download="HTML - Separação aulas conteúdo complementar.html" style="color: var(--cor-primaria); font-weight: 600;">HTML — Separação conteúdo complementar</a></li>
+ <li><a href="/uniguacu/HTML - Critérios avaliativos - clinic day" download="HTML - Critérios avaliativos - clinic day.html" style="color: var(--cor-primaria); font-weight: 600;">HTML — Critérios avaliativos</a></li>
+ <li><a href="/uniguacu/HTML - Conheça os professores - clinic day" download="HTML - Conheça os professores - clinic day.html" style="color: var(--cor-primaria); font-weight: 600;">HTML — Conheça os professores</a></li>
+ </ul>
+ </div>
+ </section>
+
+ <section>
+ <h2 id="secao-6"><span class="num-secao">6.</span> Download dos arquivos</h2>
+ <p>Nesse item trouxemos todos os arquivos apresentados anteriormente para facilitar o processo de identificação.</p>
+
+ <h3 style="margin-top: 30px; margin-bottom: 16px; font-size: 1rem; font-weight: 700; color: var(--cor-texto-claro); text-transform: uppercase; letter-spacing: 0.5px;">2. Ajustes de configuração</h3>
+ <div class="grid-infos" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); margin-bottom: 36px;">
+
+ <div style="border: 1px solid var(--cor-borda); border-radius: 10px; padding: 20px; background: var(--cor-branco); display: flex; flex-direction: column; gap: 12px;">
+ <div style="display: flex; align-items: center; gap: 10px;">
+ <span style="background: #D1FAE5; color: #065F46; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">IMG</span>
+ <span style="font-weight: 600; color: var(--cor-texto); font-size: 0.95rem;">Visualização Atual</span>
+ </div>
+ <p style="font-size: 0.88rem; color: var(--cor-texto-claro); margin: 0;">Captura de tela mostrando a visualização indevida de cursos antes dos ajustes.</p>
+ <a href="/uniguacu/1.VA_Atual.jpeg" download="1.VA_Atual.jpeg" style="display: inline-block; background: var(--cor-primaria); color: white; text-decoration: none; padding: 8px 16px; border-radius: 6px; font-size: 0.85rem; font-weight: 600; text-align: center;">Baixar arquivo</a>
+ </div>
+
+ <div style="border: 1px solid var(--cor-borda); border-radius: 10px; padding: 20px; background: var(--cor-branco); display: flex; flex-direction: column; gap: 12px;">
+ <div style="display: flex; align-items: center; gap: 10px;">
+ <span style="background: #D1FAE5; color: #065F46; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">IMG</span>
+ <span style="font-weight: 600; color: var(--cor-texto); font-size: 0.95rem;">Visualização Ajustada</span>
+ </div>
+ <p style="font-size: 0.88rem; color: var(--cor-texto-claro); margin: 0;">Captura de tela mostrando apenas os cursos inscritos após os ajustes de permissão.</p>
+ <a href="/uniguacu/1.VA_Ajustado.jpeg" download="1.VA_Ajustado.jpeg" style="display: inline-block; background: var(--cor-primaria); color: white; text-decoration: none; padding: 8px 16px; border-radius: 6px; font-size: 0.85rem; font-weight: 600; text-align: center;">Baixar arquivo</a>
+ </div>
+
+ </div>
+
+ <h3 style="margin-bottom: 16px; font-size: 1rem; font-weight: 700; color: var(--cor-texto-claro); text-transform: uppercase; letter-spacing: 0.5px;">3. Configuração do painel</h3>
+ <div class="grid-infos" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); margin-bottom: 36px;">
+
+ <div style="border: 1px solid var(--cor-borda); border-radius: 10px; padding: 20px; background: var(--cor-branco); display: flex; flex-direction: column; gap: 12px;">
+ <div style="display: flex; align-items: center; gap: 10px;">
+ <span style="background: #DBEAFE; color: #1E40AF; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">CSS</span>
+ <span style="font-weight: 600; color: var(--cor-texto); font-size: 0.95rem;">Dashboard Edumy</span>
+ </div>
+ <p style="font-size: 0.88rem; color: var(--cor-texto-claro); margin: 0;">Ajustes visuais do painel principal — cores, blocos e responsividade.</p>
+ <a href="/uniguacu/CSS - Dashboard Edumy" download="CSS - Dashboard Edumy.css" style="display: inline-block; background: var(--cor-primaria); color: white; text-decoration: none; padding: 8px 16px; border-radius: 6px; font-size: 0.85rem; font-weight: 600; text-align: center;">Baixar arquivo</a>
+ </div>
+
+ <div style="border: 1px solid var(--cor-borda); border-radius: 10px; padding: 20px; background: var(--cor-branco); display: flex; flex-direction: column; gap: 12px;">
+ <div style="display: flex; align-items: center; gap: 10px;">
+ <span style="background: #FEF3C7; color: #92400E; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">HTML</span>
+ <span style="font-weight: 600; color: var(--cor-texto); font-size: 0.95rem;">Banner Carrossel</span>
+ </div>
+ <p style="font-size: 0.88rem; color: var(--cor-texto-claro); margin: 0;">Banner dinâmico em formato carrossel para a página inicial.</p>
+ <a href="/uniguacu/HTML - Banner Carrossel" download="HTML - Banner Carrossel.html" style="display: inline-block; background: var(--cor-primaria); color: white; text-decoration: none; padding: 8px 16px; border-radius: 6px; font-size: 0.85rem; font-weight: 600; text-align: center;">Baixar arquivo</a>
+ </div>
+
+ <div style="border: 1px solid var(--cor-borda); border-radius: 10px; padding: 20px; background: var(--cor-branco); display: flex; flex-direction: column; gap: 12px;">
+ <div style="display: flex; align-items: center; gap: 10px;">
+ <span style="background: #EDE9FE; color: #6D28D9; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">ZIP</span>
+ <span style="font-weight: 600; color: var(--cor-texto); font-size: 0.95rem;">Plugin Advanced Notifications</span>
+ </div>
+ <p style="font-size: 0.88rem; color: var(--cor-texto-claro); margin: 0;">Plugin de avisos ajustado para compatibilidade com Moodle 4.1.</p>
+ <a href="/uniguacu/block_advnotifications_moodle41 (1).zip" download="block_advnotifications_moodle41.zip" style="display: inline-block; background: var(--cor-primaria); color: white; text-decoration: none; padding: 8px 16px; border-radius: 6px; font-size: 0.85rem; font-weight: 600; text-align: center;">Baixar arquivo</a>
+ </div>
+
+ <div style="border: 1px solid var(--cor-borda); border-radius: 10px; padding: 20px; background: var(--cor-branco); display: flex; flex-direction: column; gap: 12px;">
+ <div style="display: flex; align-items: center; gap: 10px;">
+ <span style="background: #FCE7F3; color: #9D174D; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">GIF</span>
+ <span style="font-weight: 600; color: var(--cor-texto); font-size: 0.95rem;">Painel — Antes</span>
+ </div>
+ <p style="font-size: 0.88rem; color: var(--cor-texto-claro); margin: 0;">Animação mostrando o painel antes dos ajustes visuais.</p>
+ <a href="/uniguacu/Painel -antes.gif" download="Painel - antes.gif" style="display: inline-block; background: var(--cor-primaria); color: white; text-decoration: none; padding: 8px 16px; border-radius: 6px; font-size: 0.85rem; font-weight: 600; text-align: center;">Baixar arquivo</a>
+ </div>
+
+ <div style="border: 1px solid var(--cor-borda); border-radius: 10px; padding: 20px; background: var(--cor-branco); display: flex; flex-direction: column; gap: 12px;">
+ <div style="display: flex; align-items: center; gap: 10px;">
+ <span style="background: #FCE7F3; color: #9D174D; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">GIF</span>
+ <span style="font-weight: 600; color: var(--cor-texto); font-size: 0.95rem;">Painel — Depois</span>
+ </div>
+ <p style="font-size: 0.88rem; color: var(--cor-texto-claro); margin: 0;">Animação mostrando o painel após os ajustes visuais.</p>
+ <a href="/uniguacu/Painel - depois.gif" download="Painel - depois.gif" style="display: inline-block; background: var(--cor-primaria); color: white; text-decoration: none; padding: 8px 16px; border-radius: 6px; font-size: 0.85rem; font-weight: 600; text-align: center;">Baixar arquivo</a>
+ </div>
+
+ </div>
+
+ <h3 style="margin-bottom: 16px; font-size: 1rem; font-weight: 700; color: var(--cor-texto-claro); text-transform: uppercase; letter-spacing: 0.5px;">4. Navegação dos cursos</h3>
+ <div class="grid-infos" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); margin-bottom: 36px;">
+
+ <div style="border: 1px solid var(--cor-borda); border-radius: 10px; padding: 20px; background: var(--cor-branco); display: flex; flex-direction: column; gap: 12px;">
+ <div style="display: flex; align-items: center; gap: 10px;">
+ <span style="background: #EDE9FE; color: #6D28D9; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">ZIP</span>
+ <span style="font-weight: 600; color: var(--cor-texto); font-size: 0.95rem;">Ícones dos cards</span>
+ </div>
+ <p style="font-size: 0.88rem; color: var(--cor-texto-claro); margin: 0;">Novos ícones PNG para os cards das disciplinas.</p>
+ <a href="/uniguacu/Icones dos cards.zip" download="Icones dos cards.zip" style="display: inline-block; background: var(--cor-primaria); color: white; text-decoration: none; padding: 8px 16px; border-radius: 6px; font-size: 0.85rem; font-weight: 600; text-align: center;">Baixar arquivo</a>
+ </div>
+
+ <div style="border: 1px solid var(--cor-borda); border-radius: 10px; padding: 20px; background: var(--cor-branco); display: flex; flex-direction: column; gap: 12px;">
+ <div style="display: flex; align-items: center; gap: 10px;">
+ <span style="background: #FEF3C7; color: #92400E; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">HTML</span>
+ <span style="font-weight: 600; color: var(--cor-texto); font-size: 0.95rem;">Jornada do Estudante</span>
+ </div>
+ <p style="font-size: 0.88rem; color: var(--cor-texto-claro); margin: 0;">Componente HTML de jornada para exibição na disciplina.</p>
+ <a href="/uniguacu/HTML - Jornada" download="HTML - Jornada.html" style="display: inline-block; background: var(--cor-primaria); color: white; text-decoration: none; padding: 8px 16px; border-radius: 6px; font-size: 0.85rem; font-weight: 600; text-align: center;">Baixar arquivo</a>
+ </div>
+
+ <div style="border: 1px solid var(--cor-borda); border-radius: 10px; padding: 20px; background: var(--cor-branco); display: flex; flex-direction: column; gap: 12px;">
+ <div style="display: flex; align-items: center; gap: 10px;">
+ <span style="background: #FEF3C7; color: #92400E; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">HTML</span>
+ <span style="font-weight: 600; color: var(--cor-texto); font-size: 0.95rem;">Navegação Lateral</span>
+ </div>
+ <p style="font-size: 0.88rem; color: var(--cor-texto-claro); margin: 0;">Bloco HTML de navegação lateral com acessos rápidos.</p>
+ <a href="/uniguacu/HTML - Navegação" download="HTML - Navegação.html" style="display: inline-block; background: var(--cor-primaria); color: white; text-decoration: none; padding: 8px 16px; border-radius: 6px; font-size: 0.85rem; font-weight: 600; text-align: center;">Baixar arquivo</a>
+ </div>
+
+ <div style="border: 1px solid var(--cor-borda); border-radius: 10px; padding: 20px; background: var(--cor-branco); display: flex; flex-direction: column; gap: 12px;">
+ <div style="display: flex; align-items: center; gap: 10px;">
+ <span style="background: #DBEAFE; color: #1E40AF; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">CSS</span>
+ <span style="font-weight: 600; color: var(--cor-texto); font-size: 0.95rem;">Disciplina Fordson</span>
+ </div>
+ <p style="font-size: 0.88rem; color: var(--cor-texto-claro); margin: 0;">CSS para o tema Fordson — ícones, progresso e layout interno.</p>
+ <a href="/uniguacu/CSS - Disciplina Fordson" download="CSS - Disciplina Fordson.css" style="display: inline-block; background: var(--cor-primaria); color: white; text-decoration: none; padding: 8px 16px; border-radius: 6px; font-size: 0.85rem; font-weight: 600; text-align: center;">Baixar arquivo</a>
+ </div>
+
+ <div style="border: 1px solid var(--cor-borda); border-radius: 10px; padding: 20px; background: var(--cor-branco); display: flex; flex-direction: column; gap: 12px;">
+ <div style="display: flex; align-items: center; gap: 10px;">
+ <span style="background: #FCE7F3; color: #9D174D; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">GIF</span>
+ <span style="font-weight: 600; color: var(--cor-texto); font-size: 0.95rem;">Navegação interna — Antes</span>
+ </div>
+ <p style="font-size: 0.88rem; color: var(--cor-texto-claro); margin: 0;">Animação mostrando a navegação interna dos cursos antes das alterações.</p>
+ <a href="/uniguacu/Navegação interna - antes.gif" download="Navegação interna - antes.gif" style="display: inline-block; background: var(--cor-primaria); color: white; text-decoration: none; padding: 8px 16px; border-radius: 6px; font-size: 0.85rem; font-weight: 600; text-align: center;">Baixar arquivo</a>
+ </div>
+
+ <div style="border: 1px solid var(--cor-borda); border-radius: 10px; padding: 20px; background: var(--cor-branco); display: flex; flex-direction: column; gap: 12px;">
+ <div style="display: flex; align-items: center; gap: 10px;">
+ <span style="background: #FCE7F3; color: #9D174D; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">GIF</span>
+ <span style="font-weight: 600; color: var(--cor-texto); font-size: 0.95rem;">Navegação interna — Depois</span>
+ </div>
+ <p style="font-size: 0.88rem; color: var(--cor-texto-claro); margin: 0;">Animação mostrando a navegação interna dos cursos após as alterações.</p>
+ <a href="/uniguacu/Navegação interna - depois.gif" download="Navegação interna - depois.gif" style="display: inline-block; background: var(--cor-primaria); color: white; text-decoration: none; padding: 8px 16px; border-radius: 6px; font-size: 0.85rem; font-weight: 600; text-align: center;">Baixar arquivo</a>
+ </div>
+
+ <div style="border: 1px solid var(--cor-borda); border-radius: 10px; padding: 20px; background: var(--cor-branco); display: flex; flex-direction: column; gap: 12px;">
+ <div style="display: flex; align-items: center; gap: 10px;">
+ <span style="background: #ECFDF5; color: #065F46; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">PLUGIN</span>
+ <span style="font-weight: 600; color: var(--cor-texto); font-size: 0.95rem;">FilterCodes</span>
+ </div>
+ <p style="font-size: 0.88rem; color: var(--cor-texto-claro); margin: 0;">Plugin de filtros condicionais utilizado para personalizar a exibição de conteúdo conforme o perfil do estudante.</p>
+ <a href="https://moodle.org/plugins/filter_filtercodes" target="_blank" rel="noopener" style="display: inline-block; background: var(--cor-primaria); color: white; text-decoration: none; padding: 8px 16px; border-radius: 6px; font-size: 0.85rem; font-weight: 600; text-align: center;">Acessar plugin</a>
+ </div>
+
+ </div>
+
+ <h3 style="margin-bottom: 16px; font-size: 1rem; font-weight: 700; color: var(--cor-texto-claro); text-transform: uppercase; letter-spacing: 0.5px;">5. Clinic Day</h3>
+ <div class="grid-infos" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+
+ <div style="border: 1px solid var(--cor-borda); border-radius: 10px; padding: 20px; background: var(--cor-branco); display: flex; flex-direction: column; gap: 12px;">
+ <div style="display: flex; align-items: center; gap: 10px;">
+ <span style="background: #FEF3C7; color: #92400E; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">HTML</span>
+ <span style="font-weight: 600; color: var(--cor-texto); font-size: 0.95rem;">Jornada Clinic Day</span>
+ </div>
+ <p style="font-size: 0.88rem; color: var(--cor-texto-claro); margin: 0;">Componente HTML de jornada específico para o Clinic Day.</p>
+ <a href="/uniguacu/HTML - Jornada Clinic Day" download="HTML - Jornada Clinic Day.html" style="display: inline-block; background: var(--cor-primaria); color: white; text-decoration: none; padding: 8px 16px; border-radius: 6px; font-size: 0.85rem; font-weight: 600; text-align: center;">Baixar arquivo</a>
+ </div>
+
+ <div style="border: 1px solid var(--cor-borda); border-radius: 10px; padding: 20px; background: var(--cor-branco); display: flex; flex-direction: column; gap: 12px;">
+ <div style="display: flex; align-items: center; gap: 10px;">
+ <span style="background: #EDE9FE; color: #6D28D9; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">ZIP</span>
+ <span style="font-weight: 600; color: var(--cor-texto); font-size: 0.95rem;">Cards Clinic Day</span>
+ </div>
+ <p style="font-size: 0.88rem; color: var(--cor-texto-claro); margin: 0;">Cards personalizados com ícones e datas dos encontros.</p>
+ <a href="/uniguacu/Icones cards Clinic day.zip" download="Icones cards Clinic day.zip" style="display: inline-block; background: var(--cor-primaria); color: white; text-decoration: none; padding: 8px 16px; border-radius: 6px; font-size: 0.85rem; font-weight: 600; text-align: center;">Baixar arquivo</a>
+ </div>
+
+ <div style="border: 1px solid var(--cor-borda); border-radius: 10px; padding: 20px; background: var(--cor-branco); display: flex; flex-direction: column; gap: 12px;">
+ <div style="display: flex; align-items: center; gap: 10px;">
+ <span style="background: #FEF3C7; color: #92400E; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">HTML</span>
+ <span style="font-weight: 600; color: var(--cor-texto); font-size: 0.95rem;">Apresentação da seção</span>
+ </div>
+ <p style="font-size: 0.88rem; color: var(--cor-texto-claro); margin: 0;">Bloco de apresentação visual para introdução das seções.</p>
+ <a href="/uniguacu/HTML - Apresentação da seçao - clinic day" download="HTML - Apresentação da seção - clinic day.html" style="display: inline-block; background: var(--cor-primaria); color: white; text-decoration: none; padding: 8px 16px; border-radius: 6px; font-size: 0.85rem; font-weight: 600; text-align: center;">Baixar arquivo</a>
+ </div>
+
+ <div style="border: 1px solid var(--cor-borda); border-radius: 10px; padding: 20px; background: var(--cor-branco); display: flex; flex-direction: column; gap: 12px;">
+ <div style="display: flex; align-items: center; gap: 10px;">
+ <span style="background: #FEF3C7; color: #92400E; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">HTML</span>
+ <span style="font-weight: 600; color: var(--cor-texto); font-size: 0.95rem;">Separação — Aulas ao vivo</span>
+ </div>
+ <p style="font-size: 0.88rem; color: var(--cor-texto-claro); margin: 0;">Divisor visual para blocos de aulas ao vivo.</p>
+ <a href="/uniguacu/HTML - Separação aulas ao vivo" download="HTML - Separação aulas ao vivo.html" style="display: inline-block; background: var(--cor-primaria); color: white; text-decoration: none; padding: 8px 16px; border-radius: 6px; font-size: 0.85rem; font-weight: 600; text-align: center;">Baixar arquivo</a>
+ </div>
+
+ <div style="border: 1px solid var(--cor-borda); border-radius: 10px; padding: 20px; background: var(--cor-branco); display: flex; flex-direction: column; gap: 12px;">
+ <div style="display: flex; align-items: center; gap: 10px;">
+ <span style="background: #FEF3C7; color: #92400E; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">HTML</span>
+ <span style="font-weight: 600; color: var(--cor-texto); font-size: 0.95rem;">Separação — Aulas gravadas</span>
+ </div>
+ <p style="font-size: 0.88rem; color: var(--cor-texto-claro); margin: 0;">Divisor visual para blocos de aulas gravadas.</p>
+ <a href="/uniguacu/HTML - Separação aulas gravadas" download="HTML - Separação aulas gravadas.html" style="display: inline-block; background: var(--cor-primaria); color: white; text-decoration: none; padding: 8px 16px; border-radius: 6px; font-size: 0.85rem; font-weight: 600; text-align: center;">Baixar arquivo</a>
+ </div>
+
+ <div style="border: 1px solid var(--cor-borda); border-radius: 10px; padding: 20px; background: var(--cor-branco); display: flex; flex-direction: column; gap: 12px;">
+ <div style="display: flex; align-items: center; gap: 10px;">
+ <span style="background: #FEF3C7; color: #92400E; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">HTML</span>
+ <span style="font-weight: 600; color: var(--cor-texto); font-size: 0.95rem;">Separação — Conteúdo complementar</span>
+ </div>
+ <p style="font-size: 0.88rem; color: var(--cor-texto-claro); margin: 0;">Divisor visual para blocos de conteúdo complementar.</p>
+ <a href="/uniguacu/HTML - Separação aulas conteudo complementar" download="HTML - Separação aulas conteúdo complementar.html" style="display: inline-block; background: var(--cor-primaria); color: white; text-decoration: none; padding: 8px 16px; border-radius: 6px; font-size: 0.85rem; font-weight: 600; text-align: center;">Baixar arquivo</a>
+ </div>
+
+ <div style="border: 1px solid var(--cor-borda); border-radius: 10px; padding: 20px; background: var(--cor-branco); display: flex; flex-direction: column; gap: 12px;">
+ <div style="display: flex; align-items: center; gap: 10px;">
+ <span style="background: #FEF3C7; color: #92400E; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">HTML</span>
+ <span style="font-weight: 600; color: var(--cor-texto); font-size: 0.95rem;">Critérios avaliativos</span>
+ </div>
+ <p style="font-size: 0.88rem; color: var(--cor-texto-claro); margin: 0;">Card com apresentação visual dos critérios de avaliação do Clinic Day.</p>
+ <a href="/uniguacu/HTML - Critérios avaliativos - clinic day" download="HTML - Critérios avaliativos - clinic day.html" style="display: inline-block; background: var(--cor-primaria); color: white; text-decoration: none; padding: 8px 16px; border-radius: 6px; font-size: 0.85rem; font-weight: 600; text-align: center;">Baixar arquivo</a>
+ </div>
+
+ <div style="border: 1px solid var(--cor-borda); border-radius: 10px; padding: 20px; background: var(--cor-branco); display: flex; flex-direction: column; gap: 12px;">
+ <div style="display: flex; align-items: center; gap: 10px;">
+ <span style="background: #FEF3C7; color: #92400E; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">HTML</span>
+ <span style="font-weight: 600; color: var(--cor-texto); font-size: 0.95rem;">Conheça os professores</span>
+ </div>
+ <p style="font-size: 0.88rem; color: var(--cor-texto-claro); margin: 0;">Card com apresentação visual dos docentes do Clinic Day.</p>
+ <a href="/uniguacu/HTML - Conheça os professores - clinic day" download="HTML - Conheça os professores - clinic day.html" style="display: inline-block; background: var(--cor-primaria); color: white; text-decoration: none; padding: 8px 16px; border-radius: 6px; font-size: 0.85rem; font-weight: 600; text-align: center;">Baixar arquivo</a>
+ </div>
+
+ <div style="border: 1px solid var(--cor-borda); border-radius: 10px; padding: 20px; background: var(--cor-branco); display: flex; flex-direction: column; gap: 12px;">
+ <div style="display: flex; align-items: center; gap: 10px;">
+ <span style="background: #FCE7F3; color: #9D174D; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">GIF</span>
+ <span style="font-weight: 600; color: var(--cor-texto); font-size: 0.95rem;">Clinic Day — Antes</span>
+ </div>
+ <p style="font-size: 0.88rem; color: var(--cor-texto-claro); margin: 0;">Animação mostrando a estrutura do Clinic Day antes das alterações.</p>
+ <a href="https://drive.google.com/file/d/1Aw45L23Y9UVP1UScYgvGqhgIhzmbxB90/view?usp=drive_link" target="_blank" rel="noopener" style="display: inline-block; background: var(--cor-primaria); color: white; text-decoration: none; padding: 8px 16px; border-radius: 6px; font-size: 0.85rem; font-weight: 600; text-align: center;">Ver no Drive</a>
+ </div>
+
+ <div style="border: 1px solid var(--cor-borda); border-radius: 10px; padding: 20px; background: var(--cor-branco); display: flex; flex-direction: column; gap: 12px;">
+ <div style="display: flex; align-items: center; gap: 10px;">
+ <span style="background: #FCE7F3; color: #9D174D; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">GIF</span>
+ <span style="font-weight: 600; color: var(--cor-texto); font-size: 0.95rem;">Clinic Day — Depois</span>
+ </div>
+ <p style="font-size: 0.88rem; color: var(--cor-texto-claro); margin: 0;">Animação mostrando a estrutura do Clinic Day após as alterações.</p>
+ <a href="https://drive.google.com/file/d/1QRzmWqTRxUFS7jntFBwpcBRDAXclhD0r/view?usp=drive_link" target="_blank" rel="noopener" style="display: inline-block; background: var(--cor-primaria); color: white; text-decoration: none; padding: 8px 16px; border-radius: 6px; font-size: 0.85rem; font-weight: 600; text-align: center;">Ver no Drive</a>
+ </div>
+
+ </div>
+ </section>
+
+ </div>
+ </div>
+
+ </div>
+ </div>
+
+ <script>
+ function voltarPortal() {
+ window.location.href = '/uniguacu';
+ }
+
+ function toggleSidebar() {
+ const sidebar = document.getElementById('sidebar');
+ const reopenBtn = document.getElementById('btn-reabrir-sidebar');
+ sidebar.classList.toggle('recolhida');
+ reopenBtn.style.display = sidebar.classList.contains('recolhida') ? 'flex' : 'none';
+ }
+
+ function toggleSubmenu() {
+ const submenu = document.getElementById('submenu-apresentacao');
+ const chevron = document.getElementById('chevron-apresentacao');
+ submenu.classList.toggle('collapsed');
+ chevron.classList.toggle('rotated');
+ }
+
+ function mudarPagina(paginaId) {
+ const pages = document.querySelectorAll('.page');
+ pages.forEach(page => page.classList.remove('ativa'));
+
+ const buttons = document.querySelectorAll('.sidebar-menu button');
+ buttons.forEach(btn => btn.classList.remove('active'));
+
+ document.getElementById('pagina-' + paginaId).classList.add('ativa');
+ const btnSelecionado = document.getElementById('btn-' + paginaId);
+ if (btnSelecionado) btnSelecionado.classList.add('active');
+
+ document.getElementById('main-content').scrollTo({ top: 0, behavior: 'smooth' });
+
+ const sidebar = document.getElementById('sidebar');
+ if (window.innerWidth <= 850 && sidebar.classList.contains('aberto')) {
+ sidebar.classList.remove('aberto');
+ }
+ }
+
+ function toggleMenu() {
+ const sidebar = document.getElementById('sidebar');
+ sidebar.classList.toggle('aberto');
+ }
+ </script>
+</body>
+</html>

@@ -1,0 +1,1363 @@
+/* ===================================================== */
+/* === EDUMY: Painel customizado Uniguaçu ============== */
+/* === Versão refatorada com design tokens (v2.0)    === */
+/* ===================================================== */
+
+/* ===================================================== */
+/* === SEÇÃO 0: DESIGN TOKENS ========================== */
+/* === Altere as variáveis aqui para mudar o sistema === */
+/* === visual inteiro de uma só vez                  === */
+/* ===================================================== */
+
+:root {
+
+    /* === CORES DE FUNDO ============================== */
+    --u-bg-page:           #f5f7fa;  /* Fundo principal (cinza azulado sutil) */
+    --u-bg-card:           #ffffff;  /* Cards de destaque (sidebar e cursos) */
+    --u-bg-card-inset:     #f5f7fa;  /* Cards "escavados" (cursos recentes internos) */
+    --u-bg-card-hover:     #fafbfd;  /* Hover sutil em cards */
+    --u-bg-card-inset-hover: #eaeef5; /* Hover em cards escavados */
+    --u-bg-input:          #ffffff;  /* Campos de formulário */
+
+    /* === CORES DE TEXTO ============================== */
+    --u-text-primary:      #1f2937;  /* Texto principal */
+    --u-text-secondary:    #6b7280;  /* Texto secundário */
+    --u-text-tertiary:     #9ca3af;  /* Labels, hints */
+    --u-text-on-brand:     #ffffff;  /* Texto sobre azul/dourado */
+
+    /* === CORES DE BORDA ============================== */
+    --u-border-subtle:     #e8edf3;  /* Borda padrão (muito sutil) */
+    --u-border-medium:     #dde3ec;  /* Borda padrão visível */
+    --u-border-strong:     #c5cee0;  /* Borda hover/destaque */
+
+    /* === CORES DE MARCA UNIGUAÇU ===================== */
+    --u-brand-primary:        #1a4d8c;  /* Azul institucional */
+    --u-brand-primary-dark:   #143a6b;  /* Azul hover/ativo */
+    --u-brand-accent:         #c9a961;  /* Dourado */
+    --u-brand-accent-dark:    #a88a47;  /* Dourado hover/ativo */
+
+    /* RGB para uso com rgba() em hovers e overlays */
+    --u-brand-primary-rgb:    26, 77, 140;
+    --u-brand-accent-rgb:     201, 169, 97;
+
+    /* === SOMBRAS ===================================== */
+    --u-shadow-subtle:     0 1px 2px rgba(15, 23, 42, 0.04);
+    --u-shadow-medium:     0 2px 4px rgba(15, 23, 42, 0.06);
+
+    /* === BORDAS ARREDONDADAS ========================= */
+    --u-radius-sm:         6px;
+    --u-radius-md:         8px;
+    --u-radius-lg:         12px;
+
+    /* === TRANSIÇÕES ================================== */
+    --u-transition-fast:   all 0.15s ease;
+    --u-transition-base:   all 0.2s ease;
+    --u-transition-slow:   all 0.3s ease;
+
+    /* === BARRA DE PROGRESSO ========================== */
+    --u-progress-bg:       #e8edf3;
+    --u-progress-fill:     var(--u-brand-accent);
+}
+
+/* ===================================================== */
+/* === SEÇÃO 1: RESET E LIMPEZA ======================== */
+/* ===================================================== */
+
+/* 1.1 Esconde cards de Mensagens/Perfil/Configurações */
+.our-dashbord .col-xl-12 > .row:has(.ff_one) {
+    display: none !important;
+}
+
+/* 1.2 Esconde navegação "Página inicial" duplicada */
+.our-dashbord .primary-navigation {
+    display: none !important;
+}
+
+/* 1.3 Reset amplo: containers transparentes por padrão */
+.our-dashbord .card,
+.our-dashbord .card-body,
+.our-dashbord .card-block,
+.our-dashbord .ccnBlockContent,
+.our-dashbord .block,
+.our-dashbord aside .block,
+.our-dashbord .block_calendar_month,
+.our-dashbord .block_recentlyaccessedcourses,
+.our-dashbord .block_myoverview,
+.our-dashbord #region-main,
+.our-dashbord #region-main-box,
+.our-dashbord [role="main"],
+.our-dashbord .main-inner,
+.our-dashbord .my_course_content_header,
+.our-dashbord .courses_list_heading,
+.our-dashbord .instructor_search_result,
+.our-dashbord .my_course_content,
+.our-dashbord .my_course_content_list,
+.our-dashbord [data-region="card-deck"],
+.our-dashbord [data-region="view-content"],
+.our-dashbord .container-fluid,
+.our-dashbord .my_course_content_list .details,
+.our-dashbord .my_course_content_list .mc_content,
+.our-dashbord .my_course_content_list .ccn_mc_content_header,
+.our-dashbord .my_course_content_list .ccn_mc_content_header_details {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* 1.4 Limpa padding/margin extras dos containers da sidebar */
+.our-dashbord .col-lg-4,
+.our-dashbord .col-xl-4,
+.our-dashbord .ccn-sidebar-region {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+}
+
+/* ===================================================== */
+/* === SEÇÃO 2: FUNDO E TIPOGRAFIA ===================== */
+/* ===================================================== */
+
+/* 2.1 Fundo principal da página */
+.our-dashbord,
+.dashbord,
+#page-my-index,
+body#page-my-index {
+    background-color: var(--u-bg-page) !important;
+}
+
+/* 2.2 Cabeçalho "Painel" — flat, sem fundo cinza */
+.our-dashbord .page-context-header,
+.our-dashbord .page-header-headings,
+.our-dashbord #page-header,
+.our-dashbord .page-header,
+body#page-my-index #page-header,
+body#page-my-index .page-context-header,
+body.path-my .page-context-header,
+body.path-my #page-header {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-bottom: 16px !important;
+}
+
+/* 2.3 Título principal "Painel" — destaque com underline dourado */
+.our-dashbord .page-context-header h1,
+.our-dashbord .page-header-headings h1,
+.our-dashbord #page-header h1 {
+    font-size: 26px !important;
+    font-weight: 600 !important;
+    color: var(--u-brand-primary) !important;
+    margin: 0 !important;
+    padding-bottom: 12px !important;
+    position: relative !important;
+    display: inline-block !important;
+}
+
+.our-dashbord .page-context-header h1::after,
+.our-dashbord .page-header-headings h1::after,
+.our-dashbord #page-header h1::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: var(--u-brand-accent);
+    border-radius: 2px;
+}
+
+/* ===================================================== */
+/* === SEÇÃO 3: BOTÕES E INPUTS ======================== */
+/* ===================================================== */
+
+/* 3.1 Botões secundários (edição, filtros, calendário) */
+.our-dashbord #page-heading-button button,
+.our-dashbord #page-heading-button input[type="submit"],
+.our-dashbord .my_course_content_header .btn,
+.our-dashbord .my_course_content_header button,
+.our-dashbord .my_course_content_header .dropdown-toggle,
+.our-dashbord .courses_list_heading .btn,
+.our-dashbord .courses_list_heading button,
+.our-dashbord .courses_list_heading .dropdown-toggle,
+.our-dashbord .block_calendar_month .btn-primary,
+.our-dashbord .block_calendar_month a.btn,
+.our-dashbord .block_calendar_month button.btn,
+.our-dashbord .block_calendar_month input[type="submit"] {
+    padding: 8px 18px !important;
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    border-radius: var(--u-radius-md) !important;
+    background: var(--u-bg-input) !important;
+    color: var(--u-text-secondary) !important;
+    border: 1px solid var(--u-border-medium) !important;
+    box-shadow: var(--u-shadow-subtle) !important;
+    transition: var(--u-transition-base) !important;
+    height: auto !important;
+    line-height: 1.4 !important;
+    letter-spacing: 0.2px !important;
+    text-shadow: none !important;
+    text-decoration: none !important;
+}
+
+.our-dashbord #page-heading-button button:hover,
+.our-dashbord #page-heading-button input[type="submit"]:hover,
+.our-dashbord .my_course_content_header .btn:hover,
+.our-dashbord .my_course_content_header button:hover,
+.our-dashbord .my_course_content_header .dropdown-toggle:hover,
+.our-dashbord .courses_list_heading .btn:hover,
+.our-dashbord .courses_list_heading button:hover,
+.our-dashbord .courses_list_heading .dropdown-toggle:hover,
+.our-dashbord .block_calendar_month .btn-primary:hover,
+.our-dashbord .block_calendar_month a.btn:hover,
+.our-dashbord .block_calendar_month button.btn:hover {
+    background: var(--u-bg-card-hover) !important;
+    border-color: var(--u-brand-accent) !important;
+    color: var(--u-brand-primary) !important;
+    box-shadow: var(--u-shadow-medium) !important;
+}
+
+.our-dashbord #page-heading-button button:active,
+.our-dashbord .my_course_content_header .btn:active,
+.our-dashbord .courses_list_heading .btn:active {
+    transform: translateY(1px);
+    box-shadow: var(--u-shadow-subtle) !important;
+}
+
+/* 3.2 Espaçamento entre botões de edição */
+.our-dashbord #page-heading-button .singlebutton {
+    margin-right: 8px !important;
+}
+
+.our-dashbord #page-heading-button .singlebutton:last-child {
+    margin-right: 0 !important;
+}
+
+/* 3.3 Setinha do dropdown */
+.our-dashbord .my_course_content_header .dropdown-toggle::after,
+.our-dashbord .courses_list_heading .dropdown-toggle::after {
+    margin-left: 8px !important;
+    border-top-color: currentColor !important;
+}
+
+/* 3.4 Campo de busca e inputs */
+.our-dashbord .my_course_content_header input[type="text"],
+.our-dashbord .my_course_content_header input[type="search"],
+.our-dashbord .my_course_content_header .form-control {
+    padding: 8px 14px !important;
+    font-size: 13px !important;
+    border-radius: var(--u-radius-md) !important;
+    background: var(--u-bg-input) !important;
+    border: 1px solid var(--u-border-medium) !important;
+    box-shadow: var(--u-shadow-subtle) !important;
+    transition: var(--u-transition-base) !important;
+    color: var(--u-text-primary) !important;
+}
+
+.our-dashbord .my_course_content_header input[type="text"]:focus,
+.our-dashbord .my_course_content_header input[type="search"]:focus,
+.our-dashbord .my_course_content_header .form-control:focus {
+    border-color: var(--u-brand-accent) !important;
+    box-shadow: 0 0 0 3px rgba(var(--u-brand-accent-rgb), 0.15) !important;
+    outline: none !important;
+}
+
+/* ===================================================== */
+/* === SEÇÃO 4: CARROSSEL DE BOAS-VINDAS =============== */
+/* ===================================================== */
+
+/* 4.1 Container do carrossel */
+.our-dashbord #carouselBanners {
+    border-radius: var(--u-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--u-shadow-medium);
+    margin-bottom: 20px;
+    position: relative;
+}
+
+/* 4.2 Estrutura: altura fixa em todos os elementos */
+.our-dashbord #carouselBanners,
+.our-dashbord #carouselBanners .carousel-inner,
+.our-dashbord #carouselBanners .carousel-item,
+.our-dashbord #carouselBanners .banner-link {
+    height: 450px !important;
+    overflow: hidden !important;
+    position: relative !important;
+}
+
+/* 4.3 Imagens cobrem o container, cortam o excesso */
+.our-dashbord #carouselBanners .carousel-item img,
+.our-dashbord #carouselBanners .banner-link img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    display: block !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    pointer-events: none;
+}
+
+/* 4.4 SVGs (caso voltem a ser usados) */
+.our-dashbord #carouselBanners .banner-link svg {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: auto !important;
+    height: 450px !important;
+    min-width: 100% !important;
+    max-width: none !important;
+    display: block !important;
+    pointer-events: none;
+}
+
+/* 4.5 Link clicável ao redor da imagem */
+.our-dashbord #carouselBanners .banner-link {
+    display: block;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.our-dashbord #carouselBanners .banner-link::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0);
+    transition: var(--u-transition-slow);
+    pointer-events: none;
+}
+
+.our-dashbord #carouselBanners .banner-link:hover::after {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+/* 4.6 Indicadores (bolinhas) */
+.our-dashbord #carouselBanners .carousel-indicators {
+    position: absolute !important;
+    bottom: 15px !important;
+    z-index: 20 !important;
+    display: flex !important;
+    justify-content: center !important;
+    margin-bottom: 0 !important;
+}
+
+.our-dashbord #carouselBanners .carousel-indicators li {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.6);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    margin: 0 4px;
+    transition: var(--u-transition-slow);
+    cursor: pointer;
+}
+
+.our-dashbord #carouselBanners .carousel-indicators li.active {
+    background-color: #ffffff;
+    transform: scale(1.2);
+}
+
+/* 4.7 Setas laterais (aparecem só no hover) */
+.our-dashbord #carouselBanners .carousel-control-prev,
+.our-dashbord #carouselBanners .carousel-control-next {
+    width: 50px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 20;
+}
+
+.our-dashbord #carouselBanners:hover .carousel-control-prev,
+.our-dashbord #carouselBanners:hover .carousel-control-next {
+    opacity: 0.9;
+}
+
+.our-dashbord #carouselBanners .carousel-control-prev-icon,
+.our-dashbord #carouselBanners .carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    background-size: 50%;
+}
+
+/* ===================================================== */
+/* === SEÇÃO 5: CARDS DE CURSO (LISTAGEM CENTRAL) ====== */
+/* ===================================================== */
+
+/* 5.1 Bloquinhos individuais para cada curso */
+.our-dashbord .my_course_content_list .mc_content_list,
+.our-dashbord [data-region="card-deck"] > [data-region="course-content"] {
+    background: var(--u-bg-card) !important;
+    border: 0.5px solid var(--u-border-medium) !important;
+    border-radius: var(--u-radius-lg) !important;
+    box-shadow: none !important;
+    padding: 16px !important;
+    margin-bottom: 12px !important;
+    transition: var(--u-transition-base) !important;
+}
+
+.our-dashbord .my_course_content_list .mc_content_list:hover,
+.our-dashbord [data-region="card-deck"] > [data-region="course-content"]:hover {
+    background: var(--u-bg-card-hover) !important;
+    border-color: var(--u-border-strong) !important;
+}
+
+.our-dashbord .my_course_content_list .mc_content_list:last-child,
+.our-dashbord [data-region="card-deck"] > [data-region="course-content"]:last-child {
+    margin-bottom: 0 !important;
+}
+
+/* 5.2 Reset de separadores antigos entre cards */
+.our-dashbord .my_course_content_list .mc_content_list + .mc_content_list,
+.our-dashbord [data-region="card-deck"] > [data-region="course-content"] + [data-region="course-content"] {
+    border-top: 0.5px solid var(--u-border-medium) !important;
+    padding-top: 16px !important;
+    margin-top: 0 !important;
+}
+
+/* ===================================================== */
+/* === SEÇÃO 6: BANNERS CLICÁVEIS DOS CURSOS GRANDES === */
+/* === (NÃO se aplica aos cursos recentes — esses    === */
+/* === têm tratamento próprio na Seção 7)            === */
+/* ===================================================== */
+
+/* 6.1 Container da imagem clicável */
+.our-dashbord .block_myoverview .thumb,
+.our-dashbord .my_course_content .thumb {
+    position: relative !important;
+    cursor: pointer !important;
+    overflow: hidden !important;
+    border-radius: var(--u-radius-md) !important;
+}
+
+/* 6.2 Overlay cobre toda a imagem */
+.our-dashbord .block_myoverview .thumb .overlay,
+.our-dashbord .my_course_content .thumb .overlay {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: transparent !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    transform: none !important;
+}
+
+/* 6.3 Limpa estilos do overlay original do tema */
+.our-dashbord .block_myoverview .thumb .overlay ul,
+.our-dashbord .my_course_content .thumb .overlay ul,
+.our-dashbord .block_myoverview .thumb .overlay li,
+.our-dashbord .my_course_content .thumb .overlay li {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    list-style: none !important;
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* 6.4 Link "View" cobre toda a imagem (clicável invisível) */
+.our-dashbord .block_myoverview .thumb .overlay .mcc_view,
+.our-dashbord .my_course_content .thumb .overlay .mcc_view {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    display: block !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
+    color: transparent !important;
+    text-decoration: none !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    transform: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    z-index: 5 !important;
+}
+
+.our-dashbord .block_myoverview .thumb .overlay .mcc_view:hover,
+.our-dashbord .my_course_content .thumb .overlay .mcc_view:hover,
+.our-dashbord .block_myoverview .thumb .overlay .mcc_view:focus,
+.our-dashbord .my_course_content .thumb .overlay .mcc_view:focus {
+    background: transparent !important;
+    color: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    transform: none !important;
+}
+
+/* 6.5 Seta circular branca decorativa (canto inferior direito) */
+.our-dashbord .block_myoverview .thumb::after,
+.our-dashbord .my_course_content .thumb::after {
+    content: "→";
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    width: 40px;
+    height: 40px;
+    background: var(--u-bg-card);
+    color: var(--u-brand-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    z-index: 1;
+    transition: var(--u-transition-base);
+    pointer-events: none;
+}
+
+.our-dashbord .block_myoverview .thumb:hover::after,
+.our-dashbord .my_course_content .thumb:hover::after {
+    background: var(--u-brand-primary);
+    color: var(--u-text-on-brand);
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(var(--u-brand-primary-rgb), 0.4);
+}
+
+/* 6.6 Escurecimento sutil da imagem no hover */
+.our-dashbord .block_myoverview .thumb::before,
+.our-dashbord .my_course_content .thumb::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0);
+    transition: var(--u-transition-base);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.our-dashbord .block_myoverview .thumb:hover::before,
+.our-dashbord .my_course_content .thumb:hover::before {
+    background: rgba(0, 0, 0, 0.15);
+}
+
+/* ===================================================== */
+/* === SEÇÃO 7: CURSOS ACESSADOS RECENTEMENTE ========== */
+/* === (Lista compacta horizontal na sidebar)        === */
+/* ===================================================== */
+
+/* 7.1 Wrapper do bloco — card branco com borda */
+.our-dashbord aside .block_recentlyaccessedcourses .ccnBlockContent,
+.our-dashbord .ccn-sidebar-region .block_recentlyaccessedcourses .ccnBlockContent {
+    background: var(--u-bg-card) !important;
+    border: 0.5px solid var(--u-border-medium) !important;
+    box-shadow: none !important;
+    border-radius: var(--u-radius-lg) !important;
+    padding: 16px !important;
+}
+
+/* 7.2 Esconde setas do carrossel original */
+.our-dashbord .block_recentlyaccessedcourses .my_course_content_header .col-xl-4 {
+    display: none !important;
+}
+
+.our-dashbord .block_recentlyaccessedcourses .my_course_content_header .col-xl-8 {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+}
+
+/* 7.3 Esconde placeholder de loading */
+.our-dashbord .block_recentlyaccessedcourses [data-region="loading-placeholder"] {
+    display: none !important;
+}
+
+/* 7.4 Container de cards: coluna vertical com gap */
+.our-dashbord .block_recentlyaccessedcourses .my_course_content_list,
+.our-dashbord .block_recentlyaccessedcourses [data-region="card-deck"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    justify-content: flex-start !important;
+    width: 100% !important;
+}
+
+/* 7.5 Cards individuais — linha horizontal compacta com fundo "escavado" */
+.our-dashbord .block_recentlyaccessedcourses .mc_content_list,
+.our-dashbord .block_recentlyaccessedcourses [data-region="course-content"] {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 12px !important;
+    padding: 10px 50px 10px 10px !important;
+    background: var(--u-bg-card-inset) !important;
+    border: 0.5px solid var(--u-border-subtle) !important;
+    border-left: 3px solid var(--u-brand-accent) !important;
+    border-radius: var(--u-radius-md) !important;
+    box-shadow: none !important;
+    transition: var(--u-transition-base) !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    position: relative !important;
+    min-height: 80px !important;
+    box-sizing: border-box !important;
+}
+
+.our-dashbord .block_recentlyaccessedcourses .mc_content_list:hover {
+    background: var(--u-bg-card-inset-hover) !important;
+    border-color: var(--u-border-strong) !important;
+    border-left-color: var(--u-brand-primary) !important;
+}
+
+/* 7.6 Mostra apenas os 4 cards mais recentes */
+.our-dashbord .block_recentlyaccessedcourses .mc_content_list:nth-child(n+5) {
+    display: none !important;
+}
+
+/* 7.7 Bloqueio de separador entre cards (proteção) */
+.our-dashbord .block_recentlyaccessedcourses .mc_content_list + .mc_content_list,
+.our-dashbord .block_recentlyaccessedcourses [data-region="course-content"] + [data-region="course-content"] {
+    border-top: none !important;
+    padding-top: 10px !important;
+    margin-top: 0 !important;
+}
+
+/* 7.8 Thumb 60x60 — blindado contra outras regras */
+.our-dashbord .block_recentlyaccessedcourses .mc_content_list .thumb,
+.our-dashbord .block_recentlyaccessedcourses [data-region="course-content"] .thumb,
+body .our-dashbord .block_recentlyaccessedcourses .mc_content_list .thumb {
+    flex: 0 0 60px !important;
+    width: 60px !important;
+    min-width: 60px !important;
+    max-width: 60px !important;
+    height: 60px !important;
+    min-height: 60px !important;
+    max-height: 60px !important;
+    aspect-ratio: 1 / 1 !important;
+    border-radius: var(--u-radius-sm) !important;
+    overflow: hidden !important;
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    position: relative !important;
+}
+
+/* 7.9 Imagem dentro do thumb */
+.our-dashbord .block_recentlyaccessedcourses .mc_content_list .thumb .img-whp,
+.our-dashbord .block_recentlyaccessedcourses .mc_content_list .thumb img,
+body .our-dashbord .block_recentlyaccessedcourses .mc_content_list .thumb img {
+    width: 60px !important;
+    height: 60px !important;
+    max-width: 60px !important;
+    max-height: 60px !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    border-radius: var(--u-radius-sm) !important;
+    display: block !important;
+    position: relative !important;
+    inset: auto !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+}
+
+/* 7.10 Overlay e link clicável: contidos no 60x60 */
+.our-dashbord .block_recentlyaccessedcourses .mc_content_list .thumb .overlay,
+body .our-dashbord .block_recentlyaccessedcourses .mc_content_list .thumb .overlay {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 60px !important;
+    height: 60px !important;
+    max-width: 60px !important;
+    max-height: 60px !important;
+}
+
+.our-dashbord .block_recentlyaccessedcourses .mc_content_list .thumb .overlay .mcc_view,
+body .our-dashbord .block_recentlyaccessedcourses .mc_content_list .thumb .overlay .mcc_view {
+    width: 60px !important;
+    height: 60px !important;
+    max-width: 60px !important;
+    max-height: 60px !important;
+}
+
+/* 7.11 Anula seta circular e overlay escuro (vindos da Seção 6) */
+.our-dashbord .block_recentlyaccessedcourses .mc_content_list .thumb::after,
+.our-dashbord .block_recentlyaccessedcourses .mc_content_list .thumb::before,
+.our-dashbord .block_recentlyaccessedcourses [data-region="course-content"] .thumb::after,
+.our-dashbord .block_recentlyaccessedcourses [data-region="course-content"] .thumb::before,
+body .our-dashbord .block_recentlyaccessedcourses .thumb::after,
+body .our-dashbord .block_recentlyaccessedcourses .thumb::before {
+    content: none !important;
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    background: transparent !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+
+/* 7.12 Esconde elementos visualmente poluentes */
+.our-dashbord .block_recentlyaccessedcourses .ccn_mc_content_header_status,
+.our-dashbord .block_recentlyaccessedcourses .ccn_fav_icon,
+.our-dashbord .block_recentlyaccessedcourses .ccn_mc_content_header_actions,
+.our-dashbord .block_recentlyaccessedcourses .ccn_mc_content_header_details > .text-truncate,
+.our-dashbord .block_recentlyaccessedcourses .ccn_mc_content_header_details > span.text-truncate {
+    display: none !important;
+}
+
+/* 7.13 Detalhes do curso ocupam espaço restante */
+.our-dashbord .block_recentlyaccessedcourses .details {
+    flex: 1 !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    background: transparent !important;
+}
+
+.our-dashbord .block_recentlyaccessedcourses .mc_content,
+.our-dashbord .block_recentlyaccessedcourses .ccn_mc_content_header,
+.our-dashbord .block_recentlyaccessedcourses .ccn_mc_content_header_details {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+/* 7.14 Título compacto (truncado em uma linha) */
+.our-dashbord .block_recentlyaccessedcourses h5.title,
+.our-dashbord .block_recentlyaccessedcourses .title {
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    color: var(--u-brand-primary) !important;
+    line-height: 1.3 !important;
+    margin: 0 0 6px 0 !important;
+    padding: 0 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    word-wrap: normal !important;
+    word-break: normal !important;
+    max-height: none !important;
+    display: block !important;
+    width: 100% !important;
+}
+
+/* 7.15 Barra de progresso fina e dourada */
+.our-dashbord .block_recentlyaccessedcourses .ccn_mc_progress {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    width: 100% !important;
+}
+
+.our-dashbord .block_recentlyaccessedcourses .ccn_mc_progress .progress {
+    height: 4px !important;
+    background: var(--u-progress-bg) !important;
+    border-radius: 2px !important;
+    flex: 1 !important;
+    margin: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    overflow: hidden !important;
+    min-width: 0 !important;
+}
+
+.our-dashbord .block_recentlyaccessedcourses .ccn_mc_progress .progress-bar,
+.our-dashbord .block_recentlyaccessedcourses .ccn_mc_progress .progress-bar.bar {
+    background: var(--u-progress-fill) !important;
+    height: 100% !important;
+    border-radius: 2px !important;
+    transition: width 0.4s ease !important;
+}
+
+.our-dashbord .block_recentlyaccessedcourses .ccn_mc_progress .small {
+    font-size: 10px !important;
+    font-weight: 500 !important;
+    color: var(--u-text-tertiary) !important;
+    flex-shrink: 0 !important;
+    margin: 0 !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 2px !important;
+}
+
+.our-dashbord .block_recentlyaccessedcourses .ccn_mc_progress .small strong {
+    color: var(--u-text-secondary) !important;
+    font-weight: 600 !important;
+}
+
+/* 7.16 Botão circular azul à direita do card */
+.our-dashbord .block_recentlyaccessedcourses .mc_content_list::after {
+    content: "→";
+    position: absolute;
+    right: 11px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 28px;
+    height: 28px;
+    background: var(--u-brand-primary);
+    color: var(--u-text-on-brand);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 500;
+    pointer-events: none;
+    transition: var(--u-transition-base);
+    box-shadow: 0 2px 4px rgba(var(--u-brand-primary-rgb), 0.2);
+    z-index: 2;
+}
+
+.our-dashbord .block_recentlyaccessedcourses .mc_content_list:hover::after {
+    background: var(--u-brand-accent);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 3px 6px rgba(var(--u-brand-accent-rgb), 0.3);
+}
+
+/* 7.17 Card todo clicável (estende área do link) */
+.our-dashbord .block_recentlyaccessedcourses .mc_content_list .thumb .overlay .mcc_view::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -50px;
+    bottom: -10px;
+    z-index: 1;
+}
+
+/* ===================================================== */
+/* === SEÇÃO 8: CALENDÁRIO ============================= */
+/* ===================================================== */
+
+/* 8.1 Wrapper do bloco */
+.our-dashbord aside .block_calendar_month .ccnBlockContent,
+.our-dashbord .ccn-sidebar-region .block_calendar_month .ccnBlockContent {
+    background: var(--u-bg-card) !important;
+    border: 0.5px solid var(--u-border-medium) !important;
+    box-shadow: none !important;
+    border-radius: var(--u-radius-lg) !important;
+    padding: 16px !important;
+}
+
+/* 8.2 Tabela do calendário — sem bordas, layout fixo */
+.our-dashbord .block_calendar_month .calendarmonth,
+.our-dashbord .calendarmonth {
+    margin: 0 !important;
+    border-collapse: collapse !important;
+    width: 100% !important;
+    table-layout: fixed !important;
+}
+
+.our-dashbord .block_calendar_month .calendarmonth tr,
+.our-dashbord .calendarmonth tr {
+    border: none !important;
+    background: transparent !important;
+}
+
+/* 8.3 Cabeçalho dos dias (SEG, TER...) */
+.our-dashbord .block_calendar_month .calendarmonth th,
+.our-dashbord .calendarmonth th {
+    padding: 8px 0 12px 0 !important;
+    font-size: 10px !important;
+    font-weight: 500 !important;
+    color: var(--u-text-tertiary) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    text-align: center !important;
+    border: none !important;
+    background: transparent !important;
+}
+
+/* 8.4 Células dos dias */
+.our-dashbord .block_calendar_month .calendarmonth td,
+.our-dashbord .calendarmonth td {
+    padding: 0 !important;
+    height: 38px !important;
+    text-align: center !important;
+    vertical-align: middle !important;
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    color: var(--u-text-secondary) !important;
+    border: none !important;
+    background: transparent !important;
+    position: relative !important;
+    transition: background 0.15s ease !important;
+    border-radius: var(--u-radius-sm) !important;
+}
+
+/* 8.5 Hover em dias normais */
+.our-dashbord .block_calendar_month .calendarmonth td:not(.today):not(.dayblank):hover,
+.our-dashbord .calendarmonth td:not(.today):not(.dayblank):hover {
+    background: rgba(var(--u-brand-primary-rgb), 0.06) !important;
+}
+
+/* 8.6 Links dentro das células */
+.our-dashbord .block_calendar_month .calendarmonth td a,
+.our-dashbord .calendarmonth td a {
+    color: inherit !important;
+    text-decoration: none !important;
+}
+
+/* 8.7 Dias de outros meses (apagados) */
+.our-dashbord .block_calendar_month td.dayblank,
+.our-dashbord .calendarmonth td.dayblank {
+    color: var(--u-border-strong) !important;
+}
+
+/* 8.8 Dia atual: círculo azul */
+.our-dashbord .block_calendar_month td.today,
+.our-dashbord .calendarmonth td.today {
+    background: transparent !important;
+    position: relative !important;
+}
+
+.our-dashbord .block_calendar_month td.today::before,
+.our-dashbord .calendarmonth td.today::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    background: var(--u-brand-primary);
+    border-radius: 50%;
+    z-index: 0;
+    box-shadow: none;
+    transition: var(--u-transition-base);
+}
+
+.our-dashbord .block_calendar_month td.today > *,
+.our-dashbord .block_calendar_month td.today a,
+.our-dashbord .calendarmonth td.today > *,
+.our-dashbord .calendarmonth td.today a {
+    position: relative !important;
+    z-index: 1 !important;
+    color: var(--u-text-on-brand) !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+}
+
+.our-dashbord .block_calendar_month td.today:hover::before,
+.our-dashbord .calendarmonth td.today:hover::before {
+    background: var(--u-brand-accent);
+    transform: translate(-50%, -50%) scale(1.05);
+}
+
+/* 8.9 Cabeçalho de mês/ano */
+.our-dashbord .block_calendar_month .calendar-controls,
+.our-dashbord .block_calendar_month .controls {
+    margin: 14px 0 !important;
+    padding: 0 !important;
+    text-align: center !important;
+}
+
+.our-dashbord .block_calendar_month .calendar-controls .current,
+.our-dashbord .block_calendar_month .controls .current,
+.our-dashbord .block_calendar_month h5 {
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    color: var(--u-brand-primary) !important;
+    text-transform: capitalize !important;
+}
+
+.our-dashbord .block_calendar_month .calendar-controls .previous,
+.our-dashbord .block_calendar_month .calendar-controls .next,
+.our-dashbord .block_calendar_month .controls .previous,
+.our-dashbord .block_calendar_month .controls .next,
+.our-dashbord .block_calendar_month .calendar-controls a,
+.our-dashbord .block_calendar_month .controls a {
+    font-size: 12px !important;
+    color: var(--u-text-tertiary) !important;
+    padding: 4px 10px !important;
+    border-radius: var(--u-radius-sm) !important;
+    text-decoration: none !important;
+    transition: var(--u-transition-fast);
+    white-space: nowrap !important;
+}
+
+.our-dashbord .block_calendar_month .calendar-controls a:hover,
+.our-dashbord .block_calendar_month .controls a:hover {
+    color: var(--u-brand-primary) !important;
+}
+
+/* 8.10 Selects e botões compactos */
+.our-dashbord .block_calendar_month select,
+.our-dashbord .block_calendar_month .custom-select {
+    padding: 6px 24px 6px 12px !important;
+    font-size: 12px !important;
+    height: 34px !important;
+}
+
+.our-dashbord .block_calendar_month .btn-primary,
+.our-dashbord .block_calendar_month a.btn,
+.our-dashbord .block_calendar_month button.btn {
+    padding: 6px 14px !important;
+    font-size: 12px !important;
+    height: 34px !important;
+    line-height: 1 !important;
+}
+
+/* ===================================================== */
+/* === SEÇÃO 9: IMAGENS E THUMBS ======================= */
+/* ===================================================== */
+
+/* 9.1 Banners dos cursos GRANDES (myoverview e my_course_content) */
+/* NÃO se aplica aos cursos recentes — esses têm regras específicas em 7.8/7.9 */
+
+.our-dashbord .block_myoverview .thumb img,
+.our-dashbord .my_course_content .thumb img,
+.our-dashbord .block_myoverview .thumb .img-whp,
+.our-dashbord .my_course_content .thumb .img-whp {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    display: block !important;
+}
+
+/* 9.2 Aspect-ratio fixo nos thumbs grandes (3:2) */
+.our-dashbord .block_myoverview .thumb,
+.our-dashbord .my_course_content .thumb {
+    aspect-ratio: 3 / 2 !important;
+    width: 100% !important;
+    overflow: hidden !important;
+}
+
+/* ===================================================== */
+/* === SEÇÃO 10: RESPONSIVO MOBILE ===================== */
+/* ===================================================== */
+
+@media (max-width: 768px) {
+
+    /* 10.1 Título "Painel" alinha à esquerda */
+    .our-dashbord .page-context-header,
+    .our-dashbord .page-header-headings,
+    .our-dashbord h1,
+    .our-dashbord .page-header-headings h1 {
+        text-align: left !important;
+        padding-left: 15px !important;
+    }
+
+    .our-dashbord .page-context-header h1::after,
+    .our-dashbord .page-header-headings h1::after {
+        left: 15px !important;
+    }
+
+    /* 10.2 Header de filtros quebra em todos os níveis */
+    .our-dashbord .my_course_content_header,
+    .our-dashbord .my_course_content_header .d-flex,
+    .our-dashbord .my_course_content_header .candidate_revew_select,
+    .our-dashbord .courses_list_heading,
+    .our-dashbord .courses_list_heading .d-flex {
+        flex-wrap: wrap !important;
+        gap: 8px !important;
+        justify-content: flex-start !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow: visible !important;
+    }
+
+    /* 10.3 Filhos do header se ajustam */
+    .our-dashbord .my_course_content_header > *,
+    .our-dashbord .my_course_content_header .d-flex > * {
+        flex: 0 1 auto !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+    }
+
+    /* 10.4 Campo de busca ocupa linha inteira */
+    .our-dashbord .my_course_content_header input,
+    .our-dashbord .my_course_content_header .input-group,
+    .our-dashbord .my_course_content_header .form-control {
+        flex-basis: 100% !important;
+        width: 100% !important;
+        min-width: 100% !important;
+    }
+
+    /* 10.5 Dropdowns adaptáveis */
+    .our-dashbord .my_course_content_header .dropdown,
+    .our-dashbord .my_course_content_header .btn-group {
+        flex: 1 1 auto !important;
+        max-width: 100% !important;
+    }
+
+    .our-dashbord .my_course_content_header .dropdown .btn,
+    .our-dashbord .my_course_content_header .btn {
+        width: 100% !important;
+        white-space: normal !important;
+    }
+
+    /* 10.6 Seta menor nos cards grandes mobile */
+    .our-dashbord .block_myoverview .thumb::after,
+    .our-dashbord .my_course_content .thumb::after {
+        width: 36px;
+        height: 36px;
+        font-size: 18px;
+        bottom: 10px;
+        right: 10px;
+    }
+
+    /* 10.7 Aspect-ratio mobile dos cards grandes */
+    .our-dashbord .block_myoverview .thumb,
+    .our-dashbord .my_course_content .thumb {
+        aspect-ratio: 16 / 10 !important;
+    }
+
+    /* 10.8 Botões "Redefinir/Parar" empilhados */
+    .our-dashbord #page-heading-button {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 8px !important;
+        padding: 0 15px !important;
+        margin: 10px 0 !important;
+    }
+
+    .our-dashbord #page-heading-button .singlebutton,
+    .our-dashbord #page-heading-button .singlebutton form {
+        margin: 0 !important;
+        width: 100% !important;
+    }
+
+    .our-dashbord #page-heading-button button,
+    .our-dashbord #page-heading-button input[type="submit"] {
+        width: 100% !important;
+        text-align: center !important;
+    }
+
+    /* 10.9 Cursos recentes: mais respiro no mobile */
+    .our-dashbord .block_recentlyaccessedcourses .mc_content_list {
+        padding: 12px 50px 12px 12px !important;
+        gap: 14px !important;
+    }
+
+    /* 10.10 Carrossel: altura reduzida */
+    .our-dashbord #carouselBanners,
+    .our-dashbord #carouselBanners .carousel-inner,
+    .our-dashbord #carouselBanners .carousel-item,
+    .our-dashbord #carouselBanners .banner-link {
+        height: 400px !important;
+    }
+    .our-dashbord #carouselBanners .banner-link svg {
+        height: 400px !important;
+    }
+}
+
+/* 10.11 Mobile pequeno (≤480px): carrossel ainda menor */
+@media (max-width: 480px) {
+    .our-dashbord #carouselBanners,
+    .our-dashbord #carouselBanners .carousel-inner,
+    .our-dashbord #carouselBanners .carousel-item,
+    .our-dashbord #carouselBanners .banner-link {
+        height: 360px !important;
+    }
+    .our-dashbord #carouselBanners .banner-link svg {
+        height: 360px !important;
+    }
+}
+/* ===================================================== */
+/* === SEÇÃO 11: BLOCK ADVANCED NOTIFICATIONS ========== */
+/* === Avisos no estilo institucional Uniguaçu      === */
+/* ===================================================== */
+
+/* 11.1 Wrapper externo do bloco — sem cabeçalho, integrado ao layout */
+.block_advnotifications {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin-bottom: 16px !important;
+}
+
+.block_advnotifications .ccnBlockContent {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+}
+
+/* 11.2 Container de cada aviso individual */
+.block_advnotifications .notification-block-wrapper {
+    margin-bottom: 12px !important;
+    width: 100% !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+    height: auto !important;
+}
+
+.block_advnotifications .notification-block-wrapper:last-child {
+    margin-bottom: 0 !important;
+}
+
+/* 11.3 Caixa do aviso — visual clean com borda lateral dourada */
+.block_advnotifications .alert {
+    width: auto !important;
+    height: auto !important;
+    max-width: 100% !important;
+    max-height: none !important;
+    padding: 14px 44px 14px 18px !important;
+    border-radius: var(--u-radius-md) !important;
+    border: 0.5px solid var(--u-border-medium) !important;
+    border-left: 3px solid var(--u-brand-accent) !important;
+    box-shadow: var(--u-shadow-subtle) !important;
+    background-clip: padding-box !important;
+    position: relative !important;
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    transition: var(--u-transition-base) !important;
+}
+
+.block_advnotifications .alert:hover {
+    box-shadow: var(--u-shadow-medium) !important;
+}
+
+/* 11.4 Padrão "info" — amarelinho institucional para chamar atenção */
+.block_advnotifications .alert-info,
+.block_advnotifications .alert-info.announcement {
+    background-color: #fdf6e3 !important;       /* Creme amarelado suave */
+    color: #6b5520 !important;                   /* Marrom dourado pro texto */
+    border-color: #f0e4b8 !important;
+    border-left-color: var(--u-brand-accent) !important;
+}
+
+/* 11.5 Variante success — verde suave */
+.block_advnotifications .alert-success {
+    background-color: #f0f9f4 !important;
+    color: #1e6b3f !important;
+    border-color: #c8e6d3 !important;
+    border-left-color: #2e8556 !important;
+}
+
+/* 11.6 Variante warning — laranja/âmbar mais intenso (alertas importantes) */
+.block_advnotifications .alert-warning {
+    background-color: #fff8e6 !important;
+    color: #8a5a00 !important;
+    border-color: #f5d99c !important;
+    border-left-color: #d68f00 !important;
+}
+
+/* 11.7 Variante danger — vermelho institucional */
+.block_advnotifications .alert-danger {
+    background-color: #fdecea !important;
+    color: #8b1d1d !important;
+    border-color: #f5c2c2 !important;
+    border-left-color: #c0392b !important;
+}
+
+/* 11.8 Ícone — pequeno, alinhado, sem fundo */
+.block_advnotifications .notification_aicon {
+    width: 20px !important;
+    height: 20px !important;
+    max-width: 20px !important;
+    max-height: 20px !important;
+    min-width: 20px !important;
+    min-height: 20px !important;
+    margin: 2px 0 0 0 !important;
+    padding: 0 !important;
+    flex-shrink: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    object-fit: contain !important;
+    float: none !important;
+    position: static !important;
+    display: inline-block !important;
+    vertical-align: top !important;
+    opacity: 0.85 !important;
+}
+
+/* 11.9 Título em negrito (tag <strong>) */
+.block_advnotifications .alert strong {
+    font-weight: 600 !important;
+    margin-right: 6px !important;
+    color: inherit !important;
+}
+
+/* 11.10 Links dentro dos avisos — herdam cor mas com sublinhado sutil */
+.block_advnotifications .alert a {
+    color: var(--u-brand-primary) !important;
+    text-decoration: underline !important;
+    text-decoration-thickness: 1px !important;
+    text-underline-offset: 2px !important;
+    font-weight: 500 !important;
+    transition: var(--u-transition-fast) !important;
+}
+
+.block_advnotifications .alert a:hover {
+    color: var(--u-brand-primary-dark) !important;
+    text-decoration-thickness: 2px !important;
+}
+
+/* 11.11 Botão de fechar (X) — refinado */
+.block_advnotifications .notification-block-close {
+    position: absolute !important;
+    top: 50% !important;
+    right: 14px !important;
+    transform: translateY(-50%) !important;
+    width: 24px !important;
+    height: 24px !important;
+    cursor: pointer !important;
+    font-size: 18px !important;
+    font-weight: 400 !important;
+    line-height: 1 !important;
+    opacity: 0.45 !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: var(--u-transition-fast) !important;
+    color: inherit !important;
+}
+
+.block_advnotifications .notification-block-close:hover {
+    opacity: 1 !important;
+    background: rgba(0, 0, 0, 0.06) !important;
+}
+
+.block_advnotifications .notification-block-close strong {
+    font-weight: 400 !important;
+    margin: 0 !important;
+}
+
+/* 11.12 Responsivo — mobile mais compacto */
+@media (max-width: 768px) {
+    .block_advnotifications .alert {
+        padding: 12px 40px 12px 14px !important;
+        font-size: 13px !important;
+        gap: 10px !important;
+    }
+
+    .block_advnotifications .notification_aicon {
+        width: 18px !important;
+        height: 18px !important;
+        max-width: 18px !important;
+        max-height: 18px !important;
+    }
+}

@@ -1,0 +1,79 @@
+{ifenrolled}
+<div style="display: grid; grid-template-columns: 1.4fr 1fr; gap: 0; background: #ffffff; border: 1px solid #e4e4e7; border-radius: 16px; overflow: hidden; font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;">
+
+    <div style="padding: 36px;">
+
+        <div style="font-size: 12px; color: #71717a; font-weight: 500; letter-spacing: -0.1px; margin-bottom: 8px;">Olá, {firstname}</div>
+        <div style="font-size: 26px; font-weight: 700; color: #0a0a0a; line-height: 1.2; letter-spacing: -0.6px; margin-bottom: 16px;">Continue sua jornada de aprendizagem</div>
+        <div id="jornada-mensagem" style="font-size: 14px; color: #52525b; line-height: 1.6; margin-bottom: 28px;">Vamos começar sua jornada.</div>
+
+        <div style="display: flex; align-items: stretch; gap: 0; padding-top: 24px; border-top: 1px solid #f4f4f5;">
+
+            <div style="flex: 1; padding-right: 24px;">
+                <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 10px;">
+                    <div style="width: 6px; height: 6px; border-radius: 50%; background: #2563eb;"></div>
+                    <div style="font-size: 10px; color: #1e40af; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;">Sua nota</div>
+                </div>
+                <div style="display: flex; align-items: baseline; gap: 4px;">
+                    <span id="jornada-nota" style="font-size: 28px; font-weight: 800; color: #1e3a8a; letter-spacing: -1px; line-height: 1;">{coursegrade}</span>
+                    <span style="font-size: 13px; color: #6b80b5; font-weight: 500;">/ 100</span>
+                </div>
+            </div>
+
+            <div style="width: 1px; background: #e4e4e7;"></div>
+
+            <div style="flex: 1; padding-left: 24px;">
+                <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 10px;">
+                    <div style="width: 6px; height: 6px; border-radius: 50%; background: #d97706;"></div>
+                    <div style="font-size: 10px; color: #92400e; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;">Próxima aula</div>
+                </div>
+                <div style="font-size: 16px; font-weight: 700; color: #78350f; letter-spacing: -0.3px; line-height: 1.1;">21 mar</div>
+                <div style="font-size: 11px; color: #a16207; margin-top: 4px; font-weight: 500;">9h • 16h</div>
+            </div>
+
+        </div>
+
+        <div style="margin-top: 16px; padding-top: 14px; font-size: 11px; color: #a1a1aa; display: flex; align-items: center; gap: 8px;">
+            <div style="width: 4px; height: 4px; border-radius: 50%; background: #d4d4d8;"></div>
+            <span>Última visita: {lastlogin %d/%m/%Y às %H:%M}</span>
+        </div>
+
+    </div>
+
+    <div style="background: #fafafa; padding: 36px; display: flex; flex-direction: column; justify-content: center; border-left: 1px solid #f4f4f5;">
+        <div style="font-size: 15px; font-weight: 700; color: #18181b; line-height: 1.3;"><br></div>
+        <div style="font-size: 15px; font-weight: 700; color: #18181b; line-height: 1.3;">{coursecontacts}</div>
+        <div style="font-size: 12px; color: #71717a; margin-top: 8px; font-weight: 500;">{coursename}</div>
+    </div>
+
+</div>
+
+<script>
+    (function() {
+        var elNota = document.getElementById('jornada-nota');
+        var elMensagem = document.getElementById('jornada-mensagem');
+        if (!elNota || !elMensagem) return;
+
+        var texto = elNota.textContent || '';
+        elNota.textContent = texto.replace('%', '').trim();
+
+        var nota = parseFloat(texto.replace(/[^0-9.,]/g, '').replace(',', '.')) || 0;
+
+        var msg;
+        if (texto.indexOf('-') !== -1 || nota === 0) {
+            msg = 'Sua jornada começa agora. Acesse os materiais e comece pelas aulas interativas para construir sua base.';
+        } else if (nota < 30) {
+            msg = 'Você deu os primeiros passos. Continue avançando nas atividades interativas para ganhar consistência.';
+        } else if (nota < 50) {
+            msg = 'Você está progredindo bem. Mantenha o ritmo nas próximas aulas para fortalecer seu aprendizado.';
+        } else if (nota < 70) {
+            msg = 'Excelente trajetória até aqui. Você já passou da metade — continue firme nas próximas etapas.';
+        } else if (nota < 90) {
+            msg = 'Desempenho de destaque. Mantenha o foco nas atividades restantes para fechar com excelência.';
+        } else {
+            msg = 'Performance excepcional. Você está dominando a disciplina com maestria.';
+        }
+
+        elMensagem.textContent = msg;
+    })();
+</script>

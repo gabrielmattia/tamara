@@ -89,15 +89,36 @@
  width: 100vw;
  }.sidebar {
  width: 280px;
+ min-width: 280px;
  background-color: var(--cor-branco);
  border-right: 1px solid var(--cor-borda);
  display: flex;
  flex-direction: column;
  flex-shrink: 0;
- overflow-y: auto;
+ overflow: hidden;
  box-shadow: 2px 0 10px rgba(0,0,0,0.03);
  z-index: 50;
- }.sidebar-header {
+ transition: width 0.3s ease, min-width 0.3s ease;
+ }.sidebar.recolhida {
+ width: 0;
+ min-width: 0;
+ }
+ #btn-reabrir-sidebar {
+ display: none;
+ position: fixed;
+ top: 16px;
+ left: 16px;
+ z-index: 100;
+ background: var(--cor-primaria);
+ border: none;
+ cursor: pointer;
+ padding: 8px 10px;
+ border-radius: 6px;
+ flex-direction: column;
+ gap: 5px;
+ box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+ }
+ .sidebar-header {
  padding: 25px 20px;
  border-bottom: 1px solid var(--cor-borda);
  background-color: var(--cor-primaria);
@@ -236,6 +257,11 @@
  <h3>Resultados</h3>
  <p>Consolidação das dores institucionais e avaliação dos direcionamentos estratégicos aplicados ao Moodle.</p>
  </div>
+ <div class="home-card tech" onclick="window.location.href='/apresentacao-visual.html'">
+ <span class="category" style="color:var(--cor-primaria);">Técnico</span>
+ <h3>Apresentação Visual</h3>
+ <p>Recomendações visuais e de experiência com menor impacto na estrutura atual da plataforma.</p>
+ </div>
  </div>
  </div>
  </div>
@@ -247,7 +273,14 @@
  <div class="sidebar" id="sidebar">
  <div class="sidebar-header" onclick="voltarHome()">
  <span class="back-to-home">← Voltar ao Início</span>
- <h2>Moodle Dashboard</h2>
+ <div style="display: flex; align-items: center; justify-content: space-between;">
+ <h2 style="margin: 0;">Moodle Dashboard</h2>
+ <button onclick="event.stopPropagation(); toggleSidebar();" title="Recolher menu" style="background: none; border: none; cursor: pointer; padding: 4px 6px; display: flex; flex-direction: column; gap: 5px; border-radius: 4px; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.15)'" onmouseout="this.style.background='none'">
+ <span style="display: block; width: 18px; height: 2px; background: white; border-radius: 2px;"></span>
+ <span style="display: block; width: 18px; height: 2px; background: white; border-radius: 2px;"></span>
+ <span style="display: block; width: 18px; height: 2px; background: white; border-radius: 2px;"></span>
+ </button>
+ </div>
  <p>Relatório de Consultoria</p>
  </div>
  
@@ -261,8 +294,15 @@
  <button id="btn-arquitetura" onclick="mudarPagina('arquitetura')">Arquitetura Completa</button>
  <button id="btn-plano" onclick="mudarPagina('plano')">Plano de Ação Técnico</button>
  <button id="btn-resultados" onclick="mudarPagina('resultados')">Resultados</button>
+ <button id="btn-apresentacao-visual" onclick="window.location.href='/apresentacao-visual.html'">Apresentação Visual</button>
  </div>
  </div>
+
+ <button id="btn-reabrir-sidebar" onclick="toggleSidebar()" title="Abrir menu">
+ <span style="display: block; width: 18px; height: 2px; background: white; border-radius: 2px;"></span>
+ <span style="display: block; width: 18px; height: 2px; background: white; border-radius: 2px;"></span>
+ <span style="display: block; width: 18px; height: 2px; background: white; border-radius: 2px;"></span>
+ </button>
 
  <div class="main-content" id="main-content">
 
@@ -2119,8 +2159,13 @@
 
  <script>
  function initPortal() {
+ const hash = window.location.hash.replace('#', '');
+ if (hash && document.getElementById('pagina-' + hash)) {
+ entrarApp(hash);
+ } else {
  document.getElementById('home-view').style.display = 'flex';
  document.getElementById('app-view').style.display = 'none';
+ }
  }
 
  function entrarApp(paginaInicial) {
@@ -2151,6 +2196,13 @@
  if (window.innerWidth <= 850 && sidebar.classList.contains('aberto')) {
  sidebar.classList.remove('aberto');
  }
+ }
+
+ function toggleSidebar() {
+ const sidebar = document.getElementById('sidebar');
+ const reopenBtn = document.getElementById('btn-reabrir-sidebar');
+ sidebar.classList.toggle('recolhida');
+ reopenBtn.style.display = sidebar.classList.contains('recolhida') ? 'flex' : 'none';
  }
 
  function toggleMenu() {

@@ -1,0 +1,191 @@
+<div style="width: 100%; box-sizing: border-box; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; color: #ffffff; background: #0f172a; border-radius: 18px; overflow: hidden; border: 1px solid #1e3a8a;">
+
+    <!-- Cabeçalho -->
+    <div style="background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 55%, #0284c7 100%); padding: 38px 36px;">
+        <div style="font-size: 11px; font-weight: 800; letter-spacing: 1.8px; text-transform: uppercase; color: #bae6fd; margin-bottom: 12px;">
+            Corpo docente
+        </div>
+
+        <div style="font-size: 34px; font-weight: 900; line-height: 1.1; letter-spacing: -0.8px; text-transform: uppercase;">
+            Professores do Clinic Day
+        </div>
+
+        <div style="max-width: 720px; font-size: 15px; line-height: 1.7; color: #e0f2fe; margin-top: 16px;">
+            Conheça os docentes responsáveis pelos encontros do Clinic Day. Cada aula foi organizada para aproximar o conteúdo da prática profissional, com discussões aplicadas, orientação especializada e aprofundamento dos principais temas da Fisiologia do Exercício.
+        </div>
+
+        <div style="width: 76px; height: 4px; background: #7dd3fc; border-radius: 999px; margin-top: 24px;"></div>
+    </div>
+
+    <!-- Conteúdo -->
+    <div style="padding: 34px 36px 38px 36px; background: #0f172a;">
+
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px;">
+
+            <!-- Docente 01 -->
+            <div style="background: #111827; border: 1px solid #1e40af; border-radius: 16px; overflow: hidden;">
+                <div style="display: grid; grid-template-columns: 170px 1fr; min-height: 250px;">
+
+                    <div style="background: linear-gradient(180deg, #1e3a8a 0%, #0f172a 100%); display: flex; align-items: center; justify-content: center; padding: 22px;">
+                        <div style="width: 125px; height: 125px; border-radius: 50%; padding: 4px; background: linear-gradient(135deg, #7dd3fc, #2563eb); box-sizing: border-box;">
+                            <img src="http://localhost/moodle/pluginfile.php/555/mod_folder/content/0/WhatsApp%20Image%202026-05-01%20at%2016.12.49.jpeg?forcedownload=1" alt="Professor Esp. Vinicius Silva" style="width: 100%; height: 100%; object-fit: cover; object-position: center top; border-radius: 50%; display: block; background: #e0f2fe;">
+                        </div>
+                    </div>
+
+                    <div style="padding: 22px;">
+                        <div style="font-size: 10px; font-weight: 900; letter-spacing: 1.5px; color: #7dd3fc; text-transform: uppercase; margin-bottom: 10px;">
+                            Professor
+                        </div>
+
+                        <div style="font-size: 20px; font-weight: 900; line-height: 1.2; color: #ffffff; margin-bottom: 12px;">
+                            Esp. Vinicius Silva
+                        </div>
+
+                        <div style="height: 2px; width: 42px; background: #38bdf8; border-radius: 999px; margin-bottom: 16px;"></div>
+
+                        <div style="font-size: 13px; line-height: 1.65; color: #cbd5e1; margin-bottom: 16px;">
+                            Responsável pelo Clinic Day com foco em estratégias de organização e planejamento do treinamento aeróbio e anaeróbio.
+                        </div>
+
+                        <div style="background: #0c4a6e; border: 1px solid #38bdf8; border-radius: 12px; padding: 14px;">
+                            <div style="font-size: 10px; font-weight: 900; color: #bae6fd; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 6px;">
+                                Tema do encontro
+                            </div>
+                            <div style="font-size: 13px; line-height: 1.55; color: #ffffff; font-weight: 700;">
+                                Como montar periodizações de treino aeróbio e anaeróbio
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Docente 02 -->
+            <div style="background: #111827; border: 1px solid #1e40af; border-radius: 16px; overflow: hidden;">
+                <div style="display: grid; grid-template-columns: 170px 1fr; min-height: 250px;">
+
+                    <div style="background: linear-gradient(180deg, #1e3a8a 0%, #0f172a 100%); display: flex; align-items: center; justify-content: center; padding: 22px;">
+                        <div style="width: 125px; height: 125px; border-radius: 50%; padding: 4px; background: linear-gradient(135deg, #7dd3fc, #2563eb); box-sizing: border-box;">
+                            <img src="http://localhost/moodle/pluginfile.php/555/mod_folder/content/0/WhatsApp%20Image%202026-05-01%20at%2016.12.48%281%29.jpeg?forcedownload=1" alt="Professor Dr. Rodrigo Fenner" style="width: 100%; height: 100%; object-fit: cover; object-position: center top; border-radius: 50%; display: block; background: #e0f2fe;">
+                        </div>
+                    </div>
+
+                    <div style="padding: 22px;">
+                        <div style="font-size: 10px; font-weight: 900; letter-spacing: 1.5px; color: #7dd3fc; text-transform: uppercase; margin-bottom: 10px;">
+                            Professor
+                        </div>
+
+                        <div style="font-size: 20px; font-weight: 900; line-height: 1.2; color: #ffffff; margin-bottom: 12px;">
+                            Dr. Rodrigo Fenner
+                        </div>
+
+                        <div style="height: 2px; width: 42px; background: #38bdf8; border-radius: 999px; margin-bottom: 16px;"></div>
+
+                        <div style="font-size: 13px; line-height: 1.65; color: #cbd5e1; margin-bottom: 16px;">
+                            Conduz o encontro voltado à análise, interpretação e apresentação do quadro clínico aplicado à pessoa com escoliose.
+                        </div>
+
+                        <div style="background: #0c4a6e; border: 1px solid #38bdf8; border-radius: 12px; padding: 14px;">
+                            <div style="font-size: 10px; font-weight: 900; color: #bae6fd; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 6px;">
+                                Tema do encontro
+                            </div>
+                            <div style="font-size: 13px; line-height: 1.55; color: #ffffff; font-weight: 700;">
+                                Apresentação do quadro clínico de uma pessoa com escoliose
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Docente 03 -->
+            <div style="background: #111827; border: 1px solid #1e40af; border-radius: 16px; overflow: hidden;">
+                <div style="display: grid; grid-template-columns: 170px 1fr; min-height: 250px;">
+
+                    <div style="background: linear-gradient(180deg, #1e3a8a 0%, #0f172a 100%); display: flex; align-items: center; justify-content: center; padding: 22px;">
+                        <div style="width: 125px; height: 125px; border-radius: 50%; padding: 4px; background: linear-gradient(135deg, #7dd3fc, #2563eb); box-sizing: border-box;">
+                            <img src="http://localhost/moodle/pluginfile.php/555/mod_folder/content/0/WhatsApp%20Image%202026-05-01%20at%2016.27.34.jpeg?forcedownload=1" alt="Professor Dr. Raphael Carvalho" style="width: 100%; height: 100%; object-fit: cover; object-position: center top; border-radius: 50%; display: block; background: #e0f2fe;">
+                        </div>
+                    </div>
+
+                    <div style="padding: 22px;">
+                        <div style="font-size: 10px; font-weight: 900; letter-spacing: 1.5px; color: #7dd3fc; text-transform: uppercase; margin-bottom: 10px;">
+                            Professor
+                        </div>
+
+                        <div style="font-size: 20px; font-weight: 900; line-height: 1.2; color: #ffffff; margin-bottom: 12px;">
+                            Dr. Raphael Carvalho
+                        </div>
+
+                        <div style="height: 2px; width: 42px; background: #38bdf8; border-radius: 999px; margin-bottom: 16px;"></div>
+
+                        <div style="font-size: 13px; line-height: 1.65; color: #cbd5e1; margin-bottom: 16px;">
+                            Aborda a prescrição do treinamento resistido em contextos relacionados ao emagrecimento e a condições metabólicas e cardiovasculares.
+                        </div>
+
+                        <div style="background: #0c4a6e; border: 1px solid #38bdf8; border-radius: 12px; padding: 14px;">
+                            <div style="font-size: 10px; font-weight: 900; color: #bae6fd; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 6px;">
+                                Tema do encontro
+                            </div>
+                            <div style="font-size: 13px; line-height: 1.55; color: #ffffff; font-weight: 700;">
+                                Prescrição do treinamento resistido para o emagrecimento, diabetes e hipertensão
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Docente 04 -->
+            <div style="background: #111827; border: 1px solid #1e40af; border-radius: 16px; overflow: hidden;">
+                <div style="display: grid; grid-template-columns: 170px 1fr; min-height: 250px;">
+
+                    <div style="background: linear-gradient(180deg, #1e3a8a 0%, #0f172a 100%); display: flex; align-items: center; justify-content: center; padding: 22px;">
+                        <div style="width: 125px; height: 125px; border-radius: 50%; padding: 4px; background: linear-gradient(135deg, #7dd3fc, #2563eb); box-sizing: border-box;">
+                            <img src="http://localhost/moodle/pluginfile.php/555/mod_folder/content/0/WhatsApp%20Image%202026-05-01%20at%2016.12.49%281%29.jpeg?forcedownload=1" alt="Professor Dr. Roberto Régis Ribeiro, PhD." style="width: 100%; height: 100%; object-fit: cover; object-position: center top; border-radius: 50%; display: block; background: #e0f2fe;">
+                        </div>
+                    </div>
+
+                    <div style="padding: 22px;">
+                        <div style="font-size: 10px; font-weight: 900; letter-spacing: 1.5px; color: #7dd3fc; text-transform: uppercase; margin-bottom: 10px;">
+                            Professor
+                        </div>
+
+                        <div style="font-size: 20px; font-weight: 900; line-height: 1.2; color: #ffffff; margin-bottom: 12px;">
+                            Dr. Roberto Régis Ribeiro, PhD.
+                        </div>
+
+                        <div style="height: 2px; width: 42px; background: #38bdf8; border-radius: 999px; margin-bottom: 16px;"></div>
+
+                        <div style="font-size: 13px; line-height: 1.65; color: #cbd5e1; margin-bottom: 16px;">
+                            Conduz o encontro com foco em estratégias de treinamento, avaliação e intervenção voltadas à melhoria da linha de cintura de mulheres.
+                        </div>
+
+                        <div style="background: #0c4a6e; border: 1px solid #38bdf8; border-radius: 12px; padding: 14px;">
+                            <div style="font-size: 10px; font-weight: 900; color: #bae6fd; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 6px;">
+                                Tema do encontro
+                            </div>
+                            <div style="font-size: 13px; line-height: 1.55; color: #ffffff; font-weight: 700;">
+                                Como melhorar a linha de cintura de mulheres
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Rodapé -->
+        <div style="margin-top: 26px; background: linear-gradient(135deg, #075985 0%, #0284c7 100%); border-radius: 16px; padding: 22px 24px;">
+            <div style="font-size: 11px; font-weight: 900; letter-spacing: 1.6px; text-transform: uppercase; color: #e0f2fe; margin-bottom: 8px;">
+                Participação nos encontros
+            </div>
+
+            <div style="font-size: 15px; line-height: 1.7; color: #ffffff;">
+                Os encontros do Clinic Day são oportunidades para aprofundar o conteúdo, discutir casos, tirar dúvidas e aproximar a teoria da prática profissional. Sempre que possível, priorize sua participação ao vivo.
+            </div>
+        </div>
+
+    </div>
+</div>
