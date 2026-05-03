@@ -1,7 +1,13 @@
 {
   "permissions": {
     "allow": [
-      "Bash(Remove-Item \"c:\\\\Users\\\\Gabriel\\\\Desktop\\\\tamra\\\\tamara\\\\src\\\\routes\\\\apresentacao-visual.tsx\")"
+      "Bash(Remove-Item \"c:\\\\Users\\\\Gabriel\\\\Desktop\\\\tamra\\\\tamara\\\\src\\\\routes\\\\apresentacao-visual.tsx\")",
+      "Bash(git rm *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(git reset *)",
+      "Bash(git restore *)"
     ]
   }
 }
